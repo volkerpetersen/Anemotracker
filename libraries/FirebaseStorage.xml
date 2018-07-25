@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.06</doclet-version-NOT-library-version>
+    <class>
+        <name>anywheresoftware.b4x.objects.FirebaseStorageWrapper</name>
+        <shortname>FirebaseStorage</shortname>
+        <owner>process</owner>
+        <event>UploadCompleted (ServerPath As String, Success As Boolean)</event>
+        <event>DownloadCompleted (ServerPath As String, Success As Boolean)</event>
+        <event>MetadataCompleted (Metadata As StorageMetadata, Success As Boolean)</event>
+        <event>DeleteCompleted (ServerPath As String, Success As Boolean)</event>
+        <method>
+            <name>Initialize</name>
+            <comment>Initializes the object.
+ Bucket - The url from Firebase console (ex: gs://yourapp.appspot.com)</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Bucket</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>DeleteFile</name>
+            <comment>Deletes the remote resource. The DeleteCompleted event will be raised in the current module.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>ServerPath</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>DownloadStream</name>
+            <comment>Downloads the remote resource and writes it to the OutputStream.
+The DownloadCompleted event will be raised in the current module.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>ServerPath</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>OutputStream</name>
+                <type>java.io.OutputStream</type>
+            </parameter>
+        </method>
+        <method>
+            <name>DownloadFile</name>
+            <comment>Downloads the remote resource and writes it to the specified file.
+The DownloadCompleted event will be raised in the current module.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>ServerPath</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Dir</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>FileName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>UploadFile</name>
+            <comment>Reads the data from the file and uploads it to the specified ServerPath.
+The UploadCompleted event will be raised in the current module.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>Dir</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>FileName</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>ServerPath</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>UploadStream</name>
+            <comment>Reads the data from the input stream and uploads it to the specified ServerPath.
+The UploadCompleted event will be raised in the current module.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>InputStream</name>
+                <type>java.io.InputStream</type>
+            </parameter>
+            <parameter>
+                <name>ServerPath</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetMetadata</name>
+            <comment>Retrieves the metadata of the remote resource. The MetadataCompleted event will be raised in the current module.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>ServerPath</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+    </class>
+    <class>
+        <name>anywheresoftware.b4x.objects.FirebaseStorageWrapper.StorageMetadataWrapper</name>
+        <shortname>StorageMetadata</shortname>
+        <objectwrapper>com.google.firebase.storage.StorageMetadata</objectwrapper>
+        <owner>process</owner>
+        <method>
+            <name>IsInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <property>
+            <name>Name</name>
+            <returntype>java.lang.String</returntype>
+            <comment>Returns the resource name.</comment>
+        </property>
+        <property>
+            <name>Timestamp</name>
+            <returntype>long</returntype>
+            <comment>Returns the last updated time as ticks.</comment>
+        </property>
+        <property>
+            <name>Path</name>
+            <returntype>java.lang.String</returntype>
+            <comment>Returns the resource path.</comment>
+        </property>
+        <property>
+            <name>Size</name>
+            <returntype>long</returntype>
+            <comment>Returns the resource size in bytes.</comment>
+        </property>
+    </class>
+    <version>1.11</version>
+    <dependsOn>com.google.firebase:firebase-storage</dependsOn>
+    <dependsOn>com.google.firebase:firebase-auth</dependsOn>
+</root>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.02</doclet-version-NOT-library-version>
+    <class>
+        <name>anywheresoftware.b4a.objects.DreamServiceWrapper.Daydream</name>
+        <shortname>Daydream</shortname>
+        <comment>Daydream is a new "screen saver" feature introduced in Android 4.2.
+See the Daydream tutorial for more information.</comment>
+        <owner>process</owner>
+        <event>DreamStarted</event>
+        <event>SizeChanged</event>
+        <event>DreamStopped</event>
+        <method>
+            <name>Initialize</name>
+            <comment>Initializes the object and sets the subs that will handle the events.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Finish</name>
+            <comment>Manually finishes the dream.</comment>
+            <returntype>void</returntype>
+        </method>
+        <property>
+            <name>ScreenBright</name>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>v</name>
+                <type>boolean</type>
+            </parameter>
+            <comment>Gets or sets whether the screen should stay bright.</comment>
+        </property>
+        <property>
+            <name>Panel</name>
+            <returntype>anywheresoftware.b4a.objects.PanelWrapper</returntype>
+            <comment>Returns the main panel.</comment>
+        </property>
+        <property>
+            <name>Interactive</name>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>v</name>
+                <type>boolean</type>
+            </parameter>
+            <comment>Gets or sets whether user interacts will be handled instead of finishing the dream.</comment>
+        </property>
+        <property>
+            <name>FullScreen</name>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>v</name>
+                <type>boolean</type>
+            </parameter>
+            <comment>Gets or sets whether the system bar appears.</comment>
+        </property>
+        <property>
+            <name>Canvas</name>
+            <returntype>anywheresoftware.b4a.objects.drawable.CanvasWrapper</returntype>
+            <comment>A placeholder for Canvas.</comment>
+        </property>
+    </class>
+    <version>1.0</version>
+</root>

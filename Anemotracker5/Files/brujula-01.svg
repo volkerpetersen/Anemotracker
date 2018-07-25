@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="Capa_1"
+   data-name="Capa 1"
+   viewBox="0 0 171.18 170.54"
+   version="1.1"
+   sodipodi:docname="Brujula-01.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <metadata
+     id="metadata54">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="694"
+     id="namedview52"
+     showgrid="false"
+     inkscape:zoom="1.3838396"
+     inkscape:cx="8.2688977"
+     inkscape:cy="143.08016"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Capa_1" />
+  <defs
+     id="defs17">
+    <style
+       id="style2">.cls-1{fill:#e6e6e5;stroke-width:8px;stroke:url(#Degradado_sin_nombre_125);}.cls-1,.cls-3{stroke-miterlimit:10;}.cls-2,.cls-4{font-size:6.5px;}.cls-2,.cls-3,.cls-4,.cls-5{fill:#fff;}.cls-2{font-family:Roboto-Medium, Roboto;}.cls-3{stroke:#fff;stroke-linecap:round;stroke-width:0.2px;opacity:0.9;}.cls-4{font-family:Roboto-Regular, Roboto;}</style>
+    <linearGradient
+       id="Degradado_sin_nombre_125"
+       x1="122.61"
+       y1="20.58"
+       x2="47.73"
+       y2="150.27"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#cbcbcb"
+         id="stop4" />
+      <stop
+         offset="0.11"
+         stop-color="#b4b4b4"
+         id="stop6" />
+      <stop
+         offset="0.41"
+         stop-color="#7e7e7e"
+         id="stop8" />
+      <stop
+         offset="0.67"
+         stop-color="#575757"
+         id="stop10" />
+      <stop
+         offset="0.87"
+         stop-color="#3f3f3f"
+         id="stop12" />
+      <stop
+         offset="1"
+         stop-color="#363636"
+         id="stop14" />
+    </linearGradient>
+  </defs>
+  <title
+     id="title19">Brujula</title>
+  <circle
+     class="cls-1"
+     cx="85.17"
+     cy="85.43"
+     r="70.87"
+     id="circle21"
+     inkscape:label="circle21"
+     style="fill:none" />
+  <text
+     class="cls-2"
+     transform="translate(82.8 17)"
+     id="text23">N</text>
+  <text
+     class="cls-2"
+     transform="translate(83.3 159)"
+     id="text25">S</text>
+  <circle
+     class="cls-3"
+     cx="120.49"
+     cy="23.91"
+     r="0.71"
+     transform="translate(24.73 100.84) rotate(-50)"
+     id="circle27" />
+  <circle
+     class="cls-3"
+     cx="146.48"
+     cy="49.87"
+     r="0.71"
+     transform="translate(-8.22 53.11) rotate(-20)"
+     id="circle29" />
+  <circle
+     class="cls-3"
+     cx="146.56"
+     cy="120.71"
+     r="0.71"
+     transform="translate(-40.12 155.39) rotate(-50)"
+     id="circle31" />
+  <circle
+     class="cls-3"
+     cx="120.6"
+     cy="146.7"
+     r="0.71"
+     transform="translate(-42.9 50.09) rotate(-20)"
+     id="circle33" />
+  <circle
+     class="cls-3"
+     cx="49.76"
+     cy="146.78"
+     r="0.71"
+     transform="translate(-94.66 90.55) rotate(-50)"
+     id="circle35" />
+  <circle
+     class="cls-3"
+     cx="23.77"
+     cy="120.81"
+     r="0.71"
+     transform="translate(-39.89 15.41) rotate(-20)"
+     id="circle37" />
+  <circle
+     class="cls-3"
+     cx="49.7"
+     cy="23.98"
+     r="0.71"
+     transform="translate(-5.2 18.44) rotate(-20)"
+     id="circle39" />
+  <circle
+     class="cls-3"
+     cx="23.74"
+     cy="49.97"
+     r="0.71"
+     transform="translate(-29.8 36.03) rotate(-50)"
+     id="circle41" />
+  <text
+     class="cls-4"
+     transform="translate(17.02 88.42) rotate(-90)"
+     id="text43">W</text>
+  <text
+     class="cls-4"
+     transform="translate(153.51 83.32) rotate(90)"
+     id="text45">E</text>
+  <text
+     id="text47" />
+  <path
+     class="cls-5"
+     d="M85.16,52.39A45.37,45.37,0,0,0,74,65.15,47.6,47.6,0,0,0,68,80.95a53.44,53.44,0,0,0-.22,16.86,71.55,71.55,0,0,0,4.36,16.35l-.66-.45,13.64,0,13.64,0-.66.45a71.55,71.55,0,0,0,4.36-16.35,53.49,53.49,0,0,0-.22-16.86,47.57,47.57,0,0,0-5.94-15.8A45.37,45.37,0,0,0,85.19,52.39a44,44,0,0,1,11.7,12.44,46.68,46.68,0,0,1,6.41,15.94A52,52,0,0,1,103.8,98a72.9,72.9,0,0,1-4.33,16.69l-.17.45h-.49l-13.64,0-13.64,0H71l-.17-.45A72.9,72.9,0,0,1,66.54,98a52.05,52.05,0,0,1,.51-17.22,46.65,46.65,0,0,1,6.41-15.93A44,44,0,0,1,85.16,52.39Z"
+     id="path49" />
+</svg>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.06</doclet-version-NOT-library-version>
+    <class>
+        <name>anywheresoftware.b4a.objects.BleManager2</name>
+        <shortname>BleManager2</shortname>
+        <comment>This library replaces the BLE library. It allows you to search for and connect to BLE devices.
+It is supported by Android 4.3+ (API 18).</comment>
+        <owner>process</owner>
+        <event>StateChanged (State As Int)</event>
+        <event>DeviceFound (Name As String, DeviceId As String, AdvertisingData As Map, RSSI As Double)</event>
+        <event>Disconnected</event>
+        <event>Connected (Services As List)</event>
+        <event>DataAvailable (ServiceId As String, Characteristics As Map)</event>
+        <event>WriteComplete (Characteristic As String, Status As Int)</event>
+        <event>RssiAvailable (Success As Boolean, RSSI As Double)</event>
+        <permission>android.permission.BLUETOOTH</permission>
+        <permission>android.permission.BLUETOOTH_ADMIN</permission>
+        <method>
+            <name>Initialize</name>
+            <comment>Initializes the object. The StateChanged event will be raised after this method with the current BLE state.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SetIndication</name>
+            <comment>Similar to SetNotify. Sets the descriptor value to 2 (indication) instead of 1 (notification).</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Service</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Characteristic</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Notify</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetRecordsFromAdvertisingData</name>
+            <comment>Returns a List with all the records with the specified type.
+This is useful when there could be several records with the same type. 
+Each item in the list is an array of bytes.</comment>
+            <returntype>anywheresoftware.b4a.objects.collections.List</returntype>
+            <parameter>
+                <name>AdvertisingData</name>
+                <type>anywheresoftware.b4a.objects.collections.Map</type>
+            </parameter>
+            <parameter>
+                <name>Key</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Scan2</name>
+            <comment>Similar to Scan. If AllowDuplicates is true then the DeviceFound event will be raised whenever a packet is received.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ServiceUUIDs</name>
+                <type>anywheresoftware.b4a.objects.collections.List</type>
+            </parameter>
+            <parameter>
+                <name>AllowDuplicates</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Connect2</name>
+            <comment>Similar to Connect. Allows you to disable auto connection.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>DeviceId</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>AutoConnect</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
+        <method>
+            <name>ReadData</name>
+            <comment>Asynchronously reads all characteristics from the given service. The DataAvailable will be raised when the data is available.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Service</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>WriteData</name>
+            <comment>Writes the data to the specified characteristic.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Service</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Characteristic</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Data</name>
+                <type>byte[]</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Disconnect</name>
+            <comment></comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>GetCharacteristicProperties</name>
+            <comment>Returns a numeric value from which you can find the properties of the specified characteristic.</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>Service</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Characteristic</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Connect</name>
+            <comment>Connects to a device with the given id. You can only connect to previously discovered devices.
+Note that the Disconnected event will be raised if the connection has failed.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>DeviceId</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Scan</name>
+            <comment>Starts scanning for devices. The DeviceFound event will be raised when a device is found.
+ServiceUUIDs - A list (or array) with service uuids. Devices that don't advertise these uuids will not be discovered.
+Pass Null to discover all devices.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ServiceUUIDs</name>
+                <type>anywheresoftware.b4a.objects.collections.List</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SetNotify</name>
+            <comment>Adds or removes a notification listener that monitor value changes.
+The DataAvailable event will be raised when the value of the characteristic changes.
+Service - The service id (as returned in the Connected event).
+Characteristic - The characteristic id.
+Notify - True to add a listener, false to remove it.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Service</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Characteristic</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Notify</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
+        <method>
+            <name>StopScan</name>
+            <comment>Stops scanning for new devices.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>ReadRemoteRssi</name>
+            <comment>Reads the RSSI value of a connected device. The RssiAvailable event will be raised when the value is available.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>ReadData2</name>
+            <comment>Asynchronously reads the value of the specified characteristic.
+The DataAvailable will be raised when the data of this characteristic is available.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Service</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Characteristic</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <property>
+            <name>State</name>
+            <returntype>int</returntype>
+            <comment>Returns the current Bluetooth adapter state.</comment>
+        </property>
+        <field>
+            <name>STATE_POWERED_ON</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>STATE_UNSUPPORTED</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>STATE_POWERED_OFF</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+    </class>
+    <version>1.36</version>
+</root>

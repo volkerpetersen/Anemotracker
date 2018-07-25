@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <doclet-version-NOT-library-version>1.00</doclet-version-NOT-library-version>
+  <dependsOn>javaobject</dependsOn>
+  <dependsOn>randomaccessfile</dependsOn>
+  <dependsOn>androidsvg-1.2.1</dependsOn>
+  <class>
+    <name>com.iox.ioxsvg.ioxsvg._rectftype</name>
+    <shortname>RectFType</shortname>
+    <owner>process</owner>
+    <method>
+      <name>Initialize</name>
+      <comment>Initializes the fields to their default value.</comment>
+      <returntype>void</returntype>
+    </method>
+    <field>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </field>
+    <field>
+      <name>Top</name>
+      <returntype>float</returntype>
+    </field>
+    <field>
+      <name>Bottom</name>
+      <returntype>float</returntype>
+    </field>
+    <field>
+      <name>Left</name>
+      <returntype>float</returntype>
+    </field>
+    <field>
+      <name>Right</name>
+      <returntype>float</returntype>
+    </field>
+  </class>
+  <class>
+    <name>com.iox.ioxsvg.ioxsvg._alignmentenum</name>
+    <shortname>AlignmentEnum</shortname>
+    <owner>process</owner>
+    <method>
+      <name>Initialize</name>
+      <comment>Initializes the fields to their default value.</comment>
+      <returntype>void</returntype>
+    </method>
+    <field>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </field>
+    <field>
+      <name>None</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name>XMinYMin</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name>XMidYMin</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name>XMaxYMin</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name>XMinYMid</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name>XMidYMid</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name>XMaxYMid</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name>XMinYMax</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name>XMidYMax</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name>XMaxYMax</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name>NullAlignment</name>
+      <returntype>String</returntype>
+    </field>
+  </class>
+  <class>
+    <name>com.iox.ioxsvg.ioxsvg._scaleenum</name>
+    <shortname>ScaleEnum</shortname>
+    <owner>process</owner>
+    <method>
+      <name>Initialize</name>
+      <comment>Initializes the fields to their default value.</comment>
+      <returntype>void</returntype>
+    </method>
+    <field>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </field>
+    <field>
+      <name>Meet</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name>Slice</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name>NullScale</name>
+      <returntype>String</returntype>
+    </field>
+  </class>
+  <class>
+    <name>com.iox.ioxsvg.ioxsvg</name>
+    <shortname>ioxSVG</shortname>
+    <owner>process</owner>
+    <method>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </method>
+    <method>
+      <name DesignerName="getAndroidSVGVersion" HideFromIDE="true">_getvvvv2</name>
+      <comment>Returns the version number of the CaveRock.androidsvg library.</comment>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="getDocumentAspectRatio" HideFromIDE="true">_getvvvv3</name>
+      <comment> Returns the aspect ratio of the document As a width/height fraction.
+ 
+ If the width OR height of the document are listed with a physical unit such As "cm",
+ Then the current {@code renderDPI} setting will be used To convert that value To pixels.
+ 
+ If the width OR height cannot be determined, -1 will be returned.
+
+ @Return the aspect ratio As a width/height fraction, OR -1 If the ratio cannot be determined.
+ @throws IllegalArgumentException If there Is no current SVG document loaded.</comment>
+      <returntype>int</returntype>
+    </method>
+    <method>
+      <name DesignerName="getDocumentDescription" HideFromIDE="true">_getvvvv4</name>
+      <comment>Returns the contents of the {@code &amp;lt;desc&amp;gt;} element in the SVG document.
+If this element is not available, returns an empty string.</comment>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="getDocumentHeight" HideFromIDE="true">_getvvvv5</name>
+      <comment> Returns the height of the document As specified In the SVG File.
+ 
+ If the height In the document Is specified In pixels, that value will be returned.
+ If the value Is listed with a physical unit such As "cm", Then the current
+ {@code RenderDPI} value will be used To convert that value To pixels. If the height
+ Is missing, OR In a form which can't be converted to pixels, such as "100%" for
+ example, -1 will be returned.</comment>
+      <returntype>float</returntype>
+    </method>
+    <method>
+      <name DesignerName="getDocumentSVGVersion" HideFromIDE="true">_getvvvv6</name>
+      <comment>Returns the SVG version number As provided In the root {@code &amp;lt;SVG&amp;gt;} tag of the document.
+If this element is not available, returns an empty string.</comment>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="getDocumentTitle" HideFromIDE="true">_getvvvv7</name>
+      <comment>Returns the contents of the {@code &amp;lt;title&amp;gt;} element in the SVG document.
+If this element is not available, returns an empty string.</comment>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="getDocumentViewBox">_vv6</name>
+      <comment> Returns the viewBox attribute of the current SVG document.
+
+ @Return the document's viewBox attribute as a {@code android.graphics.RectF} object, or null if not set.
+ @throws IllegalArgumentException If there Is no current SVG document loaded.</comment>
+      <returntype>com.iox.ioxsvg.ioxsvg._rectftype</returntype>
+    </method>
+    <method>
+      <name DesignerName="getDocumentWidth" HideFromIDE="true">_getvvvv0</name>
+      <comment> Returns the width of the document As specified In the SVG File.
+ 
+ If the width In the document Is specified In pixels, that value will be returned.
+ If the value Is listed with a physical unit such As "cm", Then the current
+ {@code RenderDPI} value will be used To convert that value To pixels. If the width
+ Is missing, OR In a form which can't be converted to pixels, such as "100%" for
+ example, -1 will be returned.</comment>
+      <returntype>float</returntype>
+    </method>
+    <method>
+      <name DesignerName="getDPI" HideFromIDE="true">_getvvvvv1</name>
+      <comment>Set/Get the current render DPI setting
+The DPI (dots-per-inch) value is used In the conversion of "physical" units (such an "pt" OR "cm") To pixel values.  
+
+The default DPI Is 96 and you should Not normally need To alter the default of 96 As recommended by the SVG
+AND CSS specifications.
+
+@param dpi the DPI value that the renderer should use.</comment>
+      <returntype>float</returntype>
+    </method>
+    <method>
+      <name DesignerName="Initialize">_initialize</name>
+      <comment>Initializes the SVG object. 
+
+The SVG will be loaded from a file in the assets folder.
+@param SVGFileInAssets Its the full name of the file
+
+Example:
+&lt;code&gt;Dim MySVG As ioxSVG
+MySVG.Initialize("tiger.svg")&lt;/code&gt;</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>ba</name>
+        <type>anywheresoftware.b4a.BA</type>
+      </parameter>
+      <parameter>
+        <name>SVGFileInAssets</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Initialize2">_vvv3</name>
+      <comment>Initializes the SVG object. 
+
+The SVG files are XML-based vector image format defined in XML text files, 
+so you can pass the text directly To render the picture
+
+@param SVGString Its XML Text
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>SVGString</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="RenderToCanvas">_vvv4</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>TheCanvas</name>
+        <type>anywheresoftware.b4a.objects.drawable.CanvasWrapper</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="setDocumentHeight" HideFromIDE="true">_setvvvv5</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Height</name>
+        <type>float</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="setDocumentPreserveAspectRatio">_vvv6</name>
+      <comment> Change the document positioning by altering the "preserveAspectRatio"
+ attribute of the root {@code &amp;lt;SVG&amp;gt;} element.  See the
+ documentation For {@link PreserveAspectRatio} For more information
+ on how positioning works.
+
+ @param preserveAspectRatio the new {@code preserveAspectRatio} setting For the root {@code &amp;lt;SVG&amp;gt;} element.
+ @throws IllegalArgumentException If there Is no current SVG document loaded.</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Alignment</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Scale</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="SetDocumentViewBox">_vvv7</name>
+      <comment> Change the document View box by altering the "viewBox" attribute
+ of the root {@code &amp;lt;SVG&amp;gt;} element.
+ 
+ The viewBox generally describes the bounding box dimensions of the
+ document contents.  A valid viewBox Is necessary If you want the
+ document scaled To fit the Canvas OR viewport the document Is To be
+ rendered into.
+ 
+ By setting a viewBox that describes only a portion of the document,
+ you can reproduce the effect of image sprites.
+
+ @param minX the left coordinate of the viewBox In pixels
+ @param minY the top coordinate of the viewBox In pixels.
+ @param width the width of the viewBox In pixels
+ @param height the height of the viewBox In pixels
+ @throws IllegalArgumentException If there Is no current SVG document loaded.</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>minX</name>
+        <type>float</type>
+      </parameter>
+      <parameter>
+        <name>minY</name>
+        <type>float</type>
+      </parameter>
+      <parameter>
+        <name>width</name>
+        <type>float</type>
+      </parameter>
+      <parameter>
+        <name>Height</name>
+        <type>float</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="setDocumentWidth" HideFromIDE="true">_setvvvv0</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Width</name>
+        <type>float</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="setDPI" HideFromIDE="true">_setvvvvv1</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>dpi</name>
+        <type>float</type>
+      </parameter>
+    </method>
+    <property>
+      <name DesignerName="AndroidSVGVersion">_vvvv2</name>
+      <comment>Returns the version number of the CaveRock.androidsvg library.</comment>
+      <returntype>String</returntype>
+    </property>
+    <property>
+      <name DesignerName="DocumentAspectRatio">_vvvv3</name>
+      <comment> Returns the aspect ratio of the document As a width/height fraction.
+ 
+ If the width OR height of the document are listed with a physical unit such As "cm",
+ Then the current {@code renderDPI} setting will be used To convert that value To pixels.
+ 
+ If the width OR height cannot be determined, -1 will be returned.
+
+ @Return the aspect ratio As a width/height fraction, OR -1 If the ratio cannot be determined.
+ @throws IllegalArgumentException If there Is no current SVG document loaded.</comment>
+      <returntype>int</returntype>
+    </property>
+    <property>
+      <name DesignerName="DocumentDescription">_vvvv4</name>
+      <comment>Returns the contents of the {@code &amp;lt;desc&amp;gt;} element in the SVG document.
+If this element is not available, returns an empty string.</comment>
+      <returntype>String</returntype>
+    </property>
+    <property>
+      <name DesignerName="DocumentHeight">_vvvv5</name>
+      <comment> Returns the height of the document As specified In the SVG File.
+ 
+ If the height In the document Is specified In pixels, that value will be returned.
+ If the value Is listed with a physical unit such As "cm", Then the current
+ {@code RenderDPI} value will be used To convert that value To pixels. If the height
+ Is missing, OR In a form which can't be converted to pixels, such as "100%" for
+ example, -1 will be returned.</comment>
+      <returntype>float</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>float</type>
+      </parameter>
+    </property>
+    <property>
+      <name DesignerName="DocumentSVGVersion">_vvvv6</name>
+      <comment>Returns the SVG version number As provided In the root {@code &amp;lt;SVG&amp;gt;} tag of the document.
+If this element is not available, returns an empty string.</comment>
+      <returntype>String</returntype>
+    </property>
+    <property>
+      <name DesignerName="DocumentTitle">_vvvv7</name>
+      <comment>Returns the contents of the {@code &amp;lt;title&amp;gt;} element in the SVG document.
+If this element is not available, returns an empty string.</comment>
+      <returntype>String</returntype>
+    </property>
+    <property>
+      <name DesignerName="DocumentWidth">_vvvv0</name>
+      <comment> Returns the width of the document As specified In the SVG File.
+ 
+ If the width In the document Is specified In pixels, that value will be returned.
+ If the value Is listed with a physical unit such As "cm", Then the current
+ {@code RenderDPI} value will be used To convert that value To pixels. If the width
+ Is missing, OR In a form which can't be converted to pixels, such as "100%" for
+ example, -1 will be returned.</comment>
+      <returntype>float</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>float</type>
+      </parameter>
+    </property>
+    <property>
+      <name DesignerName="DPI">_vvvvv1</name>
+      <comment>Set/Get the current render DPI setting
+The DPI (dots-per-inch) value is used In the conversion of "physical" units (such an "pt" OR "cm") To pixel values.  
+
+The default DPI Is 96 and you should Not normally need To alter the default of 96 As recommended by the SVG
+AND CSS specifications.
+
+@param dpi the DPI value that the renderer should use.</comment>
+      <returntype>float</returntype>
+      <parameter>
+        <name>Value</name>
+        <type>float</type>
+      </parameter>
+    </property>
+    <field>
+      <name DesignerName="SVGAlignment">_vvvvv3</name>
+      <returntype>com.iox.ioxsvg.ioxsvg._alignmentenum</returntype>
+    </field>
+    <field>
+      <name DesignerName="SVGScale">_vvvvv4</name>
+      <returntype>com.iox.ioxsvg.ioxsvg._scaleenum</returntype>
+    </field>
+  </class>
+  <version>0.95</version>
+  <author>Ivan Tellez</author>
+</root>

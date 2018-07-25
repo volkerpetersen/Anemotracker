@@ -1,0 +1,1377 @@
+﻿Build1=Default,com.calypsoinstruments.anemotracker
+File1=1.bil
+File10=bottom_buttons.bil
+File11=bt_logo.png
+File12=calypso_cups.png
+File13=calypso_drawer.jpg
+File14=compass.png
+File15=compass_backup.png
+File16=cuarta.jpeg
+File17=dlg_tag.bil
+File18=f0.png
+File19=f1.png
+File2=anemometro_splash.png
+File20=f10.png
+File21=f11.png
+File22=f12.png
+File23=f2.png
+File24=f3.png
+File25=f4.png
+File26=f5.png
+File27=f6.png
+File28=f7.png
+File29=f8.png
+File3=app-01.png
+File30=f9.png
+File31=form.png
+File32=Four.bil
+File33=icon_plus.png
+File34=main_screen.png
+File35=main_screen.svg
+File36=map icon-01.png
+File37=Map.bil
+File38=map_normal.png
+File39=map_selected.png
+File4=app-01.svg
+File40=multi icon-01.png
+File41=Multi.bil
+File42=plantilla fija-01.png
+File43=rainbowwing.svg
+File44=ruleta_centrada.png
+File45=ruleta_centrada.svg
+File46=segunda.jpeg
+File47=settings.bil
+File48=settings_normal.png
+File49=settings_selected.png
+File5=b.png
+File50=tercera.jpeg
+File51=textura_fibra_carbono.jpg
+File52=track.png
+File53=track_edit.bil
+File54=track_select.bil
+File55=Tri.bil
+File56=tridata icon-01.png
+File57=tridata_normal.png
+File58=tridata_selected.png
+File59=true-01.png
+File6=basic icon-01.png
+File60=true-01.svg
+File61=ultra.jpg
+File62=velero_micro.png
+File63=velero_small.png
+File64=wifi.png
+File7=basic_normal.png
+File8=basic_selected.png
+File9=ble_scan.bil
+FileGroup1=Default Group
+FileGroup10=Default Group
+FileGroup11=Default Group
+FileGroup12=Default Group
+FileGroup13=Default Group
+FileGroup14=Default Group
+FileGroup15=Default Group
+FileGroup16=Default Group
+FileGroup17=Default Group
+FileGroup18=Default Group
+FileGroup19=Default Group
+FileGroup2=Default Group
+FileGroup20=Default Group
+FileGroup21=Default Group
+FileGroup22=Default Group
+FileGroup23=Default Group
+FileGroup24=Default Group
+FileGroup25=Default Group
+FileGroup26=Default Group
+FileGroup27=Default Group
+FileGroup28=Default Group
+FileGroup29=Default Group
+FileGroup3=Default Group
+FileGroup30=Default Group
+FileGroup31=Default Group
+FileGroup32=Default Group
+FileGroup33=Default Group
+FileGroup34=Default Group
+FileGroup35=Default Group
+FileGroup36=Default Group
+FileGroup37=Default Group
+FileGroup38=Default Group
+FileGroup39=Default Group
+FileGroup4=Default Group
+FileGroup40=Default Group
+FileGroup41=Default Group
+FileGroup42=Default Group
+FileGroup43=Default Group
+FileGroup44=Default Group
+FileGroup45=Default Group
+FileGroup46=Default Group
+FileGroup47=Default Group
+FileGroup48=Default Group
+FileGroup49=Default Group
+FileGroup5=Default Group
+FileGroup50=Default Group
+FileGroup51=Default Group
+FileGroup52=Default Group
+FileGroup53=Default Group
+FileGroup54=Default Group
+FileGroup55=Default Group
+FileGroup56=Default Group
+FileGroup57=Default Group
+FileGroup58=Default Group
+FileGroup59=Default Group
+FileGroup6=Default Group
+FileGroup60=Default Group
+FileGroup61=Default Group
+FileGroup62=Default Group
+FileGroup63=Default Group
+FileGroup64=Default Group
+FileGroup7=Default Group
+FileGroup8=Default Group
+FileGroup9=Default Group
+Group=Default Group
+Library1=icore
+Library10=isidemenu
+Library11=ixui
+Library12=isvg
+Library13=iui8
+Library14=xcustomlistview
+Library15=icustomdialog
+Library2=ible
+Library3=irandomaccessfile
+Library4=igooglemaps
+Library5=ilocation
+Library6=isql
+Library7=ihud
+Library8=iphone
+Library9=iarchiver
+Module1=tracking
+Module10=KeyValueStore
+Module2=|relative|..\Shared\WindCalcs
+Module3=ble_scan
+Module4=|relative|..\Shared\Tag
+Module5=|relative|..\Shared\Scale
+Module6=DBUtils
+Module7=Tutorial
+Module8=ScaleWind
+Module9=TagWind
+NumberOfFiles=64
+NumberOfLibraries=15
+NumberOfModules=10
+Version=5
+@EndOfDesignText@
+'Code module
+#Region  Project Attributes 
+	#ApplicationLabel: AnemotrackerBeta
+	#PlistExtra: <key>UIBackgroundModes</key><array><string>bluetooth-central</string><string>location</string></array>
+	#PlistExtra: <key>UIViewControllerBasedStatusBarAppearance</key><false/>
+	#PlistExtra: <key>NSLocationWhenInUseUsageDescription</key><string>Used for getting location data and calculating true wind</string>
+	#PlistExtra: <key>NSLocationUsageDescription</key><string>Used for getting location data and calculating true wind</string>	
+	#PlistExtra: <key>NSBluetoothPeripheralUsageDescription</key><string>Used for connecting Calypso Instruments devices CUPS, NMEA and ULTRA 4.0</string>
+	#Version: 1.6.3
+	#iPhoneOrientations: Portrait
+	#iPadOrientations: Portrait 
+	', LandscapeLeft, LandscapeRight, PortraitUpsideDown
+	'#CertificateFile: ios_development.cer
+	'#ProvisionFile: ios_Development.mobileprovision
+	'#If RELEASE
+	#ProvisionFile: iOS_Distribution.mobileprovision
+	#CertificateFile: ios_distribution.cer
+	'#End if 
+#if B4i
+	#AppFont: pirulen_rg.ttf
+	#AppFont: ds-digi.ttf
+#End If	
+	#MinVersion: 8.0
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'Public variables can be accessed from all modules.
+	Dim hd As HUD
+	
+	Public App As Application
+	Public NavControl As NavigationController
+
+	Private bgSettings, bgBasic, bgMap, bgTri As ImageView
+	
+	Dim navSettings As NavigationController
+	Dim iSideMenu As SideMenuController
+	
+	Private btnReadData As Button
+	Private btnScan As Button
+	Private lblDeviceStatus As Label
+	Private lblState As Label
+	
+	' BLE
+	Dim managerBLE As BleManager
+	Private ConnectedName As String
+	Private ConnectedServices As List
+	Private manualDisconnect=False As Boolean
+	Dim clvBle As CustomListView
+	Dim actual_ultra As tUltra
+	Dim connected As Boolean
+	Dim bSelectBLE = False, bSetNotify = False As Boolean   ' Empleamos este bool para saber si la conn ha sido iniciada desde SelectBLE o en background
+	Dim bHz = False	As Boolean								' y para saber si he hecho enable de SetNotify
+	Dim devices As Map
+	Type tUltra(Name As String, MacAddress As String, RSSI As Double)
+	Dim last_Ultra As tUltra 'list con datos de un device
+	Dim sUltra As String 'Servicio ultra
+	Dim cNormal, cRate, cSensors, cStatus, cNmea, cCalComp As String '
+	Dim mId,uId As String
+	Dim deviceType=0 As Int
+	Dim deviceInfo As Map
+	
+	Private ActivityIndicator1 As ActivityIndicator
+	Private clv As CustomListView
+	Private btnDisconnect As Button
+	Private ActivityIndicator2 As ActivityIndicator
+	Private Panel1 As Panel
+	Private WebView1 As WebView
+
+	Dim as1 As ActionSheet
+	Dim t_ble_protect As Timer
+	
+
+	
+	Dim btnBT, btnSim, btnBasic, btnMap, btnTri, btnShare As BarButton
+	
+	'Settings
+	'Dim cd As Customdialog
+	Dim btn_scan As Button
+	
+	Private lbl_conn As Label
+	Private btn_disconnect As Button
+	Private sw_cloud As Switch
+	Private stp_speed As Stepper	
+	Dim kvs As KeyValueStore
+	Private sw_mean As Switch
+	Dim t1 As Timer
+	Dim t_init As Timer
+	
+	' Calcs
+	Dim calcs_1 As WindCalcs
+	
+	' GPS
+	Private LocManager As LocationManager	
+	' GOOGLE MAPS
+	Private gmap As GoogleMap
+	Private ApiKey As String = "AIzaSyC0VJ47o9d18e3tOTk3jdMTfbcJK7kAfzo"	
+	Private zoom As Int = 18
+	Private gps_changed As Boolean = False
+	Dim boat As Marker
+	Private btn_tutorial As Button
+	
+	' Tutorial
+	Dim tuto As Tutorial
+	Private img_bt As ImageView
+	
+	' Splash
+	Dim Splash As Page
+	Dim imgSplash As ImageView
+	
+	 Private DialogPage As Page
+
+	' TRACKER
+	Dim btn_track As Button
+	Dim lbl_track As Label
+	
+
+
+	
+	Private sw_speed As Switch
+	Private lbl_speed As Label
+	
+	Private background As Boolean = False
+	Private pk_tracking As Picker
+	Private lbl_offset As Label
+	Private stp_offset As Stepper
+	'eliminar
+	Private PageSettings, PageBasic As Page
+	'FOUR
+	Private PageFour As Page 
+	Private TagFour1, TagFour2, TagFour3, TagFour4 As Tag
+	Private ScaleFour As Scale
+	Private bgFour As ImageView
+	' MAP
+	Private PageMap As Page
+	Private ScaleMap As Scale
+	Private TagMap1, TagMap2 As Tag
+	Private bgMap1, bgMap2, bgScaleMap As ImageView
+	' TRIDATA
+	Private PageTri As Page
+	Private TagTri1, TagTri2, TagTri3 As  Tag
+	Private bgTri As ImageView 
+	' Multiple
+	Private PageMulti As Page
+	Private TagM1, TagM2, TagM3, TagM4, TagM5, TagM6 As Tag
+	Private bgMulti As ImageView
+	
+	Dim mControles As Map
+	Dim iMenuSelected As Int
+	Dim bPaused = False As Boolean
+	Private img_device As ImageView
+	Private lbl_gyro As Label
+	Private sw_gyro As Switch
+	Private lbl_hz As Label
+	Private pk_Hz As Picker
+End Sub
+
+
+Sub PresentPage(Parent As Page, dialog As Page)
+   Dim no As NativeObject = Parent
+   no.RunMethod("presentViewController:animated:completion:", Array(dialog, True, Null))
+End Sub
+Sub DismissPage(Parent As Page)
+   Dim no As NativeObject = Parent
+   no.RunMethod("dismissViewControllerAnimated:completion:", Array(True, Null))
+End Sub
+
+Private Sub Application_Start (Nav As NavigationController)
+	'NEW
+	'DM Side Menu
+	Dim nc As NavigationController
+	nc.Initialize("nc")
+	NavControl= nc
+	' END NEW
+	' SQL
+	tracking.InitSql
+	' BLE
+	managerBLE.Initialize("managerBLE")
+
+	navSettings = Nav
+	Dim cv As Canvas
+	
+	bgSettings.Initialize("bgSettings")
+	bgBasic.Initialize("bgBasic")
+	bgSettings.Bitmap = LoadBitmapResize( File.DirAssets, "textura_fibra_carbono.jpg", 800, 800, True )
+	bgBasic.Bitmap = LoadBitmapResize( File.DirAssets, "textura_fibra_carbono.jpg", 800, 800, True )
+	bgFour.Initialize("")
+	bgMap1.Initialize("")
+	bgMap2.Initialize("")
+	bgScaleMap.Initialize("")
+	bgTri.Initialize("")
+	bgMulti.Initialize("")
+	bgFour.Bitmap = LoadBitmapResize( File.DirAssets, "textura_fibra_carbono.jpg", 2000, 2000, True )
+	bgMap1.Bitmap = LoadBitmapResize( File.DirAssets, "textura_fibra_carbono.jpg", 400, 400, True )
+	bgMap2.Bitmap = LoadBitmapResize( File.DirAssets, "textura_fibra_carbono.jpg", 400, 400, True )
+	bgScaleMap.Bitmap = LoadBitmapResize( File.DirAssets, "textura_fibra_carbono.jpg", 800, 800, True )
+	bgTri.Bitmap = LoadBitmapResize( File.DirAssets, "textura_fibra_carbono.jpg", 400, 400, True )
+	bgMulti.Bitmap = LoadBitmapResize( File.DirAssets, "textura_fibra_carbono.jpg", 400, 400, True )
+	'Activity.SetBackgroundImage(LoadBitmapResize( File.DirAssets, "ultra.jpg", 100%x,100%y, True )).Gravity = Gravity.CENTER
+	' Cálculos
+	calcs_1.Initialize()
+	
+	' Key value store
+	kvs.Initialize(File.DirLibrary, "kvs")
+	If kvs.ContainsKey( "calibration_offset" ) Then
+		calcs_1.offset =  kvs.GetSimple( "calibration_offset" )
+	Else
+		calcs_1.offset = 0
+	End If		
+
+	' GPS
+	LocManager.Initialize("LocManager")
+
+	' Quitar statusbar
+	Dim no As NativeObject = App
+	no.RunMethod("setStatusBarHidden:animated:", Array(True, False))
+
+	
+	
+	
+	NavControl.NavigationBarVisible = False
+	'NavControl.ToolBarVisible = False
+	
+	' Inicialización página SETTINGS-----------------------------------------------------------------	
+	PageSettings.Initialize("PageSettings")
+	'PageSettings.RootPanel.AddView( bgSettings, 0,0, 100%x,100%y)
+	'bgSettings.SendToBack
+
+	PageSettings.RootPanel.Color = Colors.White
+	PageSettings.RootPanel.LoadLayout("settings")
+	'PageSettings.RootPanel.Width = iSideMenu.LeftMenuMaxWidth
+	PageSettings.RootPanel.SizeToFit
+	
+	'SideMenuController no funciona con Tab Controller
+	'iSideMenu.Initialize( PageSettings , NavControl, Null )
+	'App.KeyController = iSideMenu
+	
+
+	stp_offset.Value = calcs_1.offset
+	stp_offset_ValueChanged( calcs_1.offset )
+	sw_speed.Value = calcs_1.speed_sw
+	stp_speed.Value = calcs_1.speed_min
+	stp_speed_ValueChanged (stp_speed.Value)
+	sw_mean.Value = calcs_1.mean_sw
+	pk_tracking.SetItems( 0, Array( "Regatta (5sec)", "Daysail (60sec)", "Cruising (5min)") )
+	pk_Hz.SetItems(0, Array("1 Hz", "4 Hz", "8 Hz" ) )
+	lbl_gyro.Visible = False
+	sw_gyro.Visible = False
+	lbl_hz.Visible = False
+	pk_Hz.Visible = False
+	
+	PageFour.Initialize("PageFour")
+	'cv.Initialize( PageFour.RootPanel )
+	'Dim r1 As Rect
+	'r1.Initialize(0,0,100%x,100%y)
+	'cv.TileBitmap( LoadBitmap( File.DirAssets, "textura_fibra_carbono.jpg"), r1 )
+	PageFour.RootPanel.LoadLayout("Four")
+	'cv.TileBitmap( LoadBitmap( File.DirAssets, "textura_fibra_carbono.jpg"), r1 )
+	PageFour.RootPanel.AddView( bgFour, 0,0, 100%x,100%y)
+	bgFour.SendToBack
+	PageFour.RootPanel.SizeToFit()
+	
+	
+
+
+   	DialogPage.Initialize("DialogPage")
+   	DialogPage.RootPanel.Color = Colors.Red	
+	
+	'NavControl.ShowPage(PageSettings)
+	
+	' Inicialización página BASIC----------------------------------------------------------------------
+	PageBasic.Initialize("PageBasic")
+	PageBasic.RootPanel.AddView( bgBasic, 0,0, 100%x,100%y)
+	bgBasic.SendToBack
+	PageBasic.Title = "Basic"
+
+	
+	' Para que no quede un alto ridículo, mantener un aspecto como máximo 2/1 entre ancho y alto (Problemas iphone6)
+	' Tags
+	Dim alt As Int
+	If( (40%x/2) < (95%y-100%x) ) Then
+		alt = 20%x
+	Else
+		alt = (95%y-100%x) 
+	End If
+	
+	
+	
+	' Inicialización página MAPS ----------------------------------------------------------------------------
+	' clave google maps api AIzaSyC0VJ47o9d18e3tOTk3jdMTfbcJK7kAfzo
+	PageMap.Initialize("PageMap")
+	gmap.Initialize("gmap", ApiKey)
+	PageMap.RootPanel.AddView(gmap, 0, 0, 100%X, 100%y)	
+	PageMap.RootPanel.LoadLayout("Map")
+	'PageMap.RootPanel.AddView( bgSettings, 0,0, 100%x,100%y)
+	'bgSettings.SendToBack
+	TagMap1.GetBase.AddView(bgMap1, 0,0, 100%x,100%y )
+	bgMap1.SendToBack
+	TagMap2.GetBase.AddView(bgMap2, 0,0, 100%x,100%y )
+	bgMap2.SendToBack
+	ScaleMap.GetBase.Height = ScaleFour.GetBase.width
+	ScaleMap.GetBase.AddView(bgScaleMap, 0.050*ScaleMap.GetBase.Width,0.050*ScaleMap.GetBase.Width, 0.850*ScaleMap.GetBase.Width,0.850*ScaleMap.GetBase.Width )
+	bgScaleMap.SetBorder(0,Colors.White, ScaleMap.GetBase.Width*0.5)
+	bgScaleMap.SendToBack
+	
+	'gmap.MapType = gmap.MAP_TYPE_TERRAIN
+	gmap.MapType = gmap.MAP_TYPE_SATELLITE
+	gmap.GetUiSettings.CompassEnabled = True
+	gmap.GetUiSettings.MyLocationButtonEnabled = True
+	gmap.MyLocationEnabled = True
+	
+	Dim cam As CameraPosition	
+	
+	'cam.Initialize( calcs_1.latitude, calcs_1.longitude, zoom )
+	'gmap.MoveCamera(cam )
+	'gmap.AnimateCamera( cam )
+	cam.Initialize2( calcs_1.latitude, calcs_1.longitude, zoom, calcs_1.bearing, 90)
+	gmap.AnimateCamera( cam )
+	gmap.AnimateCamera( cam )
+	
+	
+	'Log( gmap.CameraPosition.Zoom )
+	'add three markers
+	'Dim m As Marker = gmap.AddMarker(40, 30, "test")
+	'm.Snippet = "Marker 1"
+	'm.Opacity = 0.5
+	'm = gmap.AddMarker2(40, 31, "Marker 2", Colors.Green)
+	'gmap.AddMarker3(20, 20, "ddd", LoadBitmap(File.DirAssets, "up76.png"))
+
+	' Inicialización página TRIDATA--------------------------------------------------------------------------
+	PageTri.Initialize("PageTri")
+	PageTri.RootPanel.LoadLayout("Tri")
+	PageTri.RootPanel.SizeToFit()
+	PageTri.RootPanel.AddView( bgTri, 0,0, 100%x,100%y)
+	bgTri.SendToBack
+
+	' Inicialización página MULT---IPLE-----------------------------------------------------------------------
+	PageMulti.Initialize("PageMulti")
+	PageMulti.RootPanel.LoadLayout("Multi")
+	PageMulti.RootPanel.AddView( bgMulti, 0,0, 100%x,100%y)
+	bgMulti.SendToBack
+	
+	
+	NavControl.ShowPage( PageFour )
+	NavControl.ToolBarVisible = True
+	iSideMenu.Initialize( PageSettings , NavControl, Null )
+	iSideMenu.LeftMenuMaxWidth = 90%x
+	PageSettings.RootPanel.SizeToFit()
+	iSideMenu.OpenGesturesEnabled = True
+	App.KeyController = iSideMenu
+
+	Dim OBJNavBar As NativeObject = NavControl
+	OBJNavBar.GetField("toolbar").RunMethod("setBarTintColor:", Array(OBJNavBar.ColorToUIColor(Colors.Black)))
+	'OBJNavBar.GetField("toolbar").SetField("translucent", True)
+	OBJNavBar.GetField("navigationBar").RunMethod("setBarTintColor:", Array(OBJNavBar.ColorToUIColor(Colors.White)))
+	'OBJNavBar.GetField("navigationBar").SetField("translucent", False)
+	
+	add_controls
+	
+	'Return 
+	
+	' Preparo splash
+	Splash.Initialize("Splash")
+	imgSplash.Initialize("imgSplash")
+	imgSplash.ContentMode = imgSplash.MODE_FIT
+	imgSplash.Color = Colors.White	
+	imgSplash.Bitmap = LoadBitmap(File.DirAssets, "ultra.jpg")
+	Splash.RootPanel.AddView(imgSplash, 0,0,100%x,100%y)
+	NavControl.ShowPage( Splash )	
+	t_init.Initialize( "t_init",  2000 ) ' 3000 ) ' Demora a la inicialización...
+	t_init.Enabled = True
+	
+	t_ble_protect.Initialize( "t_ble_protect", 100 )
+	t_ble_protect.Enabled = False
+
+	
+	
+End Sub
+
+Sub add_controls
+	Dim lControles As List
+	
+	mControles.Initialize
+	
+	lControles.Initialize
+	lControles.Add( ScaleFour )
+	lControles.AddAll( Array As Tag( TagFour1, TagFour2, TagFour3, TagFour4 ) )
+	mControles.Put( 1, lControles )
+	
+	lControles.Initialize
+	lControles.Add( ScaleMap )
+	lControles.Addall( Array As Tag( TagMap1, TagMap2) )
+	mControles.Put( 2, lControles )
+	
+	lControles.Initialize
+	lControles.Addall( Array As Tag( TagTri1, TagTri2, TagTri3 ) )
+	mControles.Put( 3, lControles )
+	
+	lControles.Initialize
+	lControles.AddAll( Array As Tag( TagM1, TagM2, TagM3, TagM4, TagM5, TagM6 ) )
+	mControles.Put( 4, lControles )
+	iMenuSelected = 1
+	Update(True)
+End Sub
+
+Sub PageFour_BarButtonClick (Tagname As String)
+	PageAll_BarButtonClick(Tagname)	
+End Sub
+Sub PageMap_BarButtonClick (Tagname As String)
+	PageAll_BarButtonClick(Tagname)	
+End Sub
+Sub PageTri_BarButtonClick (Tagname As String)
+	PageAll_BarButtonClick(Tagname)	
+End Sub
+Sub PageMulti_BarButtonClick (Tagname As String)
+	PageAll_BarButtonClick(Tagname)	
+End Sub
+Sub PageAll_BarButtonClick( Tagname As String )	
+	'NavControl.RemoveCurrentPage
+	Dim lControles As List
+	lControles.Initialize
+	lControles = mControles.Get(iMenuSelected)
+	For Each control As Object In lControles
+		CallSubDelayed( control, "Pause" )
+	Next
+	
+	If Tagname="Four" Then
+		iMenuSelected = 1
+		NavControl.ShowPage(PageFour)
+	End If	
+	If Tagname="Map" Then
+		iMenuSelected = 2
+		NavControl.ShowPage(PageMap)
+	End If
+	If Tagname="Tri" Then
+		iMenuSelected = 3
+		NavControl.ShowPage(PageTri)
+	End If
+	If Tagname="Multi" Then
+		iMenuSelected = 4
+		NavControl.ShowPage(PageMulti)
+	End If
+	Update( True )
+End Sub
+
+Sub PageBasic_Appear
+	UpdatePages
+End Sub
+
+Sub PageMap_Appear
+	UpdatePages
+End Sub
+
+Sub PageTri_Appear
+	UpdatePages
+End Sub
+
+Sub l( f As String ) As Bitmap
+	Return LoadBitmap(File.DirAssets, f)
+End Sub 
+
+
+
+Sub t_init_tick
+	If Splash.Visible Then
+		Splash.RootPanel.SetAlphaAnimated( 1000, 0 )
+		NavControl.ShowPage( PageFour )
+		t_init.Interval = 1000
+		Splash.Tag = True
+	Else If Splash.Tag Then
+		Splash.Tag = False
+		NavControl.RemoveCurrentPage
+		
+		't_init.Enabled = False ' Paro timer
+		t_init.Interval = 100
+		
+		If kvs.GetSimple( "first_time" ) = "NO" Then	
+			NavControl.ShowPage( PageFour )
+		Else
+			NavControl.ShowPage( PageFour )
+			'btn_tutorial_Click
+		End If	
+	Else
+		UpdatePages
+		' Lanzo scan BT por defecto
+		managerBLE.Scan(Null)	
+		t_init.Enabled = False
+	End If
+End Sub
+
+Sub PageBasic_Resize (Width As Float, Height As Float)
+	'clv.SetSize(100%x, 100%y - clv.AsView.Top)
+End Sub
+
+Private Sub PageMap_Resize(Width As Int, Height As Int)
+	If gmap.IsInitialized Then gmap.SetLayoutAnimated(0, 1, 0, 0, Width, Height)
+End Sub
+
+Sub PageSettings_Resize( Width As Float, Height As Float )
+	'If cd.IsShow Then
+	'	cd.Hide
+	'End If
+	PageSettings.RootPanel.SizeToFit
+End Sub
+
+Private Sub Application_Foreground
+	background = False
+	bPaused = False
+	StartLocationUpdates
+End Sub
+
+Private Sub Application_Background
+	background = True
+	bPaused = True 
+	LocManager.Stop
+	LocManager.StopHeading
+
+	'StartBackground( LocManager, 5 )
+
+End Sub
+
+Sub Update( selected As Boolean )
+	If Not( bPaused ) Then
+		Dim lControles As List
+		lControles.Initialize
+		lControles = mControles.Get(iMenuSelected)
+		For Each control As Object In lControles
+			'CallSub( control, "Update")
+			CallSubDelayed2( control, "Update", selected )
+		Next
+	End If
+End Sub
+
+#Region GPS and HEADING ------------------------------------------------------------------
+Private Sub LocManager_AuthorizationStatusChanged (Status As Int)
+	'lblEnable.Visible = (LocManager.AuthorizationStatus = LocManager.AUTHORIZATION_DENIED _
+	'	OR LocManager.AuthorizationStatus = LocManager.AUTHORIZATION_RESTRICTED)
+	StartLocationUpdates
+End Sub
+Private Sub StartLocationUpdates
+	'if the user allowed us to use the location service or if we never asked the user before then we call LocationManager.Start.
+	If LocManager.IsAuthorized Or LocManager.AuthorizationStatus = LocManager.AUTHORIZATION_NOT_DETERMINED Then
+		'LocManager.Start(5)
+		StartBackground( LocManager, 5 )
+	End If
+	LocManager.StartHeading
+End Sub
+Sub StartBackground(lm As LocationManager, MinimumDistance As Double)
+	Dim no As NativeObject = lm
+	no = no.GetField("manager")
+	If App.OSVersion >= 8 Then
+		no.RunMethod("requestAlwaysAuthorization", Null)
+	End If
+	no.SetField("distanceFilter", MinimumDistance)
+	no.RunMethod("startUpdatingLocation", Null)
+End Sub
+Private Sub LocManager_HeadingChanged (MagneticHeading As Double, TrueHeading As Double)
+	'tWlog1.SetValue( NumberFormat( MagneticHeading, 1, 1 ) )
+	'tWlog2.SetValue( NumberFormat( TrueHeading, 1, 1 ) )
+	If TrueHeading >= 0 Then
+		'lblHeading.Text = NumberFormat(TrueHeading, 1, 0) & Chr(176) & " (true north)"
+		calcs_1.compass = -TrueHeading
+	Else
+	'	lblHeading.Text = NumberFormat(MagneticHeading, 1, 0) & Chr(176) & " (magnetic)"
+		calcs_1.compass = -MagneticHeading
+	End If
+	calcs_1.calc
+	'UpdatePages
+	
+End Sub
+Private Sub LocManager_LocationChanged (Location1 As Location)
+	'If Location1.VerticalAccuracy >= 0 Then
+	'	lblAltitude.Text =	NumberFormat(Location1.Altitude, 1, 1) & "m"
+	'Else
+	'	lblAltitude.Text = "N/A"
+	'End If
+	'lblBearing.Text = ValueOrNA (Location1.Bearing, 1, Chr(176))
+	
+	'If Location1.Accuracy >= 0 Then
+	'	lblLL.Text = NumberFormat(Location1.Latitude, 2, 4) & " / " & NumberFormat(Location1.Longitude, 2, 4)
+	'Else
+	'	lblLL.Text = "N/A"
+	'End If
+	'lblSpeed.Text = ValueOrNA(Location1.Speed, 1, "m/s")
+	'lblTime.Text = DateTime.Time(Location1.Time)
+	'lblAccuracy.Text = ValueOrNA(Location1.Accuracy, 2, "m")
+	'tWlog3.SetValue( NumberFormat( Location1.Bearing, 1, 1 ) )
+	If Location1.Bearing > -1 Then
+		calcs_1.bearing = Location1.bearing
+	End If 
+	
+	calcs_1.latitude = Location1.Latitude
+	calcs_1.longitude = Location1.Longitude
+	
+	If Location1.Speed > 0 Then
+		calcs_1.speed = Location1.Speed
+	Else
+		calcs_1.speed = 0
+	End If
+	
+	UpdatePages
+	
+	' CAMERA
+	gps_changed = True
+	If gmap.CameraPosition.IsInitialized Then
+		zoom = gmap.CameraPosition.zoom
+	Else
+		zoom = 18
+	End If			
+	If zoom < 10 Then
+		zoom = 18
+	End If
+	
+	Dim cam As CameraPosition
+	cam.Initialize2( calcs_1.latitude, calcs_1.longitude, zoom, calcs_1.bearing, 45)
+	gmap.AnimateCamera( cam )	
+	
+	' BARCO
+	If boat.IsInitialized Then
+		Dim tmp_pos As LatLng
+		tmp_pos.Initialize( calcs_1.latitude, calcs_1.longitude )
+		boat.position = tmp_pos
+		
+		'Dim r As Reflector
+		'r.Target = boat
+		'r.RunMethod4( "setRotation", Array As Object( svcWind.gps_location.Bearing ), Array As String( "java.lang.float" ) )
+	Else
+
+		
+		'Log( mo_boat )
+		'If mo_boat.IsInitialized Then
+		' Parece que hay un fallo aquí pero no lo es, sólo lo da en modo debug
+		
+			boat = gmap.AddMarker3(calcs_1.latitude, calcs_1.longitude,Null,LoadBitmap(File.DirAssets, "velero_micro.png"))	
+		'End If	
+	End If
+	'Log( Location1 )
+End Sub
+#End Region
+
+#Region BLE ----------------------------------------------------------------------------
+Sub ManagerBLE_StateChanged (State As Int)
+	Dim msg As String
+	Dim enabled = False As Boolean
+	Select State
+		Case managerBLE.STATE_UNKNOWN
+			msg = "Bluetooth state unknown"
+		Case managerBLE.STATE_POWERED_OFF
+			msg = "Please enable bluetooth"
+		Case managerBLE.STATE_POWERED_ON
+			enabled = True
+			msg = "Scan BLE sensors"
+		Case managerBLE.STATE_RESETTING
+			msg = "Resetting bluetooth"
+		Case managerBLE.STATE_UNAUTHORIZED
+			msg = "Bluetooth unauthorized"
+		Case managerBLE.STATE_UNSUPPORTED
+			msg = "Bluetooth unsupported"
+	End Select
+	btn_scan.Text = msg
+	btn_scan.enabled = enabled
+End Sub
+Sub btn_scan_Click
+
+	'cd.Initialize(Me, PageSettings, "cd")
+	'clvBle.Initialize( Me, "clvBle", cd.max_width )
+	'cd.AddView( clvBle.AsView, cd.max_width, cd.max_height )
+	'cd.Show("Scan BLE Sensors", Array As String("OK","Cancel"), LoadBitmap(File.DirAssets, "bt_logo.png") )
+	
+	iSideMenu.CloseMenu
+	ble_scan.Initialize( NavControl )
+	NavControl.ShowPage( ble_scan.Page )
+	
+End Sub	
+Sub img_bt_Click
+	' Llamo al mismo método
+	btn_scan_Click
+End Sub
+'Sub btnDisconnect_Click
+'	managerBLE.Disconnect
+'End Sub
+Sub btn_disconnect_Click
+	manualDisconnect = True
+	managerBLE.Disconnect
+	btn_disconnect.Visible = False
+End Sub
+Sub ManagerBLE_DeviceFound (Name As String, Id As String, AdvertisingData As Map, RSSI As Double)
+	'Log("Found: " & Name & ", " & Id & ", RSSI = " & RSSI & ", " & AdvertisingData)
+	If ble_scan.Page.IsInitialized = False Then
+		If Name.StartsWith("CUPS") Or Name.StartsWith("ULTRA") Or Name.startswith("NMEA") Then
+			
+			'If kvs.ContainsKey( "last_ultra" ) And  kvs.GetObject( "last_ultra" ). = Id Then
+			'	hd.ToastMessageShow( "Trying to connecto to " & kvs.GetSimple( "last_mac" )  , False )
+			'	connect( Id )
+			If True Then 
+				If Name.StartsWith("CUPS") Or Name.StartsWith("ULTRA") Or Name.startswith("NMEA") Then
+					hd.ToastMessageShow( "Trying to connecto to " & Id , False )
+					connect( Name, Id )
+					Return
+				End If
+			End If			
+		End If
+		Return
+	End If
+	' Only detect CUPS devices
+	If Not( Name.StartsWith("CUPS") Or Name.StartsWith("ULTRA") Or Name.startswith("NMEA") ) Then
+		Return 
+	End If
+	
+	Dim bFound As Boolean = False
+	
+	Dim tv As TableView = ble_scan.tvBLE 'ble_scan.Table
+	If tv.IsInitialized = False Then
+		'Log("return")
+		Return
+	End If
+	If bFound = False Then
+		Dim tc As TableCell = tv.AddTwoLines( Name & " (rssi = " & RSSI & ")",  Id  )
+		Dim att1,att2 As AttributedString
+		att1.Initialize( Name & " (rssi = " & RSSI & ")", Font.CreateNew(25), Colors.Black )
+		tc.Text = att1
+		att2.Initialize( Id, Font.CreateNew(15), Colors.Gray )
+		tc.DetailText = att2
+		Dim tagv = Array As String( Name, Id ) As List
+		tc.tag = tagv
+		tc.Update
+		'clvBle.AddTextItem( Name & "  (rssi = " & RSSI &")" & Chr(13) & Chr(10) & Id , Id )
+		tv.ReloadAll
+	End If
+End Sub
+'Sub clvBle_ItemClick (Index As Int, Value As Object)
+Sub connect(name As String, mac As String)
+	'cd.Hide
+	actual_ultra.Name = name
+	actual_ultra.MacAddress = mac
+	managerBLE.StopScan
+	'managerBLE.Disconnect
+	ConnectedName = mac
+	hd.ToastMessageShow( "Connecting to " & ConnectedName, True ) 
+	'Log(name)
+	'Log(mac)
+	managerBLE.Connect( mac )
+End Sub
+Sub ManagerBLE_Disconnected
+	'Log("Disconnected: " & LastException)
+
+	t1.Enabled = False
+	lbl_conn.Text = "Not connected"
+	btn_scan.Enabled = True
+	connected = False 
+	calcs_1.vane = 0
+	calcs_1.anemo = 0
+	calcs_1.awa = 0
+	calcs_1.awm = 0
+	calcs_1.twa = 0
+	calcs_1.twm = 0
+	calcs_1.twN = 0	
+	calcs_1.calc
+	img_device.Initialize("")
+	UpdatePages
+	
+	' RECONNECT
+	If Not(manualDisconnect) Then
+		hd.ToastMessageShow( "Re-Connecting to " & actual_ultra.MacAddress, True ) 
+		managerBLE.connect( ConnectedName )
+	Else
+		hd.ToastMessageShow( "Disconnected from " & actual_ultra.MacAddress, False ) 
+	End If
+	manualDisconnect = False
+	lbl_gyro.Visible = False
+	sw_gyro.Visible = False 
+	lbl_hz.Visible = False
+	pk_Hz.Visible = False
+	
+End Sub
+Sub ManagerBLE_Connected (services As List)
+	'lblDeviceStatus.Text = "Connected - " & ConnectedName
+	'--------------------  Convendría detectar el servicio para evitar futuras sorpresas desagradables....
+	hd.ToastMessageShow( "Connected to " & actual_ultra.MacAddress, False ) 
+	ConnectedServices = services
+	'SetState(True)
+	
+	lbl_conn.Text = "Connected - " & actual_ultra.MacAddress
+	btn_disconnect.Visible = True
+	btn_scan.Enabled = False
+	
+
+	' Testigo de notification no activado
+	managerBLE.Tag = False
+	
+	t1.Initialize("t1", 5000)
+	t1.Enabled = True	
+
+	
+	'managerBLE.StopScan
+	'tScan.Enabled = False
+	kvs.PutObject( "last_ultra", actual_ultra ) ' Guardamos para la siguiente vez
+	If actual_ultra.Name.StartsWith("CUPS") Then
+		deviceType = 1
+		img_device.Bitmap = LoadBitmap(File.DirAssets, "cups.jpg")
+	else if actual_ultra.Name.StartsWith("ULTRA") Then
+		deviceType = 2
+		img_device.Bitmap = LoadBitmap(File.DirAssets, "ultra.jpg")
+		manualDisconnect = False
+	else if actual_ultra.Name.StartsWith("NMEA") Then
+		deviceType = 3
+		img_device.Bitmap = LoadBitmap(File.DirAssets, "nmea.jpg")
+		manualDisconnect = False
+	End If
+	bSetNotify = False
+	bHz = False
+	'For Each s As String In services
+	'	'Log(s)
+	'Next
+	'Timer_ble.Enabled = True
+	connected = True
+	cNormal = ""
+	cRate = ""
+	cSensors = ""
+	cStatus = ""
+	cNmea = ""
+	'ToastMessageShow( "Connected "&uId, True )
+	For Each s As String In services
+		If s.StartsWith("180D") Or s.StartsWith( "0000180D" ) Then
+			sUltra = s
+			managerBLE.ReadData(s)
+		Else If s.StartsWith("180A") Or s.StartsWith( "0000180A" ) Then
+			'sUltra = s
+			'managerBLE.ReadData(s)
+		End If
+	Next
+	'Log(sUltra)
+	
+End Sub
+
+Public Sub t1_tick
+	'Log("tick")
+	
+'	'Log(ConnectedServices)
+	managerBLE.ReadData( sUltra )
+'	'Dim serv As NativeObject = managerBLE.GetServiceObject( "180D")
+'	
+'	'Log(serv)
+'	'Log( serv.GetField("characteristics") )
+'	For Each s As String In ConnectedServices
+'		managerBLE.ReadData(s)
+'		'Dim c As NativeObject = managerBLE.GetCharacteristicObject(s, "2A39")
+'		'Log(c)
+'		'Log( c.GetField("value"))
+'		'Log(c.GetField("descriptors"))
+'	Next
+End Sub
+
+
+Sub ManagerBLE_DataAvailable (ServiceId As String, Characteristics As Map)
+	
+	If ServiceId.StartsWith("180D") Or ServiceId.StartsWith( "0000180D" ) Then
+		If Not( bSetNotify ) Then
+			'Log("servicio")
+			'Log(ServiceId)
+			'Log("caracteristicas")
+			'Log( Characteristics )
+			For Each id As String In Characteristics.Keys
+				If id.StartsWith("2A39") Or id.StartsWith( "00002A39" ) Then
+					cNormal = id
+					Dim bc As ByteConverter
+					managerBLE.SetNotify( sUltra, cNormal, True )
+					bSetNotify = True
+				End If
+				If id.StartsWith( "0000A002" ) Or id.StartsWith("A002") Then
+					cRate = id
+					lbl_hz.Visible = True
+					pk_Hz.Visible = True
+					' 1 -> 1Hz 4-> 4Hz 8->8Hz
+					'Sleep(500)
+					'Dim bc As ByteConverter
+					'Log( "8Hz")
+					'bc.LittleEndian = True
+					'Dim str = "08" As String
+					'Log(  bc.HexToBytes( str ) )
+					'ble1.WriteData( sUltra, id,  bc.HexToBytes( str ) )
+				End If
+				If id.StartsWith( "0000A003" ) Or id.StartsWith("A003") Then
+					cSensors = id
+					lbl_gyro.Visible = True
+					sw_gyro.Visible = True
+				End If
+				If id.StartsWith( "0000a001" ) Then
+					cStatus = id
+				End If
+				If id.StartsWith( "0000b001" ) Then
+					cNmea = id
+				End If
+				If id.StartsWith( "0000a00b" ) Then
+					cCalComp = id
+				End If
+				
+				'If id.StartsWith( "0000a003" ) Then
+				'	Sleep(500)
+				'	Dim bc As ByteConverter
+				'	Log( "Sensors")
+				'	bc.LittleEndian = True
+				'	Dim str = "02" As String
+				'	ble1.WriteData( sUltra, id,  bc.HexToBytes( str ) )
+				'End If
+				If sUltra.StartsWith( "0000180d" ) Then
+					'CallSubDelayed( Main, "UpdateDrawer" )
+					'CallSubDelayed( Main, "add_secondary_drawer")
+				End If
+			Next
+			
+		End If
+		
+
+		If Characteristics.ContainsKey( cNormal ) Then
+			'Log( Characteristics.Get( cNormal ) )
+			Dim bc As ByteConverter
+			bc.LittleEndian = True
+			'Log(bc.HexFromBytes( Characteristics.Get(cNormal)))
+			Dim bVars(4) As Byte
+			Dim sVars() As Short
+			bc.ArrayCopy(Characteristics.Get(cNormal), 0, bVars, 0, 4 )
+			sVars = bc.ShortsFromBytes( bVars )
+			Dim velocidad, direccion As Float
+			velocidad = sVars(0)
+			direccion = sVars(1)
+			calcs_1.orig_vane = direccion
+			calcs_1.orig_anemo = velocidad/100
+			calcs_1.vane  = direccion
+			calcs_1.calc_anemo_k( velocidad / 100, direccion )
+			'Log( deviceType )
+			If deviceType = 2 Then  ' solo ultra, cups y nmea no lo soportan
+				bc.ArrayCopy(Characteristics.Get(cNormal), 4, bVars, 0, 4 )
+				'Log( bc.HexFromBytes( bVars ) )
+				calcs_1.battery = ToUnsigned(bVars(0))*10
+				calcs_1.temp = ToUnsigned(bVars(1)) - 100
+				calcs_1.roll = ToUnsigned(bVars(2)) - 90
+				calcs_1.pitch = ToUnsigned(bVars(3)) - 90
+				'Log(calcs_1.roll)
+				'Log(calcs_1.pitch)
+				bc.ArrayCopy(Characteristics.Get(cNormal), 8, bVars, 0, 2 )
+				sVars = bc.ShortsFromBytes( bVars )
+				'REVISAR EL TEMA DE OFFSET ANGLE....
+				calcs_1.ecompass = 360-sVars(0)  ' + Main.offset_angle
+				'Log(calcs_1.ecompass)
+			End If
+
+
+			'c_ble = c_ble + 1
+			calcs_1.calc
+			If Not( bPaused ) Then
+				Update( False )
+				'UpdatePages
+			End If
+		End If
+		If Characteristics.ContainsKey(cRate) Then
+			'Log( Characteristics.Get(cRate) )
+		End If
+		
+	Else If ServiceId.StartsWith("180A") Or ServiceId.StartsWith( "0000180A" ) Then
+		'informacion
+		Dim bc As ByteConverter
+		bc.LittleEndian = True
+		deviceInfo.Initialize
+		For Each id As String In Characteristics.Keys
+			If id.StartsWith("00002a29") Then 'Manufacturer name
+				deviceInfo.Put("Manufacturer Name", bc.StringFromBytes(Characteristics.Get(id),"ASCII"))
+			else if id.StartsWith("00002a24") Then 'Model number name
+				deviceInfo.Put("Model Number", bc.StringFromBytes(Characteristics.Get(id),"ASCII"))
+			else if id.StartsWith("00002a25") Then 'Serial number name
+				deviceInfo.Put("Serial Number", bc.StringFromBytes(Characteristics.Get(id),"ASCII"))
+			else if id.StartsWith("00002a27") Then 'HW revision
+				deviceInfo.Put("Hardware Revision", bc.StringFromBytes(Characteristics.Get(id),"ASCII"))
+			else if id.StartsWith("00002a26") Then 'FW revision
+				deviceInfo.Put("Firmware Revision", bc.StringFromBytes(Characteristics.Get(id),"ASCII"))
+			else if id.StartsWith("00002a28") Then 'SW revision
+				deviceInfo.Put("Software Revision", bc.StringFromBytes(Characteristics.Get(id),"ASCII"))
+			End If
+		Next
+		
+	End If
+	'''''''' ANTIGUO
+'	Dim vars_ble As List
+'	Dim velocidad,direccion As Float
+'	Dim bc As ByteConverter
+'	bc.LittleEndian = True
+'	'clv.Add(CreateServiceItem(Service), 30, "")
+'	'Log( Service )
+'	'Log( Characteristics)
+'	
+'	For Each id As String In Characteristics.Keys
+'		' ACTIVAR NOTIFICACIÓN solo si "tag" es false ' OBSOLETO, COMPRUEBO 
+'		'Log( id )
+'		If id.StartsWith( "2A39" ) Or id.StartsWith( "00002A39") Then 
+'		'If True Then 'Not( managerBLE.Tag ) Then
+'		
+'			'testigo de notificacion ya activado...
+'			managerBLE.Tag = True
+'			'Log(Service)
+'			If ( Service.StartsWith("180D") Or Service.StartsWith("0000180D")) And ( id.StartsWith("2A39") Or id.StartsWith("00002A39") ) Then
+'				Dim no_chr = managerBLE.GetCharacteristicObject(Service, id ) As NativeObject
+'				'Log(no_chr.RunMethod( "isNotifying", Null  ))
+'				'Dim statusNotify = no_chr.RunMethod( "isNotifying", Null  ).AsNumber As Int
+'				'Log(statusNotify)
+'				If  no_chr.RunMethod( "isNotifying", Null  ).AsNumber = 0  Then
+'					'Log("SetNotify")
+'					managerBLE.SetNotify( Service,  id, True )
+'				End If 
+'			End If
+'		
+'			
+'		'Log(id)
+'		
+'			vars_ble = bc.ShortsFromBytes( Characteristics.Get(id) ) 
+'
+'			'Log( vars_ble )
+'			If vars_ble.Size >= 4 Then
+'				velocidad = vars_ble.Get(0) / 100
+'				direccion = vars_ble.Get(1)
+'				'Log( vars_ble.Get(2) ) ' battery
+'				'Log(velocidad & " " & direccion )
+'				' actualizamos y calculamos
+'				calcs_1.anemo = velocidad  ' div 100 para m/s
+'				calcs_1.vane  = direccion
+'				UpdatePages
+'			End If
+'		End If
+'		If gps_changed Then
+'			gps_changed = False
+'			'Dim cam As CameraPosition
+'			'cam.Initialize2( calcs_1.latitude, calcs_1.longitude, gmap.CameraPosition.Zoom, calcs_1.bearing, 90)
+'			'gmap.AnimateCamera( cam )			
+'		End If
+'	Next
+'	'Log("NOTIF")
+End Sub
+
+Sub CreateServiceItem (service As String) As Panel
+	Dim pnl As Panel
+	pnl.Initialize("")
+	pnl.Color = 0xFF808080
+	Dim lbl As Label
+	lbl.Initialize("")
+	lbl.Text = service
+	lbl.TextAlignment = lbl.ALIGNMENT_CENTER
+	lbl.Font = Font.DEFAULT_BOLD
+	'pnl.AddView(lbl, 0, 0, 'clv.AsView.Width, 30)
+	Return pnl
+End Sub
+
+Sub CreateCharacteristicItem(Id As String, Data() As Byte) As Panel
+	Dim pnl As Panel
+	pnl.Initialize("")
+	pnl.Color = Colors.White
+	Dim lbl As Label
+	lbl.Initialize("")
+	lbl.Text = Id
+	lbl.Font = Font.DEFAULT
+	'nl.AddView(lbl, 0, 0, clv.AsView.Width, 20)
+	Dim lbl2 As Label
+	lbl2.Initialize("")
+	Try	 
+		Dim bc As ByteConverter
+		lbl2.Text = bc.HexFromBytes( Data )
+		'lbl2.Text = BytesToString(Data, 0, Data.Length, "UTF8")
+	Catch
+		Log(LastException)
+		lbl2.Text = "Error reading data as string"
+	End Try
+	lbl2.TextColor = 0xFF909090
+	lbl2.Font = Font.CreateNew(14)
+	'pnl.AddView(lbl2, 0, 20, clv.AsView.Width, 20)
+	Return pnl
+End Sub
+#End Region
+
+#Region Updates de pantalla y long click
+
+Public Sub t_ble_protect_tick
+	t_ble_protect.Enabled = False
+End Sub
+Sub UpdatePages
+	calcs_1.calc
+	If t_ble_protect.Enabled = True Then
+		'Log("protect return")
+		Return
+	Else 
+		t_ble_protect.Enabled = True
+	End If
+
+	
+	If background Then
+		Return
+	End If
+	Update( False )
+End Sub
+
+#End Region
+
+#Region Clicks en pantalla Settings
+Sub btn_tutorial_Click
+	'App.KeyController
+	tuto.Initialize(App, PageSettings.RootPanel, 0,0, PageSettings.RootPanel.Width, PageSettings.RootPanel.Height)
+	kvs.PutSimple( "first_time", "NO" )
+End Sub
+Sub sw_cloud_ValueChanged (Value As Boolean)
+	
+End Sub
+Sub stp_speed_ValueChanged (Value As Double)
+	'Log( Value )
+	lbl_speed.Text = NumberFormat( Value, 1, 1) & " knots"
+	calcs_1.speed_min = Value
+End Sub
+Sub stp_offset_ValueChanged (Value As Double)
+	lbl_offset.Text = "Offset is " & Value & " degrees"
+	calcs_1.offset = Value 
+	kvs.PutSimple( "calibration_offset", calcs_1.offset )
+End Sub
+Sub sw_speed_ValueChanged (Value As Boolean)
+	'Log( Value )
+	calcs_1.speed_sw = Value 
+End Sub
+Sub sw_mean_ValueChanged (Value As Boolean)
+	calcs_1.mean_sw = Value
+End Sub
+Sub sw_gyro_ValueChanged( Value As Boolean)
+	Dim bc As ByteConverter
+	bc.LittleEndian = True
+	'Log(cSensors)
+	'Log(connected)
+	If connected Then
+		If Value Then
+			managerBLE.WriteDataWithResponse( sUltra, cSensors, bc.HextoBytes( "01" ) )
+		Else
+			managerBLE.WriteDataWithResponse( sUltra, cSensors, bc.HextoBytes( "00" ) )
+		End If
+		'gyroEnabled = Checked
+	End If
+End Sub
+Sub pk_tracking_ItemSelected (Column As Int, Row As Int)
+	If Row = 0 Then
+		tracking.Timer_sqlite.Interval = 5000
+	Else If Row = 1 Then
+		tracking.Timer_sqlite.Interval = 60000
+	Else
+		tracking.Timer_sqlite.Interval = 300000
+	End If
+End Sub
+Sub pk_Hz_ItemSelected (Column As Int, Row As Int)
+	
+	If Row = 0 Then
+		Dim str = "01" As String
+		calcs_1.refresh_hz = 1.0
+	Else If Row = 1 Then
+		Dim str = "04" As String
+		calcs_1.refresh_hz = 4.0
+	Else
+		Dim str = "08" As String
+		calcs_1.refresh_hz = 8.0
+	End If
+	calcs_1.mean_checked( calcs_1.mean_sw )
+	Dim bc As ByteConverter
+	bc.LittleEndian = True
+	If connected And deviceType = 2 Or deviceType = 3 Then
+		managerBLE.WriteDataWithResponse( sUltra, cRate,  bc.HexToBytes( str ) )
+		managerBLE.ReadData2( sUltra, cRate )
+	End If
+End Sub
+#End Region
+
+#Region Track
+Sub btn_track_Click
+	'acTrack.Initialize( "acTrack", "TITULO", "Cancel", "", Array( "oK"))
+	'acTrack.Show( PageSettings.RootPanel )
+	
+	'Log("return")
+	'Return
+	If tracking.navigation = 0 Then
+		iSideMenu.CloseMenu
+		tracking.Initialize( NavControl )
+		NavControl.NavigationBarVisible = True 
+		NavControl.ToolBarVisible = False
+		NavControl.ShowPage( tracking.Page )
+		
+	Else
+		Msgbox2( "msg_stop_track", "Track: " & tracking.nav_name, "Stop Tracking? ", Array("Yes","No"))
+	End If 
+End Sub	
+
+Sub msg_stop_track_click( txt As String )
+	If txt = "Yes" Then
+		tracking.stop_nav
+		tracking.navigation = 0
+	End If
+End Sub
+
+Sub clvTrack_ItemClick (Index As Int, Value As Object)
+	'cd.Hide
+	'managerBLE.StopScan
+	'managerBLE.Disconnect
+	'ConnectedName = Value
+	hd.ToastMessageShow( "Tracking: " & Value, True ) 
+	'managerBLE.Connect( Value )
+End Sub
+Sub clvTrack_ItemLongClick (Index As Int, Value As Object)
+	hd.ToastMessageShow( "LONG", False ) 
+End Sub
+
+Sub DialogPage_Click
+   DismissPage(PageSettings)
+End Sub
+#End Region
+Sub ToUnsigned(b As Byte) As Int
+	Return Bit.And(0xFF, b)
+End Sub
+
+

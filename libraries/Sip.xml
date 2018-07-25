@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.01</doclet-version-NOT-library-version>
+    <class>
+        <name>anywheresoftware.b4a.objects.SIP</name>
+        <shortname>Sip</shortname>
+        <comment>Provides access to Voip / Sip services. Only Android 2.3 (API 9) and above are supported.
+A tutorial is available &lt;link&gt;here|http://www.basic4ppc.com/forum/basic4android-getting-started-tutorials/13088-android-sip-voip-tutorial.html&lt;/link&gt;.</comment>
+        <owner>process</owner>
+        <event>Registering</event>
+        <event>RegistrationDone (ExpiryTime As Long)</event>
+        <event>RegistrationFailed (ErrorCode As Int, ErrorMessage As String)</event>
+        <event>CallEstablished</event>
+        <event>CallEnded</event>
+        <event>Calling</event>
+        <event>CallError (ErrorCode As Int, ErrorMessage As String)</event>
+        <event>CallRinging (IncomingCall As SipAudioCall)</event>
+        <permission>android.permission.USE_SIP</permission>
+        <permission>android.permission.INTERNET</permission>
+        <permission>android.permission.RECORD_AUDIO</permission>
+        <permission>android.permission.ACCESS_WIFI_STATE</permission>
+        <permission>android.permission.WAKE_LOCK</permission>
+        <permission>android.permission.MODIFY_AUDIO_SETTINGS</permission>
+        <method>
+            <name>Initialize</name>
+            <comment>Initializes the object.
+EventName - Sets the subs that will handle the events.
+User - User name.
+Host - Host name or IP address.
+Password - Account password.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>User</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Host</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Password</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>MakeCall</name>
+            <comment>Makes an audio call. This method should only be called after registering.
+TargetUri - The target Uri.
+TimeoutSeconds - The timeout measured in seconds.</comment>
+            <returntype>anywheresoftware.b4a.objects.SIP.SipAudioCallWrapper</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>TargetUri</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>TimeoutSeconds</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Close</name>
+            <comment>Closes the connection.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>Register</name>
+            <comment>Sends a registration request to the server.
+The following events will be raised: Registering and RegistrationDone or RegistrationFail.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Initialize2</name>
+            <comment>Initializes the object.
+EventName - Sets the subs that will handle the events.
+Uri - The profile Uri. For example: sip:zzz@iptel.org
+Password - Account password.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Uri</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Password</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <property>
+            <name>Port</name>
+            <parameter>
+                <name>p</name>
+                <type>int</type>
+            </parameter>
+            <comment>Sets the connection port.</comment>
+        </property>
+        <property>
+            <name>ProfileName</name>
+            <parameter>
+                <name>s</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <comment>Sets the user defined profile name.</comment>
+        </property>
+        <property>
+            <name>OutboundProxy</name>
+            <parameter>
+                <name>v</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <comment>Sets the outbound proxy address.</comment>
+        </property>
+        <property>
+            <name>SendKeepAlive</name>
+            <parameter>
+                <name>b</name>
+                <type>boolean</type>
+            </parameter>
+            <comment>Sets whether keep-alive messages will be sent automatically.</comment>
+        </property>
+        <property>
+            <name>IsVoipSupported</name>
+            <returntype>boolean</returntype>
+            <comment>Tests whether Voip is supported on this device.</comment>
+        </property>
+        <property>
+            <name>AutoRegistration</name>
+            <parameter>
+                <name>b</name>
+                <type>boolean</type>
+            </parameter>
+            <comment>Sets whether the Sip manager will register automatically if needed.</comment>
+        </property>
+        <property>
+            <name>IsSipSupported</name>
+            <returntype>boolean</returntype>
+            <comment>Tests whether Sip API is supported on the device.</comment>
+        </property>
+        <property>
+            <name>DisplayName</name>
+            <parameter>
+                <name>s</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <comment>Sets the user display name.</comment>
+        </property>
+        <property>
+            <name>Protocol</name>
+            <parameter>
+                <name>s</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <comment>Sets the protocol. Either "TCP" or "UDP".</comment>
+        </property>
+        <property>
+            <name>IsInitialized</name>
+            <returntype>boolean</returntype>
+            <comment>Tests whether the object was initialized.</comment>
+        </property>
+    </class>
+    <class>
+        <name>anywheresoftware.b4a.objects.SIP.SipAudioCallWrapper</name>
+        <shortname>SipAudioCall</shortname>
+        <comment>Represents an audio call.
+This object is created by calling Sip.MakeCall or from the CallRinging event.</comment>
+        <objectwrapper>android.net.sip.SipAudioCall</objectwrapper>
+        <owner>process</owner>
+        <method>
+            <name>AnswerCall</name>
+            <comment>Answers an incoming call.
+TimeoutSeconds - Allowed time for the call to be established.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>TimeoutSeconds</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>StartAudio</name>
+            <comment>Starts the audio for the call. Should be called in CallEstablished event.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>ToggleMute</name>
+            <comment>Toggles the microphone mute.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>SendDtmf</name>
+            <comment>Sends a Dtmf tone. Values can be 0-15, where 0-9 are the digits, 10 is '*', 11 is '# and 12-15 are 'A'-'D'.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Code</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>EndCall</name>
+            <comment>Ends the current call.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>IsInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <property>
+            <name>IsInCall</name>
+            <returntype>boolean</returntype>
+            <comment>Tests whether the call was established.</comment>
+        </property>
+        <property>
+            <name>IsMuted</name>
+            <returntype>boolean</returntype>
+            <comment>Tests whether the microphone is muted.</comment>
+        </property>
+        <property>
+            <name>PeerUri</name>
+            <returntype>java.lang.String</returntype>
+            <comment>Gets the peer Uri.</comment>
+        </property>
+        <property>
+            <name>SpeakerMode</name>
+            <parameter>
+                <name>b</name>
+                <type>boolean</type>
+            </parameter>
+            <comment>Sets the speaker mode.</comment>
+        </property>
+    </class>
+    <version>1.0</version>
+</root>

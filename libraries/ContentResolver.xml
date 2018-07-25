@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.05</doclet-version-NOT-library-version>
+    <class>
+        <name>anywheresoftware.b4a.objects.ContentResolverWrapper</name>
+        <shortname>ContentResolver</shortname>
+        <comment>ContentResolver allows you to interact with other content providers.</comment>
+        <owner>process</owner>
+        <event>QueryCompleted (Success As Boolean, Crsr As Cursor)</event>
+        <event>InsertCompleted (Success As Boolean, Uri As Uri)</event>
+        <event>UpdateCompleted (Success As Boolean, RowsAffected As Int)</event>
+        <event>DeleteCompleted (Success As Boolean, RowsAffected As Int)</event>
+        <event>ObserverChange (Uri As Uri)</event>
+        <method>
+            <name>Initialize</name>
+            <comment>Initializes the object and sets the subs that will handle the asynchronous operations.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>UnregisterObserver</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Uri</name>
+                <type>anywheresoftware.b4a.objects.ContentResolverWrapper.UriWrapper</type>
+            </parameter>
+        </method>
+        <method>
+            <name>UpdateAsync</name>
+            <comment>Starts an asynchronous update. The UpdateCompleted event will be raised when operation completes.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>Uri</name>
+                <type>android.net.Uri</type>
+            </parameter>
+            <parameter>
+                <name>Values</name>
+                <type>android.content.ContentValues</type>
+            </parameter>
+            <parameter>
+                <name>Where</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>SelectionArgs</name>
+                <type>java.lang.String[]</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Insert</name>
+            <comment>Inserts a row.
+Uri - The content Uri.
+Values - The values to insert.</comment>
+            <returntype>anywheresoftware.b4a.objects.ContentResolverWrapper.UriWrapper</returntype>
+            <parameter>
+                <name>Uri</name>
+                <type>anywheresoftware.b4a.objects.ContentResolverWrapper.UriWrapper</type>
+            </parameter>
+            <parameter>
+                <name>Values</name>
+                <type>android.content.ContentValues</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Update</name>
+            <comment>Updates rows with the given values.
+Uri - Content Uri.
+Values - Values to update.
+Where - Selection criteria.
+SelectionArgs - An array of strings that replaces questions marks in the Where clause.</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>Uri</name>
+                <type>android.net.Uri</type>
+            </parameter>
+            <parameter>
+                <name>Values</name>
+                <type>android.content.ContentValues</type>
+            </parameter>
+            <parameter>
+                <name>Where</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>SelectionArgs</name>
+                <type>java.lang.String[]</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Query</name>
+            <comment>Queries the content provider.
+Uri - Content Uri.
+Project - An array of strings. The columns to return.
+Selection - The criteria.
+SelectionArgs - An array of strings that replace question marks in the selection string.
+SortOrder - The sorting column (or empty string if sorting is not required).</comment>
+            <returntype>anywheresoftware.b4a.sql.SQL.CursorWrapper</returntype>
+            <parameter>
+                <name>Uri</name>
+                <type>anywheresoftware.b4a.objects.ContentResolverWrapper.UriWrapper</type>
+            </parameter>
+            <parameter>
+                <name>Projection</name>
+                <type>java.lang.String[]</type>
+            </parameter>
+            <parameter>
+                <name>Selection</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>SelectionArgs</name>
+                <type>java.lang.String[]</type>
+            </parameter>
+            <parameter>
+                <name>SortOrder</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>UpdateDelete</name>
+            <comment>Starts an asynchronous delete. The DeleteCompleted event will be raised when operation completes.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>Uri</name>
+                <type>android.net.Uri</type>
+            </parameter>
+            <parameter>
+                <name>Where</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>SelectionArgs</name>
+                <type>java.lang.String[]</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Delete</name>
+            <comment>Deletes rows based on the given criteria.
+Uri - Content Uri.
+Where - The selection criteria. Can include question marks.
+SelectionArgs - An array of strings that replace the question marks in the Where clause.</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>Uri</name>
+                <type>android.net.Uri</type>
+            </parameter>
+            <parameter>
+                <name>Where</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>SelectionArgs</name>
+                <type>java.lang.String[]</type>
+            </parameter>
+        </method>
+        <method>
+            <name>InsertAsync</name>
+            <comment>Starts an asynchronous insert. The InsertCompleted event will be raised when operation completes.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>Uri</name>
+                <type>anywheresoftware.b4a.objects.ContentResolverWrapper.UriWrapper</type>
+            </parameter>
+            <parameter>
+                <name>Values</name>
+                <type>android.content.ContentValues</type>
+            </parameter>
+        </method>
+        <method>
+            <name>RegisterObserver</name>
+            <comment>Registers a content observer. The ObserverChange event will be raised whenever there is a change related to the given Uri.
+Uri - The Uri to watch for changes.
+NotifyForDescendents - Whether to listen to changes related to descendant Uris.
+Example:&lt;code&gt;
+Sub Process_Globals
+	Private cr As ContentResolver
+End Sub
+
+Sub Service_Create
+	Dim uri As Uri
+	uri.Parse("content://com.android.contacts/contacts")
+	cr.Initialize("cr")
+	cr.RegisterObserver(uri, True)
+End Sub
+
+Sub cr_ObserverChange (Uri As Uri)
+	Log("Contacts provider has reported a change...")
+End Sub&lt;/code&gt;</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>Uri</name>
+                <type>anywheresoftware.b4a.objects.ContentResolverWrapper.UriWrapper</type>
+            </parameter>
+            <parameter>
+                <name>NotifyForDescendents</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
+        <method>
+            <name>QueryAsync</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>Uri</name>
+                <type>anywheresoftware.b4a.objects.ContentResolverWrapper.UriWrapper</type>
+            </parameter>
+            <parameter>
+                <name>Projection</name>
+                <type>java.lang.String[]</type>
+            </parameter>
+            <parameter>
+                <name>Selection</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>SelectionArgs</name>
+                <type>java.lang.String[]</type>
+            </parameter>
+            <parameter>
+                <name>SortOrder</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+    </class>
+    <class>
+        <name>anywheresoftware.b4a.objects.ContentResolverWrapper.UriWrapper</name>
+        <shortname>Uri</shortname>
+        <objectwrapper>android.net.Uri</objectwrapper>
+        <owner>process</owner>
+        <method>
+            <name>FromParts</name>
+            <comment>Creates a new Uri from the given parts.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Scheme</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>SSP</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Fragment</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>ParseId</name>
+            <comment>Returns the Id part of the current Uri.</comment>
+            <returntype>long</returntype>
+        </method>
+        <method>
+            <name>Parse</name>
+            <comment>Creates a new Uri from the given string.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>UriString</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>WithAppendedId</name>
+            <comment>Creates a new Uri by appending the Id to the given Uri.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>BaseUri</name>
+                <type>android.net.Uri</type>
+            </parameter>
+            <parameter>
+                <name>Id</name>
+                <type>long</type>
+            </parameter>
+        </method>
+        <method>
+            <name>WithAppendedPath</name>
+            <comment>Creates a new Uri by appending the path to the given Uri.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>BaseUri</name>
+                <type>android.net.Uri</type>
+            </parameter>
+            <parameter>
+                <name>PathSegment</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>IsInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+    </class>
+    <class>
+        <name>anywheresoftware.b4a.objects.ContentResolverWrapper.ContentValuesWrapper</name>
+        <shortname>ContentValues</shortname>
+        <comment>Holds pairs of keys and values.</comment>
+        <objectwrapper>android.content.ContentValues</objectwrapper>
+        <owner>process</owner>
+        <method>
+            <name>Initialize</name>
+            <comment></comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>PutNull</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Key</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>PutInteger</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Key</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Value</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>PutBoolean</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Key</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Value</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
+        <method>
+            <name>PutString</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Key</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Value</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>PutBytes</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Key</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Value</name>
+                <type>byte[]</type>
+            </parameter>
+        </method>
+        <method>
+            <name>PutShort</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Key</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Value</name>
+                <type>java.lang.Short</type>
+            </parameter>
+        </method>
+        <method>
+            <name>PutFloat</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Key</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Value</name>
+                <type>java.lang.Float</type>
+            </parameter>
+        </method>
+        <method>
+            <name>PutDouble</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Key</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Value</name>
+                <type>java.lang.Double</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Remove</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Key</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>PutLong</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Key</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Value</name>
+                <type>java.lang.Long</type>
+            </parameter>
+        </method>
+        <method>
+            <name>PutByte</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Key</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Value</name>
+                <type>java.lang.Byte</type>
+            </parameter>
+        </method>
+        <method>
+            <name>IsInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+    </class>
+    <version>1.5</version>
+    <dependsOn>SQL</dependsOn>
+</root>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <doclet-version-NOT-library-version>1.00</doclet-version-NOT-library-version>
+  <class>
+    <name>b4a.example.callsubutils._rundelayeddata</name>
+    <shortname>RunDelayedData</shortname>
+    <owner>process</owner>
+    <method>
+      <name>Initialize</name>
+      <comment>Initializes the fields to their default value.</comment>
+      <returntype>void</returntype>
+    </method>
+    <field>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </field>
+    <field>
+      <name>Module</name>
+      <returntype>Object</returntype>
+    </field>
+    <field>
+      <name>SubName</name>
+      <returntype>String</returntype>
+    </field>
+    <field>
+      <name>Arg</name>
+      <returntype>Object[]</returntype>
+    </field>
+    <field>
+      <name>Delayed</name>
+      <returntype>boolean</returntype>
+    </field>
+  </class>
+  <class>
+    <name>b4a.example.callsubutils</name>
+    <shortname>CallSubUtils</shortname>
+    <comment>Class module
+</comment>
+    <owner>process</owner>
+    <method>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </method>
+    <method>
+      <name DesignerName="CallSubDelayedPlus">_v5</name>
+      <comment>Similar to CallSubDelayed. This method allows you to set the delay (in milliseconds).
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Module</name>
+        <type>Object</type>
+      </parameter>
+      <parameter>
+        <name>SubName</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Delay</name>
+        <type>int</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="CallSubDelayedPlus2">_v6</name>
+      <comment>Similar to CallSubDelayed. This method allows you to set the delay (in milliseconds).
+The target sub should have one parameter with a type of Object().
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Module</name>
+        <type>Object</type>
+      </parameter>
+      <parameter>
+        <name>SubName</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Delay</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>Arg</name>
+        <type>Object[]</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="CallSubPlus">_v7</name>
+      <comment>Similar to CallSub. This method allows you to set the delay (in milliseconds).
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Module</name>
+        <type>Object</type>
+      </parameter>
+      <parameter>
+        <name>SubName</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Delay</name>
+        <type>int</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="CallSubPlus2">_v0</name>
+      <comment>Similar to CallSub. This method allows you to set the delay (in milliseconds).
+The target sub should have one parameter with a type of Object().
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Module</name>
+        <type>Object</type>
+      </parameter>
+      <parameter>
+        <name>SubName</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Delay</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>Arg</name>
+        <type>Object[]</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Class_Globals">_class_globals</name>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="Initialize">_initialize</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>ba</name>
+        <type>anywheresoftware.b4a.BA</type>
+      </parameter>
+    </method>
+  </class>
+  <ide_comment>Deprecated - Use Sleep instead</ide_comment>
+  <version>1</version>
+</root>

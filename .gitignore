@@ -1,0 +1,13 @@
+#built application files
+Anemotracker5/Objects/gen/**
+Anemotracker5/Objects/bin/**
+Anemotracker5/Objects/scr/**
+Anemotracker5/Objects/shell/**
+
+git@guthub.com/volkerpetersen/**
+b4a-license_*.*
+git@guthub.com
+
+*.gitignore
+*.gitattributes
+.ssh/**

@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.04</doclet-version-NOT-library-version>
+    <class>
+        <name>anywheresoftware.b4a.http.HttpClientWrapper</name>
+        <shortname>HttpClient</shortname>
+        <comment>HttpClient allows you to make Http requests. Instead of using HttpClient directly it is recommended to use &lt;link&gt;HttpUtil2|http://www.basic4ppc.com/forum/showthread.php?p=109068&lt;/link&gt; 
+modules which are much simpler to use.</comment>
+        <owner CheckForReinitialize="true">process</owner>
+        <event>ResponseSuccess (Response As HttpResponse, TaskId As Int)</event>
+        <event>ResponseError (Response As HttpResponse, Reason As String, StatusCode As Int, TaskId As Int)</event>
+        <permission>android.permission.INTERNET</permission>
+        <method>
+            <name>Initialize</name>
+            <comment>Initializes this object.
+IMPORTANT: this object should be declared in Sub Process_Globals.
+EventName - The prefix that will be used for ResponseSuccess and ResponseError events.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>ExecuteCredentials</name>
+            <comment>Same behavior as Execute. The UserName and Password will be used for Basic or Digest authentication.
+Digest authentication is supported for GET requests and repeatable POST requests (requests with payloads based on an array of bytes).</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>HttpRequest</name>
+                <type>anywheresoftware.b4a.http.HttpClientWrapper.HttpUriRequestWrapper</type>
+            </parameter>
+            <parameter>
+                <name>TaskId</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>UserName</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Password</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SetProxy2</name>
+            <comment>Sets the proxy to use for the connections, with the required credentials.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Host</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Port</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>Scheme</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Username</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Password</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SetHttpParameter</name>
+            <comment>Sets the value of the parameter with the given name.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Name</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Value</name>
+                <type>java.lang.Object</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Execute</name>
+            <comment>Executes the HttpRequest asynchronously. ResponseSuccess or ResponseError events will be fired later.
+Note that in many cases the Response object passed in ResponseError event will be Null.
+If there is a request with the same TaskId already running then this method will return False and the new request will not be submitted.</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>HttpRequest</name>
+                <type>anywheresoftware.b4a.http.HttpClientWrapper.HttpUriRequestWrapper</type>
+            </parameter>
+            <parameter>
+                <name>TaskId</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SetProxy</name>
+            <comment>Sets the proxy to use for the connections.
+Host - Proxy host name or IP.
+Port - Proxy port.
+Scheme - Scheme name. Usually "http".</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Host</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Port</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>Scheme</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>InitializeAcceptAll</name>
+            <comment>Similar to Initialize, with one important difference. All SSL certificates will be automatically accepted.
+&lt;b&gt;This method should only be used when trying to connect to a server located in a secured network&lt;/b&gt;.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>IsInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+    </class>
+    <class>
+        <name>anywheresoftware.b4a.http.HttpClientWrapper.HttpUriRequestWrapper</name>
+        <shortname>HttpRequest</shortname>
+        <comment>Holds the target URL and other data sent to the web server.
+The initial time out is to 30000 milliseconds (30 seconds).</comment>
+        <owner>process</owner>
+        <method>
+            <name>InitializePut</name>
+            <comment>Initializes the request and sets it to be a Http Put method.
+The specified InputStream will be read and added to the request.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>URL</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>InputStream</name>
+                <type>java.io.InputStream</type>
+            </parameter>
+            <parameter>
+                <name>Length</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>InitializePost</name>
+            <comment>Initializes the request and sets it to be a Http Post method.
+The specified InputStream will be read and added to the request.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>URL</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>InputStream</name>
+                <type>java.io.InputStream</type>
+            </parameter>
+            <parameter>
+                <name>Length</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>RemoveHeaders</name>
+            <comment>Removes all headers with the given name.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Name</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>InitializeDelete</name>
+            <comment>Initializes the request and sets it to be a Http Delete method.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>URL</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SetContentType</name>
+            <comment>Sets the Mime header of the request.
+This method should only be used with Post or Put requests.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ContentType</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>InitializePut2</name>
+            <comment>Initializes the request and sets it to be a Http Put method.
+The specified Data array will be added to the request.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>URL</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Data</name>
+                <type>byte[]</type>
+            </parameter>
+        </method>
+        <method>
+            <name>InitializeHead</name>
+            <comment>Initializes the request and sets it to be a Http Head method.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>URL</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SetContentEncoding</name>
+            <comment>Sets the encoding header of the request.
+This method should only be used with Post or Put requests.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Encoding</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>InitializeGet</name>
+            <comment>Initializes the request and sets it to be a Http Get method.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>URL</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SetHeader</name>
+            <comment>Sets the value of the first header with the given name. If no such header exists then a new header will be added.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Name</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Value</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>InitializePost2</name>
+            <comment>Initializes the request and sets it to be a Http Post method.
+The specified Data array will be added to the request.
+Unlike InitializePost this method will enable the request to retry and send the data several times in case of IO errors.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>URL</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Data</name>
+                <type>byte[]</type>
+            </parameter>
+        </method>
+        <property>
+            <name>Timeout</name>
+            <parameter>
+                <name>Timeout</name>
+                <type>int</type>
+            </parameter>
+            <comment>Sets the request timeout measured in milliseconds.</comment>
+        </property>
+    </class>
+    <class>
+        <name>anywheresoftware.b4a.http.HttpClientWrapper.HttpResponeWrapper</name>
+        <shortname>HttpResponse</shortname>
+        <comment>An object that holds the response returned from the server.
+The object is passed in the ResponseSuccess event.
+You can choose to read the response synchronously or asynchronously.
+It is important to release this object when it is not used anymore by calling Release.</comment>
+        <owner>process</owner>
+        <event>StreamFinish (Success As Boolean, TaskId As Int)</event>
+        <method>
+            <name>Release</name>
+            <comment>Frees resources allocated for this object.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>GetString</name>
+            <comment>&lt;b&gt;This method is deprecated and will not work properly on Android 4+ device.&lt;/b&gt;
+Use GetAsynchronously instead.</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>DefaultCharset</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetInputStream</name>
+            <comment>&lt;b&gt;This method is deprecated and will not work properly on Android 4+ device.&lt;/b&gt;
+Use GetAsynchronously instead.</comment>
+            <returntype>anywheresoftware.b4a.objects.streams.File.InputStreamWrapper</returntype>
+        </method>
+        <method>
+            <name>GetAsynchronously</name>
+            <comment>Asynchronously reads the response and writes it to the given OutputStream.
+If there is a request with the same TaskId already running then this method will return False, and the response object will be released.
+The StreamFinish event will be raised after the response has been fully read.
+EventName - The sub that will handle the StreamFinish event.
+Output - The stream from the server will be written to this stream.
+CloseOutput - Whether to close the specified output stream when done.
+TaskId - The task id given to this task.
+Example:&lt;code&gt;
+Sub Http_ResponseSuccess (Response As HttpResponse, TaskId As Int)
+	Response.GetAsynchronously("ImageResponse", _ 
+		File.OpenOutput(File.DirInternalCache, "image.jpg", False), True, TaskId)
+End Sub
+
+Sub ImageResponse_StreamFinish (Success As Boolean, TaskId As Int)
+	If Success = False Then
+		Msgbox(LastException.Message, "Error")
+		Return
+	End If
+	ImageView1.Bitmap = LoadBitmap(File.DirInternalCache, "image.jpg")
+End Sub&lt;/code&gt;</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Output</name>
+                <type>java.io.OutputStream</type>
+            </parameter>
+            <parameter>
+                <name>CloseOutput</name>
+                <type>boolean</type>
+            </parameter>
+            <parameter>
+                <name>TaskId</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetHeaders</name>
+            <comment>Returns a Map object with the response headers.
+Each elements is made of a key which is the header name and a value which is a list containing the values (one or more).
+Example:&lt;code&gt;
+Dim list1 As List
+list1 = response.GetHeaders.Get("Set-Cookie")
+For i = 0 To list1.Size - 1
+	Log(list1.Get(i))
+Next&lt;/code&gt;</comment>
+            <returntype>anywheresoftware.b4a.objects.collections.Map</returntype>
+        </method>
+        <property>
+            <name>StatusCode</name>
+            <returntype>int</returntype>
+            <comment>Returns the response Http code.</comment>
+        </property>
+        <property>
+            <name>ContentLength</name>
+            <returntype>long</returntype>
+            <comment>Returns the content length header.</comment>
+        </property>
+        <property>
+            <name>ContentEncoding</name>
+            <returntype>java.lang.String</returntype>
+            <comment>Returns the content encoding header.</comment>
+        </property>
+        <property>
+            <name>ContentType</name>
+            <returntype>java.lang.String</returntype>
+            <comment>Returns the content type header.</comment>
+        </property>
+    </class>
+    <version>1.36</version>
+	<ide_comment>Deprecated - Replaced by OkHttp</ide_comment>
+    <comment>The HTTP library allows you to communicate with web services and to download resources from the web.
+As network communication can be slow and fragile this library handles the requests and responses in the background and raises events when a task is ready.</comment>
+</root>

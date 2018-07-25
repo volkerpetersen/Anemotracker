@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <doclet-version-NOT-library-version>1.00</doclet-version-NOT-library-version>
+  <b4x_version>8.28</b4x_version>
+  <dependsOn>randomaccessfile</dependsOn>
+  <dependsOn>sql</dependsOn>
+  <dependsOn>b4xencryption</dependsOn>
+  <class>
+    <name>b4a.example3.keyvaluestore</name>
+    <shortname>KeyValueStore</shortname>
+    <comment>KeyValueStore: v2.21
+</comment>
+    <owner>process</owner>
+    <method>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </method>
+    <method>
+      <name DesignerName="Class_Globals">_class_globals</name>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="Close">_close</name>
+      <comment>Closes the store.
+</comment>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="ContainsKey">_containskey</name>
+      <comment>Tests whether a key is available in the store.
+</comment>
+      <returntype>boolean</returntype>
+      <parameter>
+        <name>Key</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="DeleteAll">_deleteall</name>
+      <comment>Deletes all data from the store.
+</comment>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="Get">_get</name>
+      <returntype>Object</returntype>
+      <parameter>
+        <name>Key</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="GetBitmap">_getbitmap</name>
+      <returntype>anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper</returntype>
+      <parameter>
+        <name>Key</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="GetDefault">_getdefault</name>
+      <returntype>Object</returntype>
+      <parameter>
+        <name>Key</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>DefaultValue</name>
+        <type>Object</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="GetEncrypted">_getencrypted</name>
+      <returntype>Object</returntype>
+      <parameter>
+        <name>Key</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Password</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="GetMapAsync">_getmapasync</name>
+      <comment>Asynchronously retrieves the values from the store.
+The result is a map with the keys and values.
+&lt;code&gt;
+Wait For (Starter.kvs.GetMapAsync(Array("2 custom types", "time"))) Complete (Result As Map)
+&lt;/code&gt;
+</comment>
+      <returntype>anywheresoftware.b4a.keywords.Common.ResumableSubWrapper</returntype>
+      <parameter>
+        <name>Keys</name>
+        <type>anywheresoftware.b4a.objects.collections.List</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Initialize">_initialize</name>
+      <comment>Initializes the store and sets the store file.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>ba</name>
+        <type>anywheresoftware.b4a.BA</type>
+      </parameter>
+      <parameter>
+        <name>Dir</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>FileName</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="ListKeys">_listkeys</name>
+      <comment>Returns a list with all the keys.
+</comment>
+      <returntype>anywheresoftware.b4a.objects.collections.List</returntype>
+    </method>
+    <method>
+      <name DesignerName="Put">_put</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Key</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Value</name>
+        <type>Object</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="PutBitmap">_putbitmap</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Key</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Value</name>
+        <type>anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="PutEncrypted">_putencrypted</name>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Key</name>
+        <type>String</type>
+      </parameter>
+      <parameter>
+        <name>Value</name>
+        <type>Object</type>
+      </parameter>
+      <parameter>
+        <name>Password</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="PutMapAsync">_putmapasync</name>
+      <comment>Asynchronously inserts the keys and values from the map.
+Note that each pair is inserted as a separate item.
+Call it with Wait For if you want to wait for the insert to complete.
+</comment>
+      <returntype>anywheresoftware.b4a.keywords.Common.ResumableSubWrapper</returntype>
+      <parameter>
+        <name>Map</name>
+        <type>anywheresoftware.b4a.objects.collections.Map</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Remove">_remove</name>
+      <comment>Removes the key and value mapped to this key.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Key</name>
+        <type>String</type>
+      </parameter>
+    </method>
+  </class>
+  <version>2.21</version>
+</root>

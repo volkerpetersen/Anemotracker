@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.04</doclet-version-NOT-library-version>
+    <class>
+        <name>anywheresoftware.b4a.objects.Accessibility</name>
+        <shortname>Accessiblity</shortname>
+        <comment>This library includes several accessibility related methods. 
+The SetNextFocus methods allow you to explicitly set the focus order. This order is important when the user navigates your
+application with a directional controller (such as D-Pad).
+SetContentDescription sets the content that will be used by accessibility services such as TalkBack to describe the interface.</comment>
+        <owner>process</owner>
+        <method>
+            <name>SetNextFocusLeft</name>
+            <comment>Sets the next view that will get the focus when the user presses on the left key (and ThisView is focused).</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ThisView</name>
+                <type>android.view.View</type>
+            </parameter>
+            <parameter>
+                <name>NextView</name>
+                <type>android.view.View</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SetNextFocusUp</name>
+            <comment>Sets the next view that will get the focus when the user presses on the up key (and ThisView is focused).</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ThisView</name>
+                <type>android.view.View</type>
+            </parameter>
+            <parameter>
+                <name>NextView</name>
+                <type>android.view.View</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SetNextFocusRight</name>
+            <comment>Sets the next view that will get the focus when the user presses on the right key (and ThisView is focused).</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ThisView</name>
+                <type>android.view.View</type>
+            </parameter>
+            <parameter>
+                <name>NextView</name>
+                <type>android.view.View</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SetContentDescription</name>
+            <comment>Sets the view's description. This text will be used by accessibility services to describe the view.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>View</name>
+                <type>android.view.View</type>
+            </parameter>
+            <parameter>
+                <name>Content</name>
+                <type>java.lang.CharSequence</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetUserFontScale</name>
+            <comment>Returns the user set font scale. The user can adjust this scale in the device Settings.
+This scale is applied automatically to all text based views.</comment>
+            <returntype>float</returntype>
+        </method>
+        <method>
+            <name>SetNextFocusDown</name>
+            <comment>Sets the next view that will get the focus when the user presses on the down key (and ThisView is focused).
+ Example:&lt;code&gt;
+Dim Access As Accessibility
+Access.SetNextFocusDown(Button1, Button2) 'When the focus is on Button1 and the user presses on the down key,
+'the focus will move to Button2.
+&lt;/code&gt;</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ThisView</name>
+                <type>android.view.View</type>
+            </parameter>
+            <parameter>
+                <name>NextView</name>
+                <type>android.view.View</type>
+            </parameter>
+        </method>
+    </class>
+    <version>1.0</version>
+</root>

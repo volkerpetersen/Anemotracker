@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.02</doclet-version-NOT-library-version>
+    <class>
+        <name>anywheresoftware.b4a.objects.AnimationWrapper</name>
+        <shortname>Animation</shortname>
+        <comment>The Animation object allows you to animate views.
+There are several types of animations. The Initialize methods determine the animation type.
+See this &lt;link&gt;tutorial|http://www.basic4ppc.com/forum/basic4android-getting-started-tutorials/6967-android-views-animation-tutorial.html&lt;/link&gt; for a program demonstrating the animations.</comment>
+        <objectwrapper>android.view.animation.Animation</objectwrapper>
+        <owner>activity</owner>
+        <event>AnimationEnd</event>
+        <method>
+            <name>Start</name>
+            <comment>Starts the animating the given view.
+Note that a single animation should not be applied to more than one view at a time.
+Example: &lt;code&gt;Animation1.Start(Button1)&lt;/code&gt;</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>View</name>
+                <type>android.view.View</type>
+            </parameter>
+        </method>
+        <method>
+            <name>InitializeRotateCenter</name>
+            <comment>Similar to InitializeRotate, with the pivot set to the given view's center.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>FromDegrees</name>
+                <type>float</type>
+            </parameter>
+            <parameter>
+                <name>ToDegrees</name>
+                <type>float</type>
+            </parameter>
+            <parameter>
+                <name>View</name>
+                <type>android.view.View</type>
+            </parameter>
+        </method>
+        <method>
+            <name>InitializeScaleCenter</name>
+            <comment>Similar to InitializeScale with a pivot set to the given view's center.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>FromX</name>
+                <type>float</type>
+            </parameter>
+            <parameter>
+                <name>FromY</name>
+                <type>float</type>
+            </parameter>
+            <parameter>
+                <name>ToX</name>
+                <type>float</type>
+            </parameter>
+            <parameter>
+                <name>ToY</name>
+                <type>float</type>
+            </parameter>
+            <parameter>
+                <name>View</name>
+                <type>android.view.View</type>
+            </parameter>
+        </method>
+        <method>
+            <name>InitializeRotate</name>
+            <comment>Initializes a rotation animation. The view will rotate between the given values.
+Rotation pivot is set to the top left corner.
+FromDegrees - The first frame rotation value.
+ToDegrees - The last frame rotation value.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>FromDegrees</name>
+                <type>float</type>
+            </parameter>
+            <parameter>
+                <name>ToDegrees</name>
+                <type>float</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Stop</name>
+            <comment>Stops animating the given view.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>View</name>
+                <type>android.view.View</type>
+            </parameter>
+        </method>
+        <method>
+            <name>InitializeScale</name>
+            <comment>Initializes a scale animation. The view will be scaled during the animation.
+The scaling pivot will be set to the top left corners.
+FromX - The first frame horizontal scale.
+FromY - The first frame vertical scale.
+ToX - The last frame horizontal scale.
+ToY - The last frame vertical scale.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>FromX</name>
+                <type>float</type>
+            </parameter>
+            <parameter>
+                <name>FromY</name>
+                <type>float</type>
+            </parameter>
+            <parameter>
+                <name>ToX</name>
+                <type>float</type>
+            </parameter>
+            <parameter>
+                <name>ToY</name>
+                <type>float</type>
+            </parameter>
+        </method>
+        <method>
+            <name>InitializeTranslate</name>
+            <comment>Initializes a translation animation. The view will move according to the given values.
+FromDX - First frame horizontal position relative to the original position.
+FromDY - First frame vertical position relative to the original position.
+ToDX - Last frame horizontal position relative to the original position.
+ToDY - Last frame vertical position relative to the original position.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>FromDX</name>
+                <type>float</type>
+            </parameter>
+            <parameter>
+                <name>FromDY</name>
+                <type>float</type>
+            </parameter>
+            <parameter>
+                <name>ToDX</name>
+                <type>float</type>
+            </parameter>
+            <parameter>
+                <name>ToDY</name>
+                <type>float</type>
+            </parameter>
+        </method>
+        <method>
+            <name>InitializeAlpha</name>
+            <comment>Initializes an alpha animation. This animation affects the view's transparency (fading effect).
+The alpha values are between 0 to 1 where 0 is fully transparent and 1 is fully opaque.
+FromAlpha - The first frame value.
+ToAlpha - The last frame value.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>FromAlpha</name>
+                <type>float</type>
+            </parameter>
+            <parameter>
+                <name>ToAlpha</name>
+                <type>float</type>
+            </parameter>
+        </method>
+        <method>
+            <name>IsInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <property>
+            <name>RepeatCount</name>
+            <returntype>int</returntype>
+            <parameter>
+                <name>value</name>
+                <type>int</type>
+            </parameter>
+            <comment>Gets or sets the number of times the animation will repeat. A value of 0 means that it will play once.
+Set to -1 for a non stopping animation.
+Example: &lt;code&gt;Animation1.RepeatCount = 1&lt;/code&gt;</comment>
+        </property>
+        <property>
+            <name>RepeatMode</name>
+            <returntype>int</returntype>
+            <parameter>
+                <name>mode</name>
+                <type>int</type>
+            </parameter>
+            <comment>Gets or sets the repeat mode. Relevant when RepeatCount is larger than 0 (or -1).
+The default is REPEAT_RESTART which means that the animation will restart each time.
+REPEAT_REVERSE causes the animation to repeat in reverse each time.
+For example if the animation moves the view to the right 100 pixels, in the next repeat it will return to the left.
+Example: &lt;code&gt;Animation1.RepeatMode = Animation1.REPEAT_REVERSE&lt;/code&gt;</comment>
+        </property>
+        <property>
+            <name>Duration</name>
+            <returntype>long</returntype>
+            <parameter>
+                <name>value</name>
+                <type>long</type>
+            </parameter>
+            <comment>Gets or sets the animation duration. Value is measured in milliseconds.
+Example: &lt;code&gt;Animation1.Duration = 1000&lt;/code&gt;</comment>
+        </property>
+        <field>
+            <name>REPEAT_RESTART</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>REPEAT_REVERSE</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+    </class>
+    <version>1.02</version>
+</root>

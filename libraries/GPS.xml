@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.04</doclet-version-NOT-library-version>
+    <class>
+        <name>anywheresoftware.b4a.gps.LocationWrapper</name>
+        <shortname>Location</shortname>
+        <comment>A Location object holds various information about a specific GPS fix.
+In most cases you will work with locations that are passed to the GPS LocationChanged event.
+The location object can also be used to calculate distance and bearing to other locations.</comment>
+        <objectwrapper>android.location.Location</objectwrapper>
+        <owner>process</owner>
+        <method>
+            <name>Initialize</name>
+            <comment>Initializes an empty location object.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>ConvertToSeconds</name>
+            <comment>Converts the given coordinate to a string formatted with the following format:
+[+-]DDD:MM:SS.SSSSS (Minute = 1 / 60 of a degree, Second = 1 / 3600 of a degree)</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>Coordinate</name>
+                <type>double</type>
+            </parameter>
+        </method>
+        <method>
+            <name>DistanceTo</name>
+            <comment>Returns the distance to the given location, measured in meters.</comment>
+            <returntype>float</returntype>
+            <parameter>
+                <name>TargetLocation</name>
+                <type>android.location.Location</type>
+            </parameter>
+        </method>
+        <method>
+            <name>ConvertToMinutes</name>
+            <comment>Converts the given coordinate to a string formatted with the following format:
+[+-]DDD:MM.MMMMM (Minute = 1 / 60 of a degree)</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>Coordinate</name>
+                <type>double</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Initialize2</name>
+            <comment>Initializes the location object with the given Latitude and Longitude.
+Values can be formatted in any of the three formats:
+Degrees: [+-]DDD.DDDDD
+Minutes: [+-]DDD:MM.MMMMM (Minute = 1 / 60 of a degree)
+Seconds: [+-]DDD:MM:SS.SSSSS (Second = 1 / 3600 of a degree)
+Example:&lt;code&gt;
+Dim L1 As Location
+L1.Initialize2("45:30:30", "45:20:15")&lt;/code&gt;</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Latitude</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Longitude</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>IsInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>BearingTo</name>
+            <comment>Returns the bearing to the given location.</comment>
+            <returntype>float</returntype>
+            <parameter>
+                <name>TargetLocation</name>
+                <type>android.location.Location</type>
+            </parameter>
+        </method>
+        <property>
+            <name>AltitudeValid</name>
+            <returntype>boolean</returntype>
+            <comment>Returns true if the fix includes altitude value.</comment>
+        </property>
+        <property>
+            <name>Accuracy</name>
+            <returntype>float</returntype>
+            <parameter>
+                <name>value</name>
+                <type>float</type>
+            </parameter>
+            <comment>Gets or sets the fix accuracy (meters).</comment>
+        </property>
+        <property>
+            <name>BearingValid</name>
+            <returntype>boolean</returntype>
+            <comment>Returns true if the fix includes bearing value.</comment>
+        </property>
+        <property>
+            <name>SpeedValid</name>
+            <returntype>boolean</returntype>
+            <comment>Returns true if the fix includes speed value.</comment>
+        </property>
+        <property>
+            <name>Altitude</name>
+            <returntype>double</returntype>
+            <parameter>
+                <name>value</name>
+                <type>double</type>
+            </parameter>
+            <comment>Gets or sets the fix altitude (meters).</comment>
+        </property>
+        <property>
+            <name>Speed</name>
+            <returntype>float</returntype>
+            <parameter>
+                <name>value</name>
+                <type>float</type>
+            </parameter>
+            <comment>Gets or sets the fix speed (meters / second).</comment>
+        </property>
+        <property>
+            <name>Time</name>
+            <returntype>long</returntype>
+            <parameter>
+                <name>value</name>
+                <type>long</type>
+            </parameter>
+            <comment>Gets or sets the fix time.</comment>
+        </property>
+        <property>
+            <name>Latitude</name>
+            <returntype>double</returntype>
+            <parameter>
+                <name>value</name>
+                <type>double</type>
+            </parameter>
+            <comment>Gets or sets the fix latitude (degrees from -90 (South) to 90 (North)).</comment>
+        </property>
+        <property>
+            <name>Longitude</name>
+            <returntype>double</returntype>
+            <parameter>
+                <name>value</name>
+                <type>double</type>
+            </parameter>
+            <comment>Gets or sets the fix longitude (degrees from -180 to 180, positive values represent the eastern hemisphere).</comment>
+        </property>
+        <property>
+            <name>AccuracyValid</name>
+            <returntype>boolean</returntype>
+            <comment>Returns true if the fix includes accuracy value.</comment>
+        </property>
+        <property>
+            <name>Bearing</name>
+            <returntype>float</returntype>
+            <parameter>
+                <name>value</name>
+                <type>float</type>
+            </parameter>
+            <comment>Gets or sets the fix bearing East of true North.</comment>
+        </property>
+    </class>
+    <class>
+        <name>anywheresoftware.b4a.gps.GpsSatelliteWrapper</name>
+        <shortname>GPSSatellite</shortname>
+        <comment>The GPSSatellite object holds various information about a GPS satellite. A List with the available satellites is passed to the GpsStatus event.</comment>
+        <objectwrapper>android.location.GpsSatellite</objectwrapper>
+        <owner>process</owner>
+        <method>
+            <name>IsInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <property>
+            <name>UsedInFix</name>
+            <returntype>boolean</returntype>
+            <comment>Tests whether this satellite was used to calculate the most recent fix.</comment>
+        </property>
+        <property>
+            <name>Prn</name>
+            <returntype>int</returntype>
+            <comment>Returns the PRN (pseudo-random number) for the satellite.</comment>
+        </property>
+        <property>
+            <name>Elevation</name>
+            <returntype>float</returntype>
+            <comment>Returns the satellite elevation in degrees (0 - 90).</comment>
+        </property>
+        <property>
+            <name>Azimuth</name>
+            <returntype>float</returntype>
+            <comment>Returns the satellite azimuth in degrees (0 - 360).</comment>
+        </property>
+        <property>
+            <name>Snr</name>
+            <returntype>float</returntype>
+            <comment>Returns the signal to noise ratio for the satellite.</comment>
+        </property>
+    </class>
+    <class>
+        <name>anywheresoftware.b4a.gps.GPS</name>
+        <shortname>GPS</shortname>
+        <comment>The main object that raises the GPS events.
+Note that this library requires Android 2.0 or above.</comment>
+        <owner CheckForReinitialize="true">process</owner>
+        <event>LocationChanged (Location1 As Location)</event>
+        <event>UserEnabled (Enabled As Boolean)</event>
+        <event>GpsStatus (Satellites As List)</event>
+        <event>NMEA (TimeStamp As Long, Sentence As String)</event>
+        <permission>android.permission.ACCESS_FINE_LOCATION</permission>
+        <method>
+            <name>Initialize</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name RaisesSynchronousEvents="true">Start</name>
+            <comment>Starts listening for events.
+MinimumTime - The shortest period (measured in milliseconds) between events. Pass 0 for highest frequency.
+MinimumDistance - The shortest change in distance (measured in meters) for which to raise events. Pass 0 for highest frequency.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>MinimumTime</name>
+                <type>long</type>
+            </parameter>
+            <parameter>
+                <name>MinimumDistance</name>
+                <type>float</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Stop</name>
+            <comment>Stops listening to the GPS. You will usually want to call Stop inside Sub Activity_Pause.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>IsInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <property>
+            <name>GPSEnabled</name>
+            <returntype>boolean</returntype>
+            <comment>Tests whether the user has enabled the GPS.</comment>
+        </property>
+        <property>
+            <name>LocationSettingsIntent</name>
+            <returntype>android.content.Intent</returntype>
+            <comment>Returns the intent that is used to show the global locations settings.
+Example:&lt;code&gt;
+If GPS1.GPSEnabled = False Then StartActivity(GPS1.LocationSettingsIntent)&lt;/code&gt;</comment>
+        </property>
+    </class>
+    <version>1.2</version>
+    <comment>The GPS library allows you to get information from the phone's GPS device.
+See the &lt;link&gt;GPS tutorial|http://www.basic4ppc.com/forum/basic4android-getting-started-tutorials/6592-gps-tutorial.html&lt;/link&gt; for more information about this library.</comment>
+</root>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.03</doclet-version-NOT-library-version>
+    <class>
+        <name>anywheresoftware.b4a.objects.CameraW</name>
+        <shortname>Camera</shortname>
+        <comment>The camera object allows you to access the device cameras.
+This library is supported by Android 1.6+.
+If possible it is recommended to work with CameraEx class that wraps this object and adds many features.
+The CameraEx class requires Android 2.3+.</comment>
+        <owner>activity</owner>
+        <event>Ready (Success As Boolean)</event>
+        <event>PictureTaken (Data() As Byte)</event>
+        <event>Preview (Data() As Byte)</event>
+        <event>FocusDone (Success As Boolean)</event>
+        <permission>android.permission.CAMERA</permission>
+        <method>
+            <name>Release</name>
+            <comment>Releases the camera object and allows other processes to access the camera.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>Initialize</name>
+            <comment>Initializes the back camera.
+Panel - The preview images will be displayed on the panel.
+EventName - Events subs prefix.
+The Ready event will be raised when the camera has finished opening.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>Panel</name>
+                <type>android.view.ViewGroup</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>TakePicture</name>
+            <comment>Takes a picture. When the picture is ready, the PictureTaken event will be raised.
+You should not call TakePicture while another picture is currently taken.
+The preview images are stopped after calling this method. You can call StartPreview to restart the preview images.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>StopPreview</name>
+            <comment>Stops displaying the preview images.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>StartPreview</name>
+            <comment>Starts displaying the preview images.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>CancelAutoFocus</name>
+            <comment>Cancels the auto-focus operation. Does nothing if no such operation is in progress.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>Initialize2</name>
+            <comment>Same as Initialize. CameraId is the id of the hardware camera.
+&lt;b&gt;This method is only available from Android 2.3+.&lt;/b&gt;</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>Panel</name>
+                <type>android.view.ViewGroup</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>CameraId</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>AutoFocus</name>
+            <comment>Starts auto-focus function. The FocusDone event will be raised when the operation completes.
+You can check whether the "auto" focus mode is supported with CameraEx class.</comment>
+            <returntype>void</returntype>
+        </method>
+    </class>
+    <version>2.2</version>
+</root>

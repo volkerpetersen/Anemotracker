@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.00</doclet-version-NOT-library-version>
+    <class>
+        <name>anywheresoftware.b4a.obejcts.TTS</name>
+        <shortname>TTS</shortname>
+        <comment>Synthesizes text to speech and plays it.
+After initializing the object you should wait for the Ready event.
+See this &lt;link&gt;example|http://www.basic4ppc.com/forum/basic4android-getting-started-tutorials/7043-android-text-speech-example.html&lt;/link&gt;.</comment>
+        <objectwrapper>android.speech.tts.TextToSpeech</objectwrapper>
+        <owner>process</owner>
+        <event>Ready (Success As Boolean)</event>
+        <method>
+            <name>Release</name>
+            <comment>Releases any resources related to this object. You will need to initialize the object again before use.
+Note that it is safe to call this method with an uninitialized object.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>Speak</name>
+            <comment>Speaks the given text.
+ClearQueue - If True then all waiting texts are dismissed and the new text is spoken.
+Otherwise the new text is added to the queue.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Text</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>ClearQueue</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Initialize</name>
+            <comment>Initializes the object.
+The Ready event will be raised when the text to speech engine is ready.
+EventName - The Sub that will handle the Ready event.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SetLanguage</name>
+            <comment>Sets the spoken language.
+Language - Language code. Two lowercase letters.
+Country - Country code. Two uppercase letters. Pass an empty string if not needed.
+Returns True if a matching language is available. The country value will be ignored if the language code matches and the country code does not match.</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>Language</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Country</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Stop</name>
+            <comment>Stops speaking any currently playing text (and dismisses texts in the queue).</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>IsInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <property>
+            <name>SpeechRate</name>
+            <parameter>
+                <name>value</name>
+                <type>float</type>
+            </parameter>
+            <comment>Sets the speech rate. Default is 1.
+Example: &lt;code&gt;TTS1.SpeechRate = 0.5&lt;/code&gt;</comment>
+        </property>
+        <property>
+            <name>Pitch</name>
+            <parameter>
+                <name>value</name>
+                <type>float</type>
+            </parameter>
+            <comment>Sets the pitch value. Default is 1.
+Example: &lt;code&gt;TTS1.Pitch = 1.5&lt;/code&gt;</comment>
+        </property>
+    </class>
+    <version>1.0</version>
+</root>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.07</doclet-version-NOT-library-version>
+    <class>
+        <name>anywheresoftware.b4a.objects.FirebaseNotificationsService.FirebaseMessageWrapper</name>
+        <shortname>FirebaseMessaging</shortname>
+        <objectwrapper>com.google.firebase.messaging.FirebaseMessaging</objectwrapper>
+        <owner>process</owner>
+        <event>TokenRefresh (Token As String)</event>
+        <event>MessageArrived (Message As RemoteMessage)</event>
+        <method>
+            <name>HandleIntent</name>
+            <comment>Should be called from Service_Start. Returns true if the intent was handled.</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>Intent</name>
+                <type>android.content.Intent</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SubscribeToTopic</name>
+            <comment>Subscribes to the specified topic.
+Example:&lt;code&gt;
+fm.SubscribeToTopic("general")&lt;/code&gt;</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Topic</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>IsInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>Initialize</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>UnsubscribeFromTopic</name>
+            <comment>Unsubscribes from a topic.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Topic</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <property>
+            <name>Token</name>
+            <returntype>java.lang.String</returntype>
+            <comment>Returns the device token. The token can change from time to time. The TokenRefresh event is raised when the token changes.
+The token is only needed when sending messages to a specific device.</comment>
+        </property>
+    </class>
+    <class>
+        <name>anywheresoftware.b4a.objects.FirebaseNotificationsService.RemoteMessageWrapper</name>
+        <shortname>RemoteMessage</shortname>
+        <comment>Holds the push message data.</comment>
+        <objectwrapper>com.google.firebase.messaging.RemoteMessage</objectwrapper>
+        <owner>process</owner>
+        <method>
+            <name>GetData</name>
+            <comment>Returns a Map with the key / values set as the message data.</comment>
+            <returntype>anywheresoftware.b4a.objects.collections.Map</returntype>
+        </method>
+        <method>
+            <name>IsInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <property>
+            <name>SentTime</name>
+            <returntype>long</returntype>
+            <comment>Returns the time the message was sent.</comment>
+        </property>
+        <property>
+            <name>From</name>
+            <returntype>java.lang.String</returntype>
+            <comment>Returns the sender id or the topic name. In the later case the value will start with /topics/</comment>
+        </property>
+        <property>
+            <name>CollapseKey</name>
+            <returntype>java.lang.String</returntype>
+            <comment>Gets the collapse key (if set).</comment>
+        </property>
+        <property>
+            <name>MessageId</name>
+            <returntype>java.lang.String</returntype>
+            <comment>Gets the message id.</comment>
+        </property>
+    </class>
+    <version>1.21</version>
+    <dependsOn>com.google.firebase:firebase-messaging</dependsOn>
+    <dependsOn>com.google.firebase:firebase-core</dependsOn>
+</root>

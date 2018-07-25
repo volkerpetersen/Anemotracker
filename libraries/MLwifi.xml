@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.02</doclet-version-NOT-library-version>
+    <class>
+        <name>wifi.MLwifi</name>
+        <shortname>MLwifi</shortname>
+        <owner>process</owner>
+        <event>PingDone(isOnline As Boolean)</event>
+        <permission>android.permission.ACCESS_NETWORK_STATE</permission>
+        <permission>android.permission.ACCESS_WIFI_STATE</permission>
+        <permission>android.permission.CHANGE_WIFI_STATE</permission>
+        <permission>android.permission.INTERNET</permission>
+        <permission>android.permission.WAKE_LOCK</permission>
+        <method>
+            <name>isWifiConnected</name>
+            <comment>Checks if WIFI is connected. This only checks for WIFI connection to a router
+ It does NOT test for Internet availability
+
+ Returns True if WIFI is connected or False if 2G, 3G, 4G, WIMAX or no connection</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>CalcWifiPct</name>
+            <comment>Calculates WIFI signal percentage from the WIFI signal level as an integer (0 to 100)
+ Signal Range: -100db -&gt; 0%, -50db -&gt; 100%</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>WifiSignal</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>WifiAPDistance</name>
+            <comment>Returns the estimated distance to WIFI Access Point, depending on the signal level and frequency
+ Returns 0 on error.</comment>
+            <returntype>double</returntype>
+        </method>
+        <method>
+            <name>isSavedWifiAP</name>
+            <comment>Checks if a WIFI AP is saved on the device
+ 
+ ssid: Access Point SSID
+ 
+ Returns True if this SSID is saved</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>ssid</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>WifiSSID</name>
+            <comment>Returns the current WIFI SSID or empty string</comment>
+            <returntype>java.lang.String</returntype>
+        </method>
+        <method>
+            <name>disconnectWifiAP</name>
+            <comment>Disconnects the current WIFI AP connection
+ 
+ Returns True on success</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>isOnline</name>
+            <comment>Checks for Internet connection
+ 
+ This method does not check or care what type of network is used
+ It can be WIFI, 2G, 3G, 4g, WIMAX, etc. It just tests for Internet connectivity
+ 
+ Returns True if Internet is available
+ 
+ ERROR. This method only checks if the device is connected to any network (WIFI, Phone Data, etc),
+ but the network can be not connected to Internet (ADSL router not connected to phone line, etc)</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>WifiSignalPct</name>
+            <comment>Returns the WIFI signal strength in percentage as an integer (0 to 100) 
+ Returns 0 on error</comment>
+            <returntype>int</returntype>
+        </method>
+        <method>
+            <name>WifiFrequency</name>
+            <comment>Returns the Link Frequency (MHz) of the connected WIFI Access Point
+ Returns 0 on error.</comment>
+            <returntype>int</returntype>
+        </method>
+        <method>
+            <name>WifiChannel</name>
+            <comment>Returns the Link Channel of the connected WIFI Access Point
+ 	2.4GHz Band: 1 - 13, 14 (Japan only)
+ 	5GHz Band:   0 - 200 
+ Returns -1 on error.</comment>
+            <returntype>int</returntype>
+        </method>
+        <method>
+            <name>WifiIpAddress</name>
+            <comment>Returns the IP Address of the WIFI interface or empty string</comment>
+            <returntype>java.lang.String</returntype>
+        </method>
+        <method>
+            <name>ActiveNetworkTypeName</name>
+            <comment>Returns the Type Name (WIFI, MOBILE, etc) of the current Active Network or empty string</comment>
+            <returntype>java.lang.String</returntype>
+        </method>
+        <method>
+            <name>isMobileConnected</name>
+            <comment>Checks if Phone Data is connected. This only checks for connection to a phone network.
+ It does NOT test for Internet availability.
+ 
+ Returns True if 2G, 3G or 4G Data is connected or False if WIFI, WIMAX or no connection</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>WifiMACAddress</name>
+            <comment>Returns the MAC Address of the WIFI interface or empty string</comment>
+            <returntype>java.lang.String</returntype>
+        </method>
+        <method>
+            <name>is5GHzBandSupported</name>
+            <comment>Returns true if this WIFI adapter supports 5 GHz band</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>WifiBand</name>
+            <comment>Returns the Link Band of the connected WIFI Access Point
+ 	WIFI_2_4GHZ_BAND: 2.4GHz Band
+ 	WIFI_5GHZ_BAND:   5GHz Band 
+ Returns 0 on error.</comment>
+            <returntype>int</returntype>
+        </method>
+        <method>
+            <name>EnableWifi</name>
+            <comment>Turns WIFI On or Off. Pass True to Enable WIFI or False to Disable</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Enabled</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
+        <method>
+            <name>releaseWifiOn</name>
+            <comment>Unlocks the WIFI radio, previously locked by calling "holdWifiOn" or "holdWifiOn2", allowing it to 
+ turn off when the device is idle. 
+ 
+ Returns True on success</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>WifiSignal</name>
+            <comment>Returns the WIFI signal strength in dBm as an integer or 0 on error</comment>
+            <returntype>int</returntype>
+        </method>
+        <method>
+            <name>connectWifiAP</name>
+            <comment>Connects to a WIFI AP already configured on the device 
+ 
+ ssid: Access Point SSID
+ 
+ Returns true on success</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>ssid</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isWifiEnabled</name>
+            <comment>Returns whether WIFI is Enabled (true) or Disabled (false)</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>ActiveNetworkType</name>
+            <comment>Returns the Type (0:MOBILE, 1:WIFI, 6:WIMAX, 7:BLUETOOTH, 9:ETHERNET, etc) of the current Active Network or -1</comment>
+            <returntype>int</returntype>
+        </method>
+        <method>
+            <name>holdWifiOn2</name>
+            <comment>Allows an application to keep the WIFI radio awake. Normally the WIFI radio may turn off 
+ when the user has not used the device in a while.
+	
+ WIFI radio will keep awake until "releaseWifiOn" is called.
+ 
+ lockType: WIFI_MODE_FULL, WIFI_MODE_SCAN_ONLY, WIFI_MODE_FULL_HIGH_PERF
+ 
+ Returns True on success</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>lockType</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>WifiStrength</name>
+            <comment>Returns the WIFI signal strength in percentage as an integer (0 to 100) 
+ Returns 0 on error
+ This method fails in some devices. Use WifiSignalPct() instead</comment>
+            <returntype>int</returntype>
+        </method>
+        <method>
+            <name>holdWifiOn</name>
+            <comment>Allows an application to keep the WIFI radio awake. Normally the WIFI radio may turn off 
+ when the user has not used the device in a while.
+	
+ WIFI radio will keep awake until "releaseWifiOn" is called.
+ 
+ Returns True on success</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>isOnlinePing5</name>
+            <comment>Checks for Internet connection by sending a Ping to Google DNS server (Ip: 8.8.8.8)
+ 
+ Launches the event "isOnline_PingDone(isOnline As Boolean)" with the ping result
+ 
+ timeout: Maximum waiting time in milliseconds 
+
+ This method does not check or care what type of network is used
+ It can be WIFI, 2G, 3G, 4g, WIMAX, etc. It just tests for Internet connectivity
+ 
+ Returns True if success</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>timeout</name>
+                <type>long</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isOnlinePing6</name>
+            <comment>Checks for Internet connection by sending a Ping to IpHost
+ 
+ Launches the event "isOnline_PingDone(isOnline As Boolean)" with the ping result
+ 
+ IpHost: Ip address or Host name
+ timeout: Maximum waiting time in milliseconds 
+
+ This method does not check or care what type of network is used
+ It can be WIFI, 2G, 3G, 4g, WIMAX, etc. It just tests for Internet connectivity
+ 
+ Returns True if success</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>IpHost</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>timeout</name>
+                <type>long</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isOnlinePing3</name>
+            <comment>Checks for Internet connection by sending a Ping to Google DNS server (Ip: 8.8.8.8)
+ 
+ timeout: Maximum waiting time in milliseconds 
+ 
+ This method does not check or care what type of network is used
+ It can be WIFI, 2G, 3G, 4g, WIMAX, etc. It just tests for Internet connectivity
+ 
+ Returns True if Internet is available</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>timeout</name>
+                <type>long</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isOnlinePing4</name>
+            <comment>Checks for Internet connection by sending a Ping to IpHost
+ 
+ IpHost: Ip address or Host name
+ timeout: Maximum waiting time in milliseconds 
+
+ This method does not check or care what type of network is used
+ It can be WIFI, 2G, 3G, 4g, WIMAX, etc. It just tests for Internet connectivity
+ 
+ Returns True if Internet is available</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>IpHost</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>timeout</name>
+                <type>long</type>
+            </parameter>
+        </method>
+        <method>
+            <name>WifiLinkSpeed</name>
+            <comment>Returns the LinkSpeed (Mbps) of the connected WIFI Access Point
+ Returns 0 on error.</comment>
+            <returntype>int</returntype>
+        </method>
+        <method>
+            <name>removeWifiAP</name>
+            <comment>Remove a saved WIFI AP on the device
+ 
+ ssid: Access Point SSID
+ 
+ Returns True on success</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>ssid</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isOnlinePing2</name>
+            <comment>Checks for Internet connection by sending a Ping to IpHost (Ip address or Host name)
+ 
+ This method does not check or care what type of network is used
+ It can be WIFI, 2G, 3G, 4g, WIMAX, etc. It just tests for Internet connectivity
+ 
+ Returns True if Internet is available</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>IpHost</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>APIversion</name>
+            <comment>Returns the Version of Android running on the device as an integer such as 19, 21, 23, etc</comment>
+            <returntype>int</returntype>
+        </method>
+        <method>
+            <name>isOnlinePing</name>
+            <comment>Checks for Internet connection by sending a Ping to Google DNS server (Ip: 8.8.8.8)
+ 
+ This method does not check or care what type of network is used
+ It can be WIFI, 2G, 3G, 4g, WIMAX, etc. It just tests for Internet connectivity
+ 
+ Returns True if Internet is available</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>saveWifiAP</name>
+            <comment>Saves the configuration of a WIFI AP onto the device
+
+ ssid: Access Point SSID
+ security: Access Point security type (0:NONE, 1:WEP, 2:WAP)
+ password: Access Point password/phrase ("" for an open network)
+ connect: true -&gt; Connect to the WIFI AP after saving
+ 
+ Returns True on success</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>ssid</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>security</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>password</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>connect</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isWifiConnectedOld</name>
+            <comment>Checks if WIFI is connected. This only checks for WIFI connection to a router
+ It does NOT test for Internet availability
+ 
+ Returns True if WIFI is connected or False if 2G, 3G, 4G, WIMAX or no connection
+ 
+ This method uses "getNetworkInfo()" that was deprecated in API level 23</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>isWifiHeldOn</name>
+            <comment>Checks if WIFI is held On by a call to "holdWifiOn" or "holdWifiOn2"</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <field>
+            <name>WIFI_5GHZ_BAND</name>
+            <comment>5GHz WIFI Band</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>WIFI_MODE_FULL</name>
+            <comment>In this WIFI lock mode, WIFI will be kept active, and will behave normally. It will attempt to automatically 
+ establish a connection to a remembered access point that is within range, and will do periodic scans if there 
+ are remembered access points but none are in range.</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>WIFI_MODE_SCAN_ONLY</name>
+            <comment>In this WIFI lock mode, WIFI will be kept active, but the only operation that will be supported is initiation 
+ of scans, and the subsequent reporting of scan results. No attempts will be made to automatically connect to 
+ remembered access points, nor will periodic scans be automatically performed looking for remembered access points. 
+ Scans must be explicitly requested by an application in this mode.</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>WIFI_2_4GHZ_BAND</name>
+            <comment>2.4GHz WIFI Band</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>WIFI_MODE_FULL_HIGH_PERF</name>
+            <comment>In this WIFI lock mode, WIFI will be kept active as in mode WIFI_MODE_FULL but it operates at 
+ high performance with minimum packet loss and low packet latency even when the device screen is off. 
+ This mode will consume more power and hence should be used only when there is a need for such an active connection.</comment>
+            <returntype>int</returntype>
+        </field>
+    </class>
+    <class>
+        <name>wifi.MLwifi.MLWifiScanner</name>
+        <shortname>MLScan</shortname>
+        <owner>process</owner>
+        <event>ScanDone(Results() As String, Count As Int)</event>
+        <method>
+            <name>connectWifiAP</name>
+            <comment>Connects to a network already configured on the device. The device will use saved values to connect. 
+ 
+ EntryNumber: If you display the string array "wifis", you can pass the Position variable from your ListView_Click event.
+ Otherwise, you must pass the entry number from the string array since that is what is used as a reference.
+ 
+ Returns true on success</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>EntryNumber</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>startScan</name>
+            <comment>Initializes all objects and scans for WIFI networks. Builds a string array 
+ of results (wifis) that can be accessed directly or with a call to updateWifiList.
+ EventName: Name of the Event to launch when Scan finish (EventName_ScanDone)
+ NoEventOnSystemScan: Launches events only on requested scans (true) or on all scans (false), 
+ including system background scans.
+ THIS METHOD SHOULD ONLY BE CALLED ONCE!</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>NoEventOnSystemScan</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
+        <method>
+            <name>removeWifiAP</name>
+            <comment>Remove a saved WIFI AP on the device
+ 
+ NetId - The network ID number to delete (returned in the listSavedNetworks method)
+ 
+ Returns True on success</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>NetId</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>listSavedNetworks</name>
+            <comment>Builds a list of all saved networks on the device.
+ 
+ Returns a comma separated list of: SSID,BSSID,Network ID number.</comment>
+            <returntype>java.util.List</returntype>
+        </method>
+        <method>
+            <name>stopScan</name>
+            <comment>Stops events launched on system background scans, if enabled in "startScan".
+ Call "updateWifiList" to re-activate this events.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isSavedWifiAP</name>
+            <comment>Checks the stored networks on the device to see if this entry is a previously saved Access Point
+ 
+ EntryNumber: The entry number in the "wifis" array to check. If you display the string array "wifis", 
+ you can pass the Position variable from your ListView_Click event.
+ Otherwise, you must pass the entry number from the string array since that is what is used as a reference.
+ 
+ Returns True if this is a stored network</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>EntryNumber</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>WifiCap</name>
+            <comment>Returns a String containing info about the selected entry. A startScan must have already been done. 
+ The string contains the SSID, the BSSID, and the Capabilities of the Network Access Point,
+ comma separated (SSID,BSSID,CapabilityString). The capabilities part can be quite long.
+ 
+ EntryNumber: If you display the string array "wifis", you can pass the Position variable from your ListView_Click event.
+ Otherwise, you must pass the entry number from the string array since that is what is used as a reference.
+ 
+ Returns a string of comma separated entries of SSID,BSSID, and capability string. Returns an empty string on error.</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>EntryNumber</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>getBSSID</name>
+            <comment>Returns the BSSID for the selected entry. 
+ 
+ EntryNumber: If you display the string array "wifis", you can pass the Position variable from your ListView_Click event.
+ Otherwise, you must pass the entry number from the string array since that is what is used as a reference.</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>EntryNumber</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>updateWifiList</name>
+            <comment>Call only after startScan has already been called and a string array of Access Points
+ has been built. This method returns a string array containing the access points from the 
+ most recent scan, including background scans done automatically by the Android WifiManager. 
+ 
+ Calls the ScanDone event when a new list is ready. 
+ 
+ Returns the string array of comma separated WIFI access points by SSID. Each entry may
+ contain the following:
+ SSID, Security Type, Signal level (in dBm), and the word "Saved" if the network was
+ previously saved for use on this device.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>saveWifiAP</name>
+            <comment>Saves the configuration of a WIFI AP onto the device and connects to it.  
+ 
+ EntryNumber: If you display the string array "wifis", you can pass the Position variable from your ListView_Click event.
+ 				Otherwise, you must pass the entry number from the string array since that is what is used as a reference.
+ securityType: The Access Point security type (returned in the scan result string array)
+ Password: The password/phrase for the WIFI access point. Pass "" for an open network. Handles WEP HEX or text phrases
+ 
+ Returns True if the connection is successful</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>EntryNumber</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>securityType</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Password</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <field>
+            <name>wifis</name>
+            <comment>A string array containing all scanned Access Points in the area of the device, sorted
+ by Signal strength. These are comma separated entries consisting of the following:
+ 
+ SSID, Security Type, Signal strength, and "Saved" if this network was previously 
+ saved for use on this device.</comment>
+            <returntype>java.lang.String[]</returntype>
+        </field>
+    </class>
+    <version>3.03</version>
+    <author>V-2.17 by Jem Miller - Missing Link Software; V-3.00 by bgsoft</author>
+</root>

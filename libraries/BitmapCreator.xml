@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <doclet-version-NOT-library-version>1.00</doclet-version-NOT-library-version>
+  <b4x_version>8.28</b4x_version>
+  <dependsOn>javaobject</dependsOn>
+  <dependsOn>xui</dependsOn>
+  <class>
+    <name>b4a.example.bitmapcreator._premultipliedcolor</name>
+    <shortname>PremultipliedColor</shortname>
+    <owner>process</owner>
+    <method>
+      <name>Initialize</name>
+      <comment>Initializes the fields to their default value.</comment>
+      <returntype>void</returntype>
+    </method>
+    <field>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </field>
+    <field>
+      <name>a</name>
+      <returntype>int</returntype>
+    </field>
+    <field>
+      <name>r</name>
+      <returntype>int</returntype>
+    </field>
+    <field>
+      <name>g</name>
+      <returntype>int</returntype>
+    </field>
+    <field>
+      <name>b</name>
+      <returntype>int</returntype>
+    </field>
+  </class>
+  <class>
+    <name>b4a.example.bitmapcreator._argbcolor</name>
+    <shortname>ARGBColor</shortname>
+    <owner>process</owner>
+    <method>
+      <name>Initialize</name>
+      <comment>Initializes the fields to their default value.</comment>
+      <returntype>void</returntype>
+    </method>
+    <field>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </field>
+    <field>
+      <name>a</name>
+      <returntype>int</returntype>
+    </field>
+    <field>
+      <name>r</name>
+      <returntype>int</returntype>
+    </field>
+    <field>
+      <name>g</name>
+      <returntype>int</returntype>
+    </field>
+    <field>
+      <name>b</name>
+      <returntype>int</returntype>
+    </field>
+  </class>
+  <class>
+    <name>b4a.example.bitmapcreator._drawtask</name>
+    <shortname>DrawTask</shortname>
+    <owner>process</owner>
+    <method>
+      <name>Initialize</name>
+      <comment>Initializes the fields to their default value.</comment>
+      <returntype>void</returntype>
+    </method>
+    <field>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </field>
+    <field>
+      <name>Source</name>
+      <returntype>b4a.example.bitmapcreator</returntype>
+    </field>
+    <field>
+      <name>SrcRect</name>
+      <returntype>anywheresoftware.b4a.objects.B4XCanvas.B4XRect</returntype>
+    </field>
+    <field>
+      <name>TargetX</name>
+      <returntype>int</returntype>
+    </field>
+    <field>
+      <name>TargetY</name>
+      <returntype>int</returntype>
+    </field>
+    <field>
+      <name>SkipBlending</name>
+      <returntype>boolean</returntype>
+    </field>
+    <field>
+      <name>SrcScaleX</name>
+      <returntype>float</returntype>
+    </field>
+    <field>
+      <name>SrcScaleY</name>
+      <returntype>float</returntype>
+    </field>
+    <field>
+      <name>Degrees</name>
+      <returntype>int</returntype>
+    </field>
+    <field>
+      <name>Transform</name>
+      <returntype>boolean</returntype>
+    </field>
+  </class>
+  <class>
+    <name>b4a.example.bitmapcreator</name>
+    <shortname>BitmapCreator</shortname>
+    <comment>version 3.60
+</comment>
+    <owner>process</owner>
+    <method>
+      <name>IsInitialized</name>
+      <comment>Tests whether the object has been initialized.</comment>
+      <returntype>boolean</returntype>
+    </method>
+    <method>
+      <name DesignerName="ARGBToPremultipliedColor">_argbtopremultipliedcolor</name>
+      <comment>Converts an ARGB color to PremultipliedColor.
+The Result parameter will hold the output.
+</comment>
+      <returntype>b4a.example.bitmapcreator._premultipliedcolor</returntype>
+      <parameter>
+        <name>ARGB</name>
+        <type>b4a.example.bitmapcreator._argbcolor</type>
+      </parameter>
+      <parameter>
+        <name>PM</name>
+        <type>b4a.example.bitmapcreator._premultipliedcolor</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="BlendPixel">_blendpixel</name>
+      <comment>Copies a single pixel from Source to this BC. If the pixel is non-opaque then it will blend with the current pixel.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Source</name>
+        <type>b4a.example.bitmapcreator</type>
+      </parameter>
+      <parameter>
+        <name>SrcX</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>SrcY</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>TargetX</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>TargetY</name>
+        <type>int</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="BuildPatternCache">_buildpatterncache</name>
+      <comment>Builds the pattern cache for this BitmapCreator. This increases the perforamce of BitmapCreators drawn without skiping blending.
+If IgnoreSemiTransparent is set to True then semi-transparent pixels are converted to solid or transparent pixels (based on their value).
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>IgnoreSemiTransparent</name>
+        <type>boolean</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Class_Globals">_class_globals</name>
+      <returntype>String</returntype>
+    </method>
+    <method>
+      <name DesignerName="ColorToARGB">_colortoargb</name>
+      <comment>Converts color int to ARGBColor object.
+The Result parameter will hold the output.
+</comment>
+      <returntype>b4a.example.bitmapcreator._argbcolor</returntype>
+      <parameter>
+        <name>Clr</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>Result</name>
+        <type>b4a.example.bitmapcreator._argbcolor</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="CopyPixel">_copypixel</name>
+      <comment>Copies a single pixel from Source to this BC.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Source</name>
+        <type>b4a.example.bitmapcreator</type>
+      </parameter>
+      <parameter>
+        <name>SrcX</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>SrcY</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>TargetX</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>TargetY</name>
+        <type>int</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="CopyPixelsFromBitmap">_copypixelsfrombitmap</name>
+      <comment>Extracts the pixels from the SourceBitmap and copies them.
+Note that the source bitmap is first resized, if needed, to match the BitmapCreator dimensions.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>SourceBitmap</name>
+        <type>anywheresoftware.b4a.objects.B4XViewWrapper.B4XBitmapWrapper</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="CreateDrawTask">_createdrawtask</name>
+      <comment>Creates a DrawTask object.
+</comment>
+      <returntype>b4a.example.bitmapcreator._drawtask</returntype>
+      <parameter>
+        <name>Source</name>
+        <type>b4a.example.bitmapcreator</type>
+      </parameter>
+      <parameter>
+        <name>SrcRect</name>
+        <type>anywheresoftware.b4a.objects.B4XCanvas.B4XRect</type>
+      </parameter>
+      <parameter>
+        <name>TargetX</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>TargetY</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>SkipBlending</name>
+        <type>boolean</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="DrawBitmap">_drawbitmap</name>
+      <comment>Draws a bitmap to the buffer.
+SkipBlending - Whether non-opaque pixels in the source bitmap should blend with the background.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Bmp</name>
+        <type>anywheresoftware.b4a.objects.B4XViewWrapper.B4XBitmapWrapper</type>
+      </parameter>
+      <parameter>
+        <name>TargetRect1</name>
+        <type>anywheresoftware.b4a.objects.B4XCanvas.B4XRect</type>
+      </parameter>
+      <parameter>
+        <name>SkipBlending</name>
+        <type>boolean</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="DrawBitmapCreator">_drawbitmapcreator</name>
+      <comment>Draws the image stored in the Source BitmapCreator to this BitmapCreator.
+Source - Source BitmapCreator
+SrcRect - Defines the region in the Source BC that will be copied.
+TargetX / TargetY - Top left point in the destination BC.
+SkipBlending - Whether non-opaque pixels in the source bitmap should blend with the background.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Source</name>
+        <type>b4a.example.bitmapcreator</type>
+      </parameter>
+      <parameter>
+        <name>SrcRect</name>
+        <type>anywheresoftware.b4a.objects.B4XCanvas.B4XRect</type>
+      </parameter>
+      <parameter>
+        <name>TargetX</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>TargetY</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>SkipBlending</name>
+        <type>boolean</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="DrawBitmapCreatorsAsync">_drawbitmapcreatorsasync</name>
+      <comment>Asynchronously draws all the draw tasks. Note that no other drawings should be made until the Complete event is raised.
+Example: &lt;code&gt;Wait For (bc1.DrawBitmapCreatorsAsync(tasks)) Complete (bmp As B4XBitmap)&lt;/code&gt;
+</comment>
+      <returntype>anywheresoftware.b4a.keywords.Common.ResumableSubWrapper</returntype>
+      <parameter>
+        <name>DrawTasks</name>
+        <type>anywheresoftware.b4a.objects.collections.List</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="DrawBitmapCreatorTransformed">_drawbitmapcreatortransformed</name>
+      <comment>Draws a scaled and / or rotated BitmapCreator.
+Task.TargetX / TargetY define the target center. This is different than the behavior in other methods.
+Task.SkipBlending = True will treat all pixels with alpha &gt;= 128 as solid colors and other pixels as transparent.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Task</name>
+        <type>b4a.example.bitmapcreator._drawtask</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="FillGradient">_fillgradient</name>
+      <comment>Fills the rectangle with a gradient. Skips blending.
+GradColors - An array of two or more colors that define the gradient.
+Rect - The region that will be filled.
+Orientation - One of the following: TL_BR, TOP_BOTTOM, TR_BL, LEFT_RIGHT, RIGHT_LEFT, BL_TR, BOTTOM_TOP, BR_TL and RECTANGLE.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>GradColors</name>
+        <type>int[]</type>
+      </parameter>
+      <parameter>
+        <name>Rect</name>
+        <type>anywheresoftware.b4a.objects.B4XCanvas.B4XRect</type>
+      </parameter>
+      <parameter>
+        <name>Orientation</name>
+        <type>String</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="FillRadialGradient">_fillradialgradient</name>
+      <comment>Fills the rectangle with a radial gradient. Skips blending.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>GradColors</name>
+        <type>int[]</type>
+      </parameter>
+      <parameter>
+        <name>Rect</name>
+        <type>anywheresoftware.b4a.objects.B4XCanvas.B4XRect</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="FillRect">_fillrect</name>
+      <comment>Fills the given rectangle. Skips blending.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>Color</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>Rect</name>
+        <type>anywheresoftware.b4a.objects.B4XCanvas.B4XRect</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="GetARGB">_getargb</name>
+      <comment>Gets the color of the given point as an ARGB color.
+The Result parameter stores the output.
+</comment>
+      <returntype>b4a.example.bitmapcreator._argbcolor</returntype>
+      <parameter>
+        <name>x</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>y</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>Result</name>
+        <type>b4a.example.bitmapcreator._argbcolor</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="getBitmap" HideFromIDE="true">_getbitmap</name>
+      <comment>Converts the bytes buffer to a bitmap.
+</comment>
+      <returntype>anywheresoftware.b4a.objects.B4XViewWrapper.B4XBitmapWrapper</returntype>
+    </method>
+    <method>
+      <name DesignerName="getBuffer" HideFromIDE="true">_getbuffer</name>
+      <comment>Gets the internal buffer.
+</comment>
+      <returntype>byte[]</returntype>
+    </method>
+    <method>
+      <name DesignerName="GetColor">_getcolor</name>
+      <comment>Gets the color of the given point as an int value.
+</comment>
+      <returntype>int</returntype>
+      <parameter>
+        <name>x</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>y</name>
+        <type>int</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="Initialize">_initialize</name>
+      <comment>Initializes the object and sets the bitmap dimensions.
+Note that XUI library must be referenced as well.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>ba</name>
+        <type>anywheresoftware.b4a.BA</type>
+      </parameter>
+      <parameter>
+        <name>Width</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>Height</name>
+        <type>int</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="IsTransparent">_istransparent</name>
+      <comment>Tests whether a given point is completely transparent.
+</comment>
+      <returntype>boolean</returntype>
+      <parameter>
+        <name>x</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>y</name>
+        <type>int</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="SetARGB">_setargb</name>
+      <comment>Sets the color of the specified point.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>x</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>y</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>ARGB</name>
+        <type>b4a.example.bitmapcreator._argbcolor</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="SetColor">_setcolor</name>
+      <comment>Sets the color of the given pixel.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>x</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>y</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>Clr</name>
+        <type>int</type>
+      </parameter>
+    </method>
+    <method>
+      <name DesignerName="SetHSV">_sethsv</name>
+      <comment>Sets the color of the specified point.
+</comment>
+      <returntype>String</returntype>
+      <parameter>
+        <name>x</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>y</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>alpha</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>h</name>
+        <type>int</type>
+      </parameter>
+      <parameter>
+        <name>s</name>
+        <type>float</type>
+      </parameter>
+      <parameter>
+        <name>v</name>
+        <type>float</type>
+      </parameter>
+    </method>
+    <property>
+      <name DesignerName="Bitmap">_bitmap</name>
+      <comment>Converts the bytes buffer to a bitmap.
+</comment>
+      <returntype>anywheresoftware.b4a.objects.B4XViewWrapper.B4XBitmapWrapper</returntype>
+    </property>
+    <property>
+      <name DesignerName="Buffer">_buffer</name>
+      <comment>Gets the internal buffer.
+</comment>
+      <returntype>byte[]</returntype>
+    </property>
+    <field>
+      <name DesignerName="mWidth">_mwidth</name>
+      <returntype>int</returntype>
+    </field>
+    <field>
+      <name DesignerName="mHeight">_mheight</name>
+      <returntype>int</returntype>
+    </field>
+    <field>
+      <name DesignerName="TargetRect">_targetrect</name>
+      <returntype>anywheresoftware.b4a.objects.B4XCanvas.B4XRect</returntype>
+    </field>
+  </class>
+  <version>3.6</version>
+</root>

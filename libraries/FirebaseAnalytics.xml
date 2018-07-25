@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.07</doclet-version-NOT-library-version>
+    <class>
+        <name>anywheresoftware.b4a.objects.FirebaseAnalyticsWrapper</name>
+        <shortname>FirebaseAnalytics</shortname>
+        <objectwrapper>com.google.firebase.analytics.FirebaseAnalytics</objectwrapper>
+        <owner>process</owner>
+        <method>
+            <name>IsInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>Initialize</name>
+            <comment>Initializes the object. FirebaseAnalytics should be a process global variable in the Starter service. It should be initialized in Service_Create sub.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>SendEvent</name>
+            <comment>Sends an event to the analytics service.
+EventName - Event name.
+Parameters - Map of parameters. Pass Null if not needed.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Parameters</name>
+                <type>anywheresoftware.b4a.objects.collections.Map</type>
+            </parameter>
+        </method>
+        <property>
+            <name>IsGooglePlayServicesAvailable</name>
+            <returntype>boolean</returntype>
+            <comment>Tests whether Google Play Services are available on the device.</comment>
+        </property>
+    </class>
+    <version>1.01</version>
+    <dependsOn>com.google.firebase:firebase-crash</dependsOn>
+    <dependsOn>com.google.firebase:firebase-analytics</dependsOn>
+    <dependsOn>com.google.firebase:firebase-core</dependsOn>
+</root>

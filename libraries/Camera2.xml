@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.06</doclet-version-NOT-library-version>
+    <class>
+        <name>anywheresoftware.b4a.objects.Camera2</name>
+        <shortname>Camera2</shortname>
+        <comment>Camera library based on Camera2 API. It should be used together with CamEx2 class.</comment>
+        <owner>process</owner>
+        <event>PictureTaken (Data() As Byte)</event>
+        <event>CameraState (Open As Boolean)</event>
+        <event>CameraClosed</event>
+        <event>SurfaceReady</event>
+        <event>SessionConfigured (Success As Boolean)</event>
+        <event>PreviewCaptureComplete (CaptureResult As Object)</event>
+        <event>PreviewTaken (Image As Object)</event>
+        <event>CaptureComplete (CaptureResult As Object)</event>
+        <permission>android.permission.CAMERA</permission>
+        <method>
+            <name>Initialize</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetSupportedVideoSizes</name>
+            <comment></comment>
+            <returntype>anywheresoftware.b4a.objects.collections.List</returntype>
+            <parameter>
+                <name>Id</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetSupportedPreviewSizes</name>
+            <comment>Returns a list with the supported preview sizes.</comment>
+            <returntype>anywheresoftware.b4a.objects.collections.List</returntype>
+            <parameter>
+                <name>Id</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetCameraCharacteristics</name>
+            <comment>Returns an object that holds the camera supported features.</comment>
+            <returntype>java.lang.Object</returntype>
+            <parameter>
+                <name>Id</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetSupportedCaptureSizes</name>
+            <comment>Returns a list with the supported capture sizes.</comment>
+            <returntype>anywheresoftware.b4a.objects.collections.List</returntype>
+            <parameter>
+                <name>Id</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>CreatePreviewBuilder</name>
+            <comment>Creates a preview request builder.</comment>
+            <returntype>java.lang.Object</returntype>
+        </method>
+        <method>
+            <name>StartSession</name>
+            <comment>Starts a capture session. The SessionConfigured event will be raised.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Surface</name>
+                <type>android.view.TextureView</type>
+            </parameter>
+            <parameter>
+                <name>PreviewSize</name>
+                <type>anywheresoftware.b4a.objects.Camera2.CameraSizeWrapper</type>
+            </parameter>
+            <parameter>
+                <name>CaptureSize</name>
+                <type>anywheresoftware.b4a.objects.Camera2.CameraSizeWrapper</type>
+            </parameter>
+            <parameter>
+                <name>CaptureFormat</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>PreviewFormat</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>Video</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SetRepeatingRequest</name>
+            <comment>Sets a repeating request (preview request). Clears any previous repeating request.
+Returns the CaptureRequest object.</comment>
+            <returntype>java.lang.Object</returntype>
+            <parameter>
+                <name>Builder</name>
+                <type>java.lang.Object</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Stop</name>
+            <comment>Stops the camera.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>CreateMediaRecorder</name>
+            <comment></comment>
+            <returntype>java.lang.Object</returntype>
+            <parameter>
+                <name>VideoSize</name>
+                <type>anywheresoftware.b4a.objects.Camera2.CameraSizeWrapper</type>
+            </parameter>
+            <parameter>
+                <name>Dir</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>FileName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>AbortCaptures</name>
+            <comment>Cancels previous requests.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>AddCaptureRequest</name>
+            <comment>Adds a capture request.</comment>
+            <returntype>java.lang.Object</returntype>
+            <parameter>
+                <name>Builder</name>
+                <type>java.lang.Object</type>
+            </parameter>
+        </method>
+        <method>
+            <name>CreateCaptureBuilder</name>
+            <comment>Creates a still capture builder.</comment>
+            <returntype>java.lang.Object</returntype>
+        </method>
+        <method>
+            <name>OpenCamera</name>
+            <comment>Opens the camera. The CameraState event will be raised.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Id</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>CreateVideoRequestBuilder</name>
+            <comment></comment>
+            <returntype>java.lang.Object</returntype>
+        </method>
+        <method>
+            <name>CreateSurface</name>
+            <comment>Creates the surface view (TextureView) that will be used to display the preview frames.
+You need to add it to the layout and wait for the SurfaceReady event.</comment>
+            <returntype>anywheresoftware.b4a.objects.ConcreteViewWrapper</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>FindCameraId</name>
+            <comment>Returns the relevant camera id. Returns an empty string if not found.</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>Front</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
+        <property>
+            <name>IsCameraOpen</name>
+            <returntype>boolean</returntype>
+            <comment></comment>
+        </property>
+        <property>
+            <name>CameraIDs</name>
+            <returntype>java.lang.String[]</returntype>
+            <comment>Returns the ids of the available cameras.</comment>
+        </property>
+    </class>
+    <class>
+        <name>anywheresoftware.b4a.objects.Camera2.CameraSizeWrapper</name>
+        <shortname>CameraSize</shortname>
+        <objectwrapper>android.util.Size</objectwrapper>
+        <owner>process</owner>
+        <method>
+            <name>Initialize</name>
+            <comment></comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Width</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>Height</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>IsInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <property>
+            <name>Height</name>
+            <returntype>int</returntype>
+            <comment></comment>
+        </property>
+        <property>
+            <name>Width</name>
+            <returntype>int</returntype>
+            <comment></comment>
+        </property>
+    </class>
+    <version>1.1</version>
+</root>

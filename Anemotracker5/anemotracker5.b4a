@@ -1,0 +1,1363 @@
+﻿Build1=Default,com.calypsoinstruments.anemotracker,Maps
+Build2=Light,com.calypsoinstruments.anemotracker,Light
+File1=actCalComp.bal
+File10=Brujula-01.svg
+File11=bt.jpg
+File12=bt.png
+File13=Cal brujula-01.png
+File14=calypso_drawer.jpg
+File15=circle.svg
+File16=circulo2.svg
+File17=Compass-01.svg
+File18=connection.png
+File19=cups.jpg
+File2=actnavigation.bal
+File20=dlg_tag.bal
+File21=DS-DIGI.TTF
+File22=fibra.svg
+File23=form.png
+File24=Four.bal
+File25=layout1.bal
+File26=lineargradient.svg
+File27=Main screen_static-01.svg
+File28=main_screen.svg
+File29=Map icon-01.png
+File3=android.svg
+File30=map.bal
+File31=material-wallpaper.jpg
+File32=Multi icon-01.png
+File33=Multiple.bal
+File34=navheaderlayout.bal
+File35=navheaderlayout2.bal
+File36=nmea.jpg
+File37=pirulen_rg.ttf
+File38=Plantilla fija-01.png
+File39=Plantilla fija-01.svg
+File4=App-01.svg
+File40=Plantilla fija-02.svg
+File41=radialgradient.svg
+File42=redplaid_shirt.svg
+File43=ruleta_centrada.svg
+File44=Ruleta-01.svg
+File45=Soporte icon-01.png
+File46=Starter.bas
+File47=tcp.bal
+File48=TEST_FONDO.svg
+File49=test_menu.bal
+File5=Basic icon-01.png
+File50=test_menu.png
+File51=Textura fibra carbono.jpg
+File52=track.png
+File53=triangulo2.svg
+File54=Tridata icon-01.png
+File55=tridata.bal
+File56=True-01.svg
+File57=ultra.jpg
+File58=wifi.png
+File59=wifi_dlg.bal
+File6=Basic.bal
+File7=beziercubic.svg
+File8=bezierquad.svg
+File9=blue_triangle.svg
+FileGroup1=Default Group
+FileGroup10=Default Group
+FileGroup11=Default Group
+FileGroup12=Default Group
+FileGroup13=Default Group
+FileGroup14=Default Group
+FileGroup15=Default Group
+FileGroup16=Default Group
+FileGroup17=Default Group
+FileGroup18=Default Group
+FileGroup19=Default Group
+FileGroup2=Default Group
+FileGroup20=Default Group
+FileGroup21=Default Group
+FileGroup22=Default Group
+FileGroup23=Default Group
+FileGroup24=Default Group
+FileGroup25=Default Group
+FileGroup26=Default Group
+FileGroup27=Default Group
+FileGroup28=Default Group
+FileGroup29=Default Group
+FileGroup3=Default Group
+FileGroup30=Default Group
+FileGroup31=Default Group
+FileGroup32=Default Group
+FileGroup33=Default Group
+FileGroup34=Default Group
+FileGroup35=Default Group
+FileGroup36=Default Group
+FileGroup37=Default Group
+FileGroup38=Default Group
+FileGroup39=Default Group
+FileGroup4=Default Group
+FileGroup40=Default Group
+FileGroup41=Default Group
+FileGroup42=Default Group
+FileGroup43=Default Group
+FileGroup44=Default Group
+FileGroup45=Default Group
+FileGroup46=Default Group
+FileGroup47=Default Group
+FileGroup48=Default Group
+FileGroup49=Default Group
+FileGroup5=Default Group
+FileGroup50=Default Group
+FileGroup51=Default Group
+FileGroup52=Default Group
+FileGroup53=Default Group
+FileGroup54=Default Group
+FileGroup55=Default Group
+FileGroup56=Default Group
+FileGroup57=Default Group
+FileGroup58=Default Group
+FileGroup59=Default Group
+FileGroup6=Default Group
+FileGroup7=Default Group
+FileGroup8=Default Group
+FileGroup9=Default Group
+Group=Default Group
+IconFile=
+Library1=core
+Library10=network
+Library11=json
+Library12=xui
+Library13=xcustomlistview
+Library14=xmllayoutbuilder
+Library15=appcompat
+Library16=byteconverter
+Library17=ioxsvg
+Library18=ble2
+Library19=excel
+Library2=phone
+Library20=mlwifi
+Library21=bitmapcreator
+Library22=designsupport
+Library23=materialdrawer
+Library24=preferenceactivity
+Library25=contentresolver
+Library26=dialogs
+Library3=gps
+Library4=sql
+Library5=reflection
+Library6=randomaccessfile
+Library7=runtimepermissions
+Library8=javaobject
+Library9=stringutils
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~' targetSdkVersion="25"~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="18" ~\n~	android:targetSdkVersion="25"/> ~\n~~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:windowActionBar="false"~\n~    android:windowFullscreen="true"~\n~    android:windowNoTitle="true"~\n~    android:anyDensity="true"/>)~\n~		~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~SetApplicationAttribute(android:configChanges, "orientation")~\n~'End of default text.~\n~~\n~SetApplicationAttribute(android:theme, "@style/MyAppTheme")~\n~~\n~'Tell the system that we want to draw the SystemBarBackgrounds and~\n~'make the StatusBar transparent.~\n~CreateResource(values, theme.xml,~\n~<resources>~\n~    <style name="MyAppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">~\n~        <item name="colorPrimary">#0098FF</item>~\n~        <item name="colorPrimaryDark">#007CF5</item>~\n~        <item name="colorAccent">#FF5522</item>~\n~        <item name="windowNoTitle">true</item>~\n~        <item name="windowActionBar">false</item>	~\n~		<item name="android:windowDrawsSystemBarBackgrounds">true</item>~\n~		<item name="android:statusBarColor">@android:color/transparent</item>			~\n~    </style>~\n~</resources>~\n~)~\n~~\n~' Permissions~\n~AddPermission(android.permission.ACCESS_NETWORK_STATE)~\n~AddPermission(android.permission.ACCESS_COARSE_LOCATION) 'no necesaria si no BluetoothAdmin~\n~AddPermission(android.permission.ACCESS_FINE_LOCATION)~\n~AddPermission(android.permission.BLUETOOTH)~\n~AddPermission(android.permission.BLUETOOTH_ADMIN)~\n~AddManifestText(~\n~<uses-permission~\n~  android:name="android.permission.WRITE_EXTERNAL_STORAGE"~\n~   />~\n~)~\n~#if Maps~\n~'************ Google Play Services Base ************~\n~AddApplicationText(~\n~   <activity android:name="com.google.android.gms.common.api.GoogleApiActivity"~\n~  android:theme="@android:style/Theme.Translucent.NoTitleBar"~\n~  android:exported="false"/>~\n~    <meta-data~\n~  android:name="com.google.android.gms.version"~\n~  android:value="@integer/google_play_services_version" />~\n~)~\n~'************ Google Play Services Base (end) ************~\n~~\n~AddApplicationText(~\n~<meta-data~\n~  android:name="com.google.android.geo.API_KEY"~\n~  android:value="AIzaSyB5tUqYKRIFJTOE-st_hNgj3OrYDNeQE38"/>~\n~)~\n~#end if 
+Module1=actBLE
+Module10=|relative|..\Shared\CustomListView
+Module11=actCalComp
+Module12=actDevInfo
+Module13=AutoTextSizeLabel
+Module14=|relative|..\Shared\Tag
+Module2=actListTracks
+Module3=actNavigation
+Module4=actTCPip
+Module5=Starter
+Module6=DBUtils
+Module7=KeyValueStore
+Module8=|relative|..\Shared\WindCalcs
+Module9=|relative|..\Shared\Scale
+NumberOfFiles=59
+NumberOfLibraries=26
+NumberOfModules=14
+Version=8.3
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: Anemotracker BETA
+	#VersionCode: 13
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: false 
+	'#If Debug
+	#BridgeLogger: True
+	#MultiDex: True
+	'#End If
+#End Region
+
+#AdditionalRes: "..\resource"
+#Extends: android.support.v7.app.AppCompatActivity
+#if Maps
+	#AdditionalJar: com.google.android.gms:play-services-maps
+#end if 
+
+#Region  Activity Attributes 
+	#FullScreen: True
+	#IncludeTitle: False
+#End Region
+
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+	Dim kvs As KeyValueStore
+	Dim portrait As Boolean 
+	Dim rp As RuntimePermissions	
+	Dim GPSEnabled = False As Boolean
+	Dim bPaused = False As Boolean
+	Dim bmp_calypso, bmp_cups, bmp_ultra, bmp_nmea, bmp_bt As Bitmap
+	
+	Private NativeMe As JavaObject 'Para meter codigo Java
+	
+	Dim offset_angle As Double
+	Dim dec As Double
+	
+	Dim IntToBool() As Boolean
+	IntToBool = Array As Boolean(False, True)
+	
+	Dim firstStart As Boolean = True
+	
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+
+	Private xml As XmlLayoutBuilder
+	' LAYOUT GENERAL
+	Private DSB As DSBottomNavigationView
+	Private NavDrawer As DSNavigationDrawer
+	Dim pnl_header As Panel
+	Dim imv_calypso, imv_equipment As ImageView
+	Private panel_secondary As Panel 
+	'Private md As DrawerBuilder
+	'Private mdrawer As Drawer
+	'Private toggle As ToggleDrawerItem
+	Private sw_mean, sw_track, sw_gyro As ACSwitch
+	Private sp_Hz, sp_track_period As ACSpinner 
+	'Private sectConnection, sectHz, sectTrack As SectionDrawerItem 
+	'Private exp_test As ExpandableDrawerItem
+	'Private prof1,prof2 As ProfileDrawerItem
+	
+	'Private mnu1,mnu2,mnu3, mnu_connection, mnu_track As PrimaryDrawerItem
+	'Private submnu1,submnu2,submnu3, sm4, sm5 As SecondaryDrawerItem
+	'Private sitems(2) As SecondaryDrawerItem
+	Private HeaderLabel As Label 
+	
+	'Private bd_bt, bd_cups, bd_ultra, bd_nmea, bd_track As BitmapDrawable
+
+	' BASIC
+	Public Panel1 As Panel
+	Private ScaleBasic As Scale
+	Private TagBasic1, TagBasic2 As Tag
+	'Dim snk_1, snk_2, snk_3, snk_4 As SnakeView
+	' FOUR
+	Private Panel4 As Panel 
+	Private TagFour1,TagFour2,TagFour3,TagFour4 As Tag
+	Private ScaleFour As Scale 
+	' MAP
+	Private Panel2 As Panel
+	Private ScaleMap As Scale
+	Private TagMap1, TagMap2 As Tag
+	' TRIDATA
+	Private Panel3 As Panel
+	Private TagTri1, TagTri2, TagTri3 As Tag 
+	Private currentPanel As Panel
+	' Multiple
+	Private PanelM As Panel 
+	Private TagM1, TagM2, TagM3, TagM4, TagM5, TagM6 As Tag 
+	'LISTA CONTROLES
+	Dim mControles As Map 
+	Dim iMenuSelected=2 As Int
+
+	Private sp_period As ACSpinner
+	Private lbl_track As Label
+	Private lbl_bt As Label
+	Dim btn_bt As Button
+	Private lbl_mac As Label
+	Private lbl_a, lbl_b, lbl_c, lbl_refresh As Label
+	
+	Dim bmp_background As Bitmap
+	#if Maps
+		Private gmap As GoogleMap
+		Private MapFragment1 As MapFragment
+	#end if 
+	Private pnl_equipment As Panel
+	Private sw_nmea As ACSwitch
+	Private btn_wifi As ACButton
+	
+	Private btn_calComp As ACButton
+	
+	Dim gyroEnabled As Boolean = False
+	
+	Dim touchpanel As Panel
+	Dim off_btn As ACButton
+	Dim btnDis As Button
+	Dim offname_lbl As Label
+	Dim offset_lbl As Label
+	Private startAngle As Double
+	Dim sw_realnorth As ACSwitch
+	Dim offstart_ang As Double
+	
+	Dim olBleEnabled As Boolean = False
+	
+	Private moveTouch As Boolean = False
+	Private tTouch As Long
+	Dim tag_list As List
+	
+End Sub
+
+#Region Activity Events
+Sub Activity_Create(FirstTime As Boolean)
+	Dim xml As XmlLayoutBuilder
+	If FirstTime Then
+		' Init keyvaluestore
+		'kvs.Initialize(File.DirInternal, "kvs")
+		bmp_bt = LoadBitmap( File.DirAssets, "bt.jpg" )
+		bmp_calypso = LoadBitmap( File.DirAssets, "calypso_drawer.jpg")
+		bmp_cups = LoadBitmap( File.DirAssets, "cups.jpg")
+		bmp_ultra = LoadBitmap( File.DirAssets, "ultra.jpg")
+		bmp_nmea = LoadBitmap( File.DirAssets, "nmea.jpg")
+		Activity.SetBackgroundImage(LoadBitmapResize( File.DirAssets, "ultra.jpg", 100%x,100%y, True )).Gravity = Gravity.CENTER
+		
+		NativeMe.InitializeContext 'Para meter codigo java
+	End If
+	'rp.CheckAndRequest(rp.PERMISSION_ACCESS_FINE_LOCATION) ' Mejor en gmap ready
+	'podría darse el caso de que el usuario contestara muy rápido que si
+	
+	If Activity.Width > Activity.Height Then
+		portrait = False
+	Else
+		portrait = True
+	End If		
+
+
+	'Initialize the NavDrawer object. This modifies the internal Layout structure of your Activity
+	'and adds the Navigationdrawer.
+	'Attention: THIS HAS TO BE DONE BEFORE LOADING A LAYOUT TO THE ACTIVITY!
+	NavDrawer.Initialize2("NavDrawer", Activity, NavDrawer.DefaultDrawerWidth, NavDrawer.GRAVITY_START)
+
+	' Define the BottomNavigationView in the Layout (or manually if you wish)
+	Activity.LoadLayout("layout1")
+	
+	'We initialize the DrawerToogle. This has to be done after the Toolbar is added to our Activity
+	'(loaded with the layout above in this example).
+	'This method will enable and show the homebutton of the Toolbar. The 3 line menu icon is animated
+	'to an up arrow when any drawer opens.
+	'NavDrawer.InitDrawerToggle  ' Peta porque no tenemos actionbar... o algo así
+	'Initialize the Menu-Listener for the Toolbar so we can react on the HomeButton press.
+	'ToolBar.InitMenuListener
+
+	'Dim tMain As Timer
+	'tMain.Initialize( "t1", 250)
+	'tMain.Enabled = True
+	bmp_background = LoadBitmapResize( File.DirAssets, "Textura fibra carbono.jpg", 800, 800, True )
+	
+	'bmp_background.initialize( File.DirAssets, "Textura fibra carbono.jpg")
+	
+	init_drawer
+	init_dsb
+	add_controls
+	
+	
+	
+	'Activity.SetBackgroundImage( bmp_background )
+	'DSB.SetBackgroundImage( bmp_background )
+	SetTiledBackground( DSB, bmp_background )
+	
+	'Log(snake.StrokeWidth)
+'	snk_1.StrokeColor = Colors.Green
+'	snk_1.MaximumNumberOfValues = 100
+'	snk_1.MaxValue = 1000
+'	snk_1.MinValue = 0
+'	snk_2.StrokeColor = Colors.Red
+'	snk_2.MaximumNumberOfValues = 100
+'	snk_2.MaxValue = 1000
+'	snk_2.MinValue = 0
+'	snk_3.StrokeColor = Colors.Green
+'	snk_3.MaximumNumberOfValues = 100
+'	snk_3.MaxValue = 360
+'	snk_3.MinValue = 0
+'	snk_4.StrokeColor = Colors.Red
+'	snk_4.MaximumNumberOfValues = 100
+'	snk_4.MaxValue = 360
+'	snk_4.MinValue = 0
+	
+	'snk_1.Visible = False
+	'snk_2.Visible = False
+	'snk_3.Visible = False
+	'snk_1.Visible = False
+	Dim pirulen, dsdigi As Typeface
+	pirulen = Typeface.LoadFromAssets("pirulen_rg.ttf")
+	dsdigi = Typeface.LoadFromAssets("ds-digi.ttf")
+	
+	touchpanel.Initialize( "touchpanel" )
+	Activity.AddView( touchpanel, 0, (Activity.Height-Activity.Width)/2 - 50dip, Activity.Width, Activity.Width ) 'para que sea rectangular usar el ancho siempre
+	touchpanel.SendToBack
+	
+	btnDis.Initialize( "btnDis" )
+	Activity.AddView( btnDis, Activity.Width/2 - 150/2, Activity.Height-150dip, 150dip,50dip )
+	btnDis.Text = "End offset adjust"
+	
+	offname_lbl.Initialize( "offname_lbl" )
+	Activity.AddView( offname_lbl, Activity.Width/2 - 120dip, 30dip, 240dip, 50dip)
+	offname_lbl.TextColor = 0xFFFFFFFF
+	offname_lbl.TextSize = 22
+	offname_lbl.Typeface = pirulen
+	offname_lbl.Text = "Offset Angle:"
+	offname_lbl.Visible = False
+	
+	offset_lbl.Initialize( "offset_lbl" )
+	Activity.AddView( offset_lbl, Activity.Width/2 - 120dip, 70dip, 240dip, 60dip)
+	offset_lbl.TextColor = 0xFFFFFFFF
+	offset_lbl.TextSize = 24
+	offset_lbl.Typeface = dsdigi
+	offset_lbl.Visible = False
+	
+	sw_realnorth.Initialize("sw_realnorth")
+	sw_realnorth.Text = "Use real North"
+	Activity.AddView( sw_realnorth, 50dip, Activity.Height - 150dip, 160dip, 50dip )
+	sw_realnorth.TextColor = 0xFFFFFFFF
+	sw_realnorth.TextSize = 18
+	sw_realnorth.Visible = False
+	
+	btnDis.Visible = False
+	
+	tag_list.Initialize
+	tag_list.AddAll(Array As Tag(TagFour1,TagFour2,TagFour3,TagFour4))
+	
+	'Pedimos permiso para localizacion
+	'rp.CheckAndRequest(rp.PERMISSION_ACCESS_FINE_LOCATION)
+	
+	UpdateDrawer
+	
+End Sub
+Sub init_dsb
+	
+	
+	' Add Items to the BottomNavigationView
+	'DSB.Menu.Add2(1, 1, "Basic", xml.GetDrawable("ic_home_black_24dp")).Checked = True
+	'DSB.Menu.Add(1, 1, "Basic", bmp_bt).Checked = True
+	Dim item As ACMenuItem
+	Dim bd As BitmapDrawable
+	bd.Initialize(LoadBitmap(File.DirAssets,"Basic icon-01.png"))
+	bd.Gravity = Gravity.CENTER
+	'Dim jo As JavaObject = bd
+	'Dim p As JavaObject
+	'p.InitializeStatic("android.graphics.PorterDuff.Mode")
+	'jo.RunMethod("setColorFilter",Array(0xffff0000,p.GetField("SRC_IN")))
+	
+
+	
+	'ACButton1.SetBackgroundImage( LoadBitmap( File.DirAssets, "Basic icon-01.png"))
+	'ACButton1.Gravity = Gravity.CENTER
+	'ACButton1.Background = bd
+	
+	DSB.SetItemIconColors( Colors.Gray, Colors.White, Colors.Black)
+	DSB.SetItemTextColors( Colors.Gray, Colors.White, Colors.Black)
+	
+	DSB.Menu.Add(2, 2, "Four", LoadBitmap(File.DirAssets,"Basic icon-01.png")).Checked = True
+	DSB.Menu.Add(3, 3, "Map", LoadBitmap(File.DirAssets,"Map icon-01.png"))
+	DSB.Menu.Add(4, 4, "Tri", LoadBitmap(File.DirAssets,"Tridata icon-01.png"))
+	DSB.Menu.Add(5, 5, "Multiple", LoadBitmap(File.DirAssets,"Multi icon-01.png"))
+	'DSB.Menu.Add2(6, 6, "Settings", xml.GetDrawable("ic_android_black_24dp"))
+	
+	'DSB.Menu.AddWithGroup2( 1, 1, 1, "A", xml.GetDrawable("ic_feedback_black_24dp")  )
+	'DSB.Menu.AddWithGroup2( 1, 2, 1, "B", xml.GetDrawable("ic_feedback_black_24dp")  )
+	
+	'Panel1.LoadLayout("Basic")
+	
+	'Panel1.Color = Colors.White
+	'ScaleBasic.GetBase().Height = ScaleBasic.getbase().width
+	Panel4.LoadLayout("Four")
+	SetTiledBackground( Panel4, bmp_background )
+	'Panel4.Color = Colors.White
+	
+	ScaleFour.GetBase().Height = ScaleFour.getbase().width
+	#if Maps
+		Panel2.LoadLayout("Map")
+		Dim cd As ColorDrawable
+		cd.Initialize( Colors.Black, ScaleMap.GetBase().Width/2 )
+		ScaleMap.GetBase().Background = cd 
+		'SetTiledBackground( ScaleMap.GetBase(), bmp_background)
+		SetTiledBackground( TagMap1.GetBase(), bmp_background )
+		SetTiledBackground( TagMap2.GetBase(), bmp_background )
+		'SetTiledBackground( ScaleMap.GetBase(), bmp_background )
+		SetTiledBackground( Panel2, bmp_background )
+		'Panel2.Color = Colors.White
+	#end if 
+	Panel3.LoadLayout("Tridata")
+	SetTiledBackground( Panel3, bmp_background )
+	TagTri1.mbase.Height = 0.33*Panel3.Height
+	TagTri1.mbase.Top = 0
+	TagTri2.mbase.height = 0.33*Panel3.Height
+	TagTri2.mbase.Top = 0.33*Panel3.Height
+	TagTri3.mbase.height = 0.33*Panel3.Height
+	TagTri3.mbase.Top = 0.66*Panel3.Height
+	'Panel3.Color = Colors.White
+	PanelM.LoadLayout("Multiple")
+	SetTiledBackground( PanelM, bmp_background )
+	'PanelM.Color = Colors.White
+	' Set the current Panel
+	currentPanel = Panel4
+	iMenuSelected = 2
+	'currentPanel.BringToFront
+	'currentPanel.SetVisibleAnimated(0, True)
+	'Update(True)
+	' You can set Custom colors for the Icons and Text
+	'DSBottomNavigationView1.SetItemIconColors(Colors.Gray, Colors.Blue, Colors.LightGray)
+	'DSBottomNavigationView1.SetItemTextColors(Colors.Gray, Colors.Green, Colors.LightGray)
+
+End Sub
+Sub init_drawer2
+	'We initialize the DrawerToogle. This has to be done after the Toolbar is added to our Activity
+	'(loaded with the layout above in this example).
+	'This method will enable and show the homebutton of the Toolbar. The 3 line menu icon is animated
+	'to an up arrow when any drawer opens.
+	'NavDrawer.InitDrawerToggle
+	
+	'Initialize the Menu-Listener for the Toolbar so we can react on the HomeButton press.
+	'ToolBar.InitMenuListener
+	
+	'Now we start with the contents of the Navigation drawers.
+	'A drawer always has a NavigationView object (of type DSNavigationView). This NavigationView can have
+	'multiple header objects and has a Menu for the selectable items.
+	
+	'Add a Header to the NavigationDrawer. This gives the true Material Design look to the drawer.
+	'The width will always be the Drawer width. The height can be set to any value but in the Material
+	'design guidelines the header should have a 16:9 aspect ratio. For simplification there is a helper
+	'function for the correct header height.
+	'With LoadLayout we can use a layout created with the designer.
+	'With AddHeaderView (not used here) you can add any View as a header.
+	NavDrawer.NavigationView.LoadLayout( "navheaderLayout.bal", NavDrawer.DefaultHeaderHeight)
+	
+	'Add Navigation Items to the NavigationDrawer.
+	'The content of the NavigationDrawer is built up by a Menu. You should organize your menu in groups.
+	'The groups are seperated with a divider line.
+	NavDrawer.NavigationView.Menu.AddWithGroup2(1, 1, 1, "Home", xml.GetDrawable("ic_home_black_24dp")).Checked = True
+
+	'As the second item we add a ACSwitch view here. Gernerally it should be possible to use any B4A View
+	'as a list item.
+	Dim actionViewItem As ACMenuItem
+	'First add the menu entry, which returns the ACMenuItem object
+	actionViewItem = NavDrawer.NavigationView.Menu.AddWithGroup2(1, 2, 2, "A Switch", xml.GetDrawable("ic_android_black_24dp"))
+	'Initialize the switch
+	sw_gyro.Initialize("switch")
+	'Set the Switch as the ActionView. The result is that the item is not displayed as a normal
+	'NavigationView item but the ActionView (Switch in this case) is shown instead.
+	actionViewItem.ActionView = sw_gyro
+	'We make the complete menu group checkable. After this the active menu item will have a grey
+	'background on a light theme.
+	NavDrawer.NavigationView.Menu.SetGroupCheckable(1, True, True)
+	'The ActionView MenuItem should not be checkable so we disable it here.
+	actionViewItem.Checkable = False
+	
+	actionViewItem = NavDrawer.NavigationView.Menu.AddWithGroup2(1, 2, 3, "Menu", xml.GetDrawable("ic_android_black_24dp"))
+	Dim menuHz As ACSpinner
+	menuHz.Initialize("menuHz")
+	menuHz.Add("1Hz")
+	menuHz.Add("1Hz")
+	menuHz.Add("1Hz")
+	actionViewItem.ActionView = menuHz
+	actionViewItem.Checkable = False
+	
+	'Support Items Group (Always at the bottom of the list...)
+	NavDrawer.NavigationView.Menu.AddWithGroup2(2, 10, 1000, "Settings", xml.GetDrawable("ic_settings_black_24dp"))
+	NavDrawer.NavigationView.Menu.AddWithGroup2(2, 11, 1100, "Feedback", xml.GetDrawable("ic_feedback_black_24dp"))
+	NavDrawer.NavigationView.Menu.AddWithGroup2(2, 12, 1200, "Help", xml.GetDrawable("ic_help_black_24dp"))
+	NavDrawer.NavigationView.Menu.SetGroupCheckable(2, True, True)
+
+	'We add a secondary drawer here which can be opened from the right edge of the display.
+	NavDrawer.AddSecondaryDrawer(150dip, NavDrawer.GRAVITY_END)
+
+	'We add headers to the secondary drawer. You can add as many headers as you want.
+	NavDrawer.SecondaryNavigationView.LoadLayout("navHeaderLayout2", 100dip)
+	'HeaderLabel.Text = "Fist Header"
+	NavDrawer.SecondaryNavigationView.LoadLayout("navHeaderLayout2", 50dip)
+	'HeaderLabel.Text = "Second Header"
+
+	'Use custom colors for the secondary drawer
+	NavDrawer.SecondaryNavigationView.ItemIconColor = Colors.Red
+	NavDrawer.SecondaryNavigationView.SetItemTextColors(Colors.Gray, Colors.Red, Colors.Red, Colors.LightGray)
+
+	'Page Change Group
+	'Here we create the pages for the ViewPager. Additionally we create a new menu group.
+	'We use a submenu called "Pages".
+	Dim subMenu As ACSubMenu
+	subMenu = NavDrawer.SecondaryNavigationView.Menu.AddSubMenu(3, 20, 20, "Pages")
+	'PC.Initialize
+	For i = 0 To 2
+		'Create a panel for the page with a random color.
+		Dim p As Panel
+		p.Initialize("")
+		p.Color = Colors.RGB(Rnd(0,256), Rnd(0,256), Rnd(0,256))
+		Dim pageName As String
+		pageName = "Page " & i
+		'PC.AddPage(p, pageName)
+		subMenu.AddWithGroup2(3, 100+i, 100+i, pageName, xml.GetDrawable("ic_bookmark_black_24dp"))
+	Next
+	NavDrawer.SecondaryNavigationView.CheckedItem = 100
+	subMenu.SetGroupCheckable(3, True, True)
+End Sub
+Sub init_drawer
+	
+	
+	pnl_header.Initialize("")
+	imv_calypso.Initialize("")
+	imv_calypso.Bitmap = LoadBitmapResize( File.DirAssets, "calypso_drawer.jpg", 80dip, 80dip, True)
+	' bmp_calypso
+	
+	imv_equipment.Initialize("")
+
+	
+	'pnl_header.SetBackgroundImage(bmp_calypso )
+	NavDrawer.NavigationView.AddHeaderView( pnl_header, 100dip )'NavDrawer.DefaultHeaderHeight)
+	pnl_header.Width =  300dip ' NavDrawer.DefaultHeaderHeight
+	'pnl_header.Height = NavDrawer.DefaultHeaderHeight
+	pnl_header.AddView( imv_calypso, 0,0.1*pnl_header.Height,0.5*pnl_header.Width, 0.8*pnl_header.Height)
+	pnl_header.AddView( imv_equipment, 0.5*pnl_header.width,0,0.5*pnl_header.Width, pnl_header.Height)
+	
+	'Now we start with the contents of the Navigation drawers.
+	'A drawer always has a NavigationView object (of type DSNavigationView). This NavigationView can have
+	'multiple header objects and has a Menu for the selectable items.
+	
+	'Add a Header to the NavigationDrawer. This gives the true Material Design look to the drawer.
+	'The width will always be the Drawer width. The height can be set to any value but in the Material
+	'design guidelines the header should have a 16:9 aspect ratio. For simplification there is a helper
+	'function for the correct header height.
+	'With LoadLayout we can use a layout created with the designer.
+	'With AddHeaderView (not used here) you can add any View as a header.
+	
+	'NavDrawer.NavigationView.LoadLayout( "navheaderLayout.bal", NavDrawer.DefaultHeaderHeight)
+	
+	'NavDrawer.NavigationView.LoadLayout( "navheaderLayout.bal", NavDrawer.DefaultDrawerWidth)
+	'Add Navigation Items to the NavigationDrawer.
+	'The content of the NavigationDrawer is built up by a Menu. You should organize your menu in groups.
+	'The groups are seperated with a divider line.
+	
+	NavDrawer.NavigationView.LoadLayout("navHeaderLayout", 800dip)
+	
+	'Dim bd As BitmapDrawable
+	'bd.Initialize(bmp_bt)
+	'NavDrawer.NavigationView.Menu.AddWithGroup(1,10,1, "Not Connected", LoadBitmap(File.DirAssets, "bt.jpg")) '.Checked = True
+	''NavDrawer.NavigationView.Menu.AddSubMenu(1, 1,1, "submenu")
+	'NavDrawer.NavigationView.Menu.AddWithGroup(2,20,1,"Track:  ", LoadBitmap( File.DirAssets, "track.png"))
+	'''''''''
+	'Dim actionViewItem As ACMenuItem
+	''First add the menu entry, which returns the ACMenuItem object
+	'actionViewItem = NavDrawer.NavigationView.Menu.AddWithGroup(2, 21, 2, "Enable track?", Null)
+	'sw_track.Initialize("sw_track")
+	''Set the Switch as the ActionView. The result is that the item is not displayed as a normal
+	''NavigationView item but the ActionView (Switch in this case) is shown instead.
+	'actionViewItem.ActionView = sw_track
+	'actionViewItem.Checkable = False
+	'''''''''
+	'actionViewItem = NavDrawer.NavigationView.Menu.AddWithGroup(2, 22, 3, "Period", Null)
+	'NavDrawer.NavigationView.Menu.AddSubMenu(2,25,1,"PRUEBA") 
+	'sp_track_period.Initialize("sp_track_period")
+	
+	sp_period.Prompt = "Track period"
+	sp_period.Add("Racing(5sec)")
+	sp_period.Add("Daysail(1min)")
+	sp_period.Add("Cruising(5min)")
+	'actionViewItem.ActionView = sp_track_period
+	'actionViewItem.Checkable = False
+
+	If Starter.connected Then ' hemos hecho cambio landscape<->portrait y por tanto se vuelve a crear todo, si estamos conectados se añade
+		add_secondary_drawer
+	End If
+	
+End Sub 	
+Sub add_secondary_drawer
+'	'We add a secondary drawer here which can be opened from the right edge of the display.
+'	NavDrawer.AddSecondaryDrawer(150dip, NavDrawer.GRAVITY_END)
+'	
+'	Dim pnl_header2 As Panel
+'	pnl_header2.Initialize("")
+'	If Starter.devicetype = 1 Then
+'		pnl_header2.SetBackgroundImage(bmp_cups)
+'	else if  Starter.devicetype = 2 Then
+'		pnl_header2.SetBackgroundImage(bmp_ultra)
+'	Else
+'		pnl_header2.SetBackgroundImage(bmp_nmea)
+'	End If
+'	NavDrawer.SecondaryNavigationView.AddHeaderView( pnl_header2, 150dip)
+	
+	'We add headers to the secondary drawer. You can add as many headers as you want.
+	'NavDrawer.SecondaryNavigationView.LoadLayout("navHeaderLayout2", 150dip)
+
+	
+	'NavDrawer.SecondaryNavigationView.LoadLayout("navHeaderLayout2", 300dip)
+	pnl_equipment.LoadLayout("navheaderlayout2")
+	HeaderLabel.Text = "" 'Starter.actual_mac 
+	'lbl_mac.Text = Starter.actual_mac 
+	
+	'Use custom colors for the secondary drawer
+	'NavDrawer.SecondaryNavigationView.ItemIconColor = Colors.Red
+	'NavDrawer.SecondaryNavigationView.SetItemTextColors(Colors.Gray, Colors.Red, Colors.Red, Colors.LightGray)
+
+	'Dim actionViewItem As ACMenuItem
+	
+	'actionViewItem = NavDrawer.SecondaryNavigationView.Menu.AddWithGroup(1, 2, 2, "Mean values?", Null)
+	'sw_mean.Initialize("sw_mean")
+	'sw_mean.Checked = True
+	'actionViewItem.ActionView = sw_mean
+	'actionViewItem.Checkable = False
+'	actionViewItem.Checked = True
+
+	'actionViewItem = NavDrawer.SecondaryNavigationView.Menu.AddWithGroup(1, 2, 2, "Enable gyro?", Null)
+	'sw_gyro.Initialize("sw_gyro")
+	'actionViewItem.ActionView = sw_gyro
+	'actionViewItem.Checkable = False
+	
+	'actionViewItem = NavDrawer.SecondaryNavigationView.Menu.AddWithGroup(1,2,2, "Refresh frequency", Null)
+	'actionViewItem.Checkable = False 
+	'We make the complete menu group checkable. After this the active menu item will have a grey
+	'background on a light theme.
+	'NavDrawer.NavigationView.Menu.SetGroupCheckable(1, False, True)
+	'The ActionView MenuItem should not be checkable so we disable it here.
+	If Starter.deviceType = 2 Or Starter.deviceType = 3 Then ' solo ultra y nmea, cups no soportan
+
+		'
+		'actionViewItem = NavDrawer.SecondaryNavigationView.Menu.Addwithgroup(1, 3, 3, "Refresh frequency", Null)
+		'sp_Hz.Initialize("sp_Hz")
+		'sp_Hz.Prompt = "Refresh freq"
+		sp_Hz.Add("1Hz")
+		sp_Hz.Add("4Hz")
+		sp_Hz.Add("8Hz")
+		sp_Hz.SelectedIndex = 1 ' contador comienza en 0
+		'actionViewItem.ActionView = sp_Hz
+		'actionViewItem.Checkable = False
+	Else
+		sp_Hz.Visible = False
+		sw_gyro.Visible = False 
+		lbl_refresh.Visible = False
+	End If 
+	If Starter.deviceType = 3 Then 
+	Else 
+		sw_nmea.Visible = False 
+	End If
+	
+	''If Not( Starter.connected ) Then
+	'NavDrawer.SecondaryNavigationView.Visible = True 
+	''End If
+	
+	
+End Sub
+Sub remove_secondary_drawer
+	pnl_equipment.RemoveAllViews
+	'If NavDrawer.NavigationView.IsInitialized Then 
+	'	If NavDrawer.SecondaryNavigationView.IsInitialized Then 
+	'		NavDrawer.SecondaryNavigationView.RemoveView
+	'	End If 
+	'End If 
+End Sub
+Sub add_controls
+	Dim lControles As List
+	
+	mControles.Initialize
+	
+	lControles.Initialize
+	lControles.Add( ScaleBasic )
+	lControles.AddAll( Array As Tag( TagBasic1, TagBasic2 ) )
+	mControles.Put( 1, lControles )
+
+	lControles.Initialize
+	lControles.Add( ScaleFour )
+	lControles.AddAll( Array As Tag( TagFour1, TagFour2, TagFour3, TagFour4 ) )
+	mControles.Put( 2, lControles )
+	
+	lControles.Initialize
+	lControles.Add( ScaleMap )
+	lControles.Addall( Array As Tag( TagMap1, TagMap2) )
+	mControles.Put( 3, lControles )
+	
+	lControles.Initialize
+	lControles.Addall( Array As Tag( TagTri1, TagTri2, TagTri3 ) )
+	mControles.Put( 4, lControles )
+	
+	lControles.Initialize	
+	lControles.AddAll( Array As Tag( TagM1, TagM2, TagM3, TagM4, TagM5, TagM6 ) )
+	mControles.Put( 5, lControles )
+	Update(True)
+End Sub
+ 
+Sub GetContext As JavaObject
+	Return GetBA.GetField("context")
+End Sub
+
+Sub GetBA As JavaObject
+	Dim jo As JavaObject
+	Dim cls As String = Me
+	cls = cls.SubString("class ".Length)
+	jo.InitializeStatic(cls)
+	Return jo.GetFieldJO("processBA")
+	
+End Sub
+
+Sub Activity_Resume
+	bPaused = False 
+	'importante no poner aquí chufas de refresco porque genera petes en ejecución
+	Dim r As Reflector
+	r.RunStaticMethod("java.lang.System", "gc", Null, Null )
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+	'Log(UserClosed)
+	bPaused = True
+
+End Sub
+
+Dim a As Activity
+
+#if Maps
+	Sub Activity_PermissionResult (Permission As String, Result As Boolean)
+		If Permission = rp.PERMISSION_ACCESS_FINE_LOCATION Then
+			GPSEnabled = Result
+			gmap.MyLocationEnabled = Result
+			CallSub( Starter, "gps_start")
+		End If
+	End Sub
+#end if 
+
+Sub DSB_NavigationItemSelected(MenuItem As ACMenuItem)
+	'Log("Menu item selected: " & MenuItem.Title)
+	Dim newPanel As Panel
+	'Log(MenuItem.Id)
+	
+	'Hago pause timers, etc de los controles actuales
+	Dim lControles As List
+	lControles.Initialize
+	lControles = mControles.Get(iMenuSelected)
+	For Each control As Object In lControles
+		CallSubDelayed( control, "Pause" )
+	Next
+	' Capturo nuevo id
+	iMenuSelected  = MenuItem.Id 
+	Select MenuItem.Id
+		Case 1
+			newPanel = Panel1
+		Case 2
+			newPanel = Panel4
+		Case 3
+			newPanel = Panel2
+		Case 4
+			newPanel = Panel3
+		Case 5
+			newPanel = PanelM 
+	End Select
+
+	' If the selectd panel is not the current one
+	' make the new panel visible (animated) like in Material Design guidelines.
+	If currentPanel <> newPanel Then
+		'SetTiledBackground( newPanel, bmp_background )
+		newPanel.SetVisibleAnimated(0, False)
+		newPanel.BringToFront
+		newPanel.SetVisibleAnimated(0, True)
+		currentPanel = newPanel
+		Update( True )
+	End If
+End Sub
+
+Sub SetTiledBackground(v As View, b As Bitmap)
+	Dim bd As BitmapDrawable
+	bd.Initialize(b)
+	
+
+	Dim r As Reflector
+	r.Target = bd
+	r.RunMethod3("setTileModeXY","REPEAT", "android.graphics.Shader$TileMode", _
+                        "REPEAT", "android.graphics.Shader$TileMode")
+	v.Background = bd
+End Sub
+Sub UpdateDrawer
+'	Log("updatedrawer")
+'	Log( Starter.deviceType )
+
+	If sw_track.IsInitialized Then 
+		If Starter.Timer_sqlite.Enabled And Not( sw_track.Checked ) Then 
+			sw_track.Checked = True 
+		End If
+		If Not(Starter.Timer_sqlite.Enabled) And sw_track.Checked Then
+			sw_track.Checked = False
+		End If
+	End If 
+	If Starter.navigation = 0 Then 
+		lbl_track.Text = "No Track"
+	Else
+		Dim m = DBUtils.ExecuteMap( Starter.sql1, "select * from navigation where [id] = " & Starter.navigation, Null  ) As Map
+		lbl_track.Text = m.Get("name" )
+	End If
+	
+	If Starter.connected Then
+		lbl_bt.Text = Starter.actual_ultra.MacAddress
+		btn_bt.Text = "Disconn"
+		If Starter.bleEnabled Then btn_bt.Enabled = True
+	Else
+		lbl_bt.Text = "Not connected"
+		If Starter.tScan.Enabled Then 
+			btn_bt.Enabled = False
+			btn_bt.Text = "Scanning"
+		Else
+			If Starter.bleEnabled Then btn_bt.Enabled = True
+			btn_bt.Text = "Scan"
+		End If
+	End If
+	
+	If Starter.connected Then
+		If sw_mean.IsInitialized Then
+			sw_mean.Checked = Starter.calcs_1.mean_sw
+		End If
+	End If
+	
+	If Not( Starter.connected ) Then
+		imv_equipment.Bitmap = Null
+	else If Starter.devicetype = 1 Then
+		imv_equipment.bitmap = LoadBitmapResize(File.DirAssets, "cups.jpg", 100dip,100dip, True )
+	else if  Starter.devicetype = 2 Then
+		imv_equipment.bitmap = LoadBitmapResize(File.DirAssets, "ultra.jpg", 100dip,100dip, True )
+	Else
+		imv_equipment.bitmap = LoadBitmapResize(File.DirAssets, "nmea.jpg", 100dip,100dip, True )
+	End If
+End Sub
+Sub Update( selected As Boolean )
+	'snk_1.addValue(Starter.calcs_1.orig_anemo*100)
+	'snk_2.addValue(Starter.calcs_1.anemo*100 )
+	'snk_3.addValue(Starter.calcs_1.orig_vane)
+	'snk_4.addValue(Starter.calcs_1.vane )
+	
+	'lbl_a.Text = Starter.calcs_1.orig_vane
+	'lbl_b.Text = Starter.calcs_1.vane
+	'lbl_c.text = Starter.c_ble 
+	'Log("update")
+	If Not( bPaused ) Then 
+		Dim lControles As List 
+		lControles.Initialize
+		lControles = mControles.Get(iMenuSelected)
+		For Each control As Object In lControles 
+			'CallSub( control, "Update")
+			CallSubDelayed2( control, "Update", selected )
+		Next 
+	End If
+	
+	If firstStart Then
+		Log("Update firstTime")
+		firstStart = False
+		Sleep (2000) 'wait to load finished
+		init_messages
+	End If
+End Sub
+
+Sub init_messages
+	'Si el bluetooth no esta habilitado, sacamos mensaje
+	If Starter.bleEnabled = False Then
+		Try
+			bluetoothAd
+			btn_bt.Enabled = False
+			olBleEnabled = False
+		Catch
+			Log(LastException)
+		End Try
+	Else
+		Try
+			If olBleEnabled = False Then 'evitamos que este sobreescribiendo la variable inutilmente
+				btn_bt.Enabled = True
+				olBleEnabled = True
+			End If
+		Catch
+			Log(LastException)
+		End Try
+	End If
+	'Si el gps no esta activado, sacamos mensaje
+	Try
+		If Starter.gps1Enabled = False And rp.Check(rp.PERMISSION_ACCESS_FINE_LOCATION) And olBleEnabled = True Then
+			locationAd
+		End If
+	Catch
+		Log(LastException)
+	End Try
+		
+	Try
+		If Not ( kvs.ContainsKey( "first_time" ) ) Then
+			Dim result As Int
+			result = Msgbox2( "Please, let the app to collect some information about the app usage. All information is anonimous" & CRLF & "Do you allow the app to send us reports?", "Feedback", "Yes", "", "No", Null )
+			If result = DialogResponse.POSITIVE Then
+				Starter.allowReport = True
+			Else
+				Starter.allowReport = False
+			End If
+			kvs.PutSimple( "first_time" , Starter.allowReport)
+		Else
+			Starter.allowReport = IntToBool(kvs.GetSimple("first_time"))
+		End If
+	Catch
+		Log(LastException)
+	End Try
+End Sub
+
+Sub btn_bt_Click
+	If Starter.connected Then
+		Starter.manual_disconnect = True
+		Starter.Scan.Disconnect
+		btn_bt.Text = "Scan"
+		btn_bt.Enabled = True 
+	Else
+		Starter.Scan.StopScan
+		btn_bt.Enabled = False
+		btn_bt.Text = "Scanning"
+		btn_bt.Invalidate
+		Starter.Scan.Disconnect
+		Starter.bSelectBLE = True
+		Starter.temporizador = 10000
+		StartActivity( actBLE )
+		
+	End If
+	UpdateDrawer
+End Sub
+Sub Connecting
+	btn_bt.Enabled = False
+	btn_bt.Text = "Connecting"
+	btn_bt.Invalidate
+	
+End Sub
+Sub Disconnect
+	btn_bt.Enabled = True 
+	btn_bt.Text = "Scan"
+	btn_bt.Invalidate 
+End Sub
+Sub ACButton1_Click
+	' Setting the checked item manually actually does the same as clicking on the item.
+	DSB.CheckedItem=1
+End Sub
+
+#Region Navdrawer Events
+Sub NavDrawer_DrawerClosed (DrawerGravity As Int)
+	'LogColor("NavDrawer closed", Colors.Green)
+End Sub
+
+Sub NavDrawer_DrawerOpened (DrawerGravity As Int)
+	'LogColor("NavDrawer opened " & DrawerGravity, Colors.Green)
+	UpdateDrawer
+End Sub
+
+Sub NavDrawer_DrawerSlide (Position As Float, DrawerGravity As Int)
+	'LogColor("NavDrawer Slide: " & Position, Colors.Blue)
+End Sub
+
+'Event sub that handles the case if a navigation item is selected.
+Sub NavDrawer_NavigationItemSelected (MenuItem As ACMenuItem, DrawerGravity As Int)
+	LogColor("NavItem selected: " & MenuItem.Title, Colors.Green)
+	Log(MenuItem.Id )
+	'If MenuItem.Id = 20 Then ' TRACK
+	'	StartActivity( actListTracks )
+	'End If
+	'Don't close Drawer for the Switch
+	If MenuItem.Id = 2 Then
+		sw_gyro.Checked = Not(sw_gyro.Checked)
+		Return
+	End If
+	
+	'NavDrawer.NavigationView.CheckedItem = MenuItem.Id
+	
+	'If MenuItem.Id >= 100 Then
+		'VP.GotoPage(MenuItem.Id - 100, True)
+	'End If
+	
+	NavDrawer.CloseDrawer2(DrawerGravity)
+End Sub
+#End Region
+
+#Region SWITCHES
+Sub sp_period_ItemClick (Position As Int, Value As Object)
+	'Log( Position )
+	If Position = 0 Then
+		Starter.Timer_sqlite.Interval = 1000
+	Else If Position = 1 Then
+		Starter.Timer_sqlite.Interval = 60000
+	Else
+		Starter.Timer_sqlite.Interval = 300000
+	End If
+End Sub
+Sub sp_Hz_ItemClick (Position As Int, Value As Object)
+	
+	If Position = 0 Then
+		Dim str = "01" As String
+		Starter.calcs_1.refresh_hz = 1.0
+	Else If Position = 1 Then
+		Dim str = "04" As String
+		Starter.calcs_1.refresh_hz = 4.0
+	Else
+		Dim str = "08" As String
+		Starter.calcs_1.refresh_hz = 8.0
+	End If
+	Starter.calcs_1.mean_checked( Starter.calcs_1.mean_sw )
+	Dim bc As ByteConverter
+	bc.LittleEndian = True
+	If Starter.connected And Starter.deviceType = 2 Then 
+		Starter.Scan.WriteData( Starter.sUltra, Starter.cRate,  bc.HexToBytes( str ) )
+		Starter.Scan.ReadData2( Starter.sUltra, Starter.cRate )
+	End If 
+End Sub
+
+Sub sw_mean_CheckedChanged( Checked As Boolean )
+	Log("mean"&Checked)
+	Starter.calcs_1.mean_checked( Checked )
+End Sub
+Sub sw_gyro_CheckedChange(Checked As Boolean)
+	'Log("sw_gyro "&Checked)
+	Dim bc As ByteConverter
+	bc.LittleEndian = True
+	If Starter.connected Then
+		If Checked Then 
+			Starter.Scan.WriteData( Starter.sUltra, Starter.cSensors, bc.HextoBytes( "01" ) )
+		Else
+			Starter.Scan.WriteData( Starter.sUltra, Starter.cSensors, bc.HextoBytes( "00" ) )
+		End If
+		gyroEnabled = Checked
+	End If 
+End Sub
+Sub sw_track_CheckedChange(Checked As Boolean)
+	Log("sw_track "&Checked)
+	If Starter.navigation = 0 Then
+		If Checked Then 
+			StartActivity( actListTracks )
+			'Log("sw_track"&sw_track.Checked)
+		End If 
+	Else
+		If Checked Then
+			CallSubDelayed3( Starter, "start_nav", Starter.navigation, Array As String( Null, Null ) )
+		Else 		
+			Dim result As Int
+			result = Msgbox2( "Track: " & Starter.nav_name, _
+						  "Stop Tracking? " , "Yes","", "No", Null )
+		
+			If result = DialogResponse.POSITIVE Then
+				CallSubDelayed( Starter, "stop_nav" )
+				Starter.navigation = 0
+				'lbl_track.Text = "Not Tracking"
+				'Activity_Recreate( False )
+				sw_track.Checked = False 
+			Else 
+				'sw_track.checked = True
+			End If
+		End If
+	End If
+	Sleep(200)
+	UpdateDrawer
+End Sub
+
+Sub sw_nmea_CheckedChange(Checked As Boolean)
+	Log("sw_nmea "&Checked)
+	Dim bc As ByteConverter
+	bc.LittleEndian = True
+	If Starter.connected Then
+		If Checked Then
+			Starter.Scan.WriteData( Starter.sUltra, Starter.cNmea, bc.HextoBytes( "01" ) )
+		Else
+			Starter.Scan.WriteData( Starter.sUltra, Starter.cNmea, bc.HextoBytes( "00" ) )
+		End If
+	End If
+End Sub
+
+Sub btn_wifi_Click
+	Dim ml As MLwifi
+	Dim isUltraWifi As Boolean = ml.WifiSSID.StartsWith("UltraWifi")
+	ToastMessageShow("Is connected to WiFi: " &  ml.isOnLine & CRLF & "SSID:" & ml.WifiSSID & CRLF & "is Ultra: " & isUltraWifi, True)
+	StartActivity(actTCPip)
+End Sub
+
+Sub btn_calComp_Click
+	'Calibracion de la brujula
+	Log("btn_calComp clicked")
+	If gyroEnabled Then
+		StartActivity( actCalComp )
+	Else
+		Msgbox("You sould enable gyro first", "Warning")
+	End If
+End Sub
+
+#End Region
+
+'=====================ZONA JAVA========================================
+#if JAVA
+public long getTimeMillis() {
+   return System.currentTimeMillis();
+}
+
+public void enableLocation(){
+	final android.location.LocationManager manager = (android.location.LocationManager) getSystemService(android.content.Context.LOCATION_SERVICE);
+	if (!manager.isProviderEnabled(android.location.LocationManager.GPS_PROVIDER)) {
+		android.content.Intent intent = new android.content.Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+        startActivity(intent);
+	}
+}
+
+//Habilita el bluetooth dentro de la app
+public boolean setBluetooth() {
+    android.bluetooth.BluetoothAdapter bluetoothAdapter = android.bluetooth.BluetoothAdapter.getDefaultAdapter();
+    boolean isEnabled = bluetoothAdapter.isEnabled();
+
+    if (!isEnabled) {
+		//activamos location tambien
+		enableLocation();
+        return bluetoothAdapter.enable();
+    }
+    // No need to change bluetooth state
+    return true;
+}
+#End If
+'=====================FIN ZONA JAVA===============================
+
+Sub verDeclinacion As Float
+	Dim millis As Long = NativeMe.RunMethod("getTimeMillis", Null)
+	
+	Dim bo As JavaObject
+	bo.InitializeNewInstance("android.hardware.GeomagneticField", Array As Object(Starter.calcs_1.latitude, Starter.calcs_1.longitude, Starter.calcs_1.altitude, millis))
+	Dim heading As Float = bo.RunMethod("getDeclination", Null)
+	
+	Return heading
+End Sub
+
+Sub Activity_KeyPress (KeyCode As Int) As Boolean
+	If KeyCode = KeyCodes.KEYCODE_BACK Then  ' the Back key
+		Dim result As Int
+		result = Msgbox2( "AnemoTracker exit", "Do you want to exit", "Yes", "", "No", Null )
+		If result = DialogResponse.POSITIVE Then
+			Starter.n.Cancel(1)
+			Starter.Scan.Disconnect
+			StopService( Starter )
+			ExitApplication
+			Return False
+		Else
+			Return True 'returns to the Activity instead of closing it.
+		End If
+	End If
+End Sub
+#if Maps
+	Sub MapFragment1_Ready
+		gmap = MapFragment1.GetMap
+		rp.CheckAndRequest(rp.PERMISSION_ACCESS_FINE_LOCATION)
+	   'Dim m1 As Marker = gmap.AddMarker(10, 30, "test")
+	   'm1.Snippet = "This is the snippet"
+	End Sub
+#end if 
+Sub bluetoothAd
+	Dim result As Int
+	result = Msgbox2( "Bluetooth is disabled. Do you want to enable it?", "Advise", "Yes", "", "No", Null )
+	If result = DialogResponse.POSITIVE Then
+		Dim activarBle As Boolean = NativeMe.RunMethod("setBluetooth", Null)
+		Log("activarBle " & activarBle)
+	Else
+		Msgbox("Some functions will not be usable", "Bluetooth warning")
+	End If
+End Sub
+
+Sub locationAd
+	Dim result As Int
+	result = Msgbox2( "Location is disabled. Do you want to enable it?", "Advise", "Yes", "", "No", Null )
+	If result = DialogResponse.POSITIVE Then
+		NativeMe.RunMethod("enableLocation", Null)
+	Else
+		Msgbox("Please, enable location to allow using GPS", "Location service")
+	End If
+End Sub
+
+Sub touchpanel_Touch (Action As Int, X As Float, Y As Float)
+	Private Xc,Yc As Int
+	Private cOp, Ccon As Double
+	
+	Dim angulo As Double
+	Xc = touchpanel.Left+touchpanel.Width/2
+	Yc = touchpanel.top+touchpanel.Height/2	
+	Ccon = X - Xc
+	cOp = Y -Yc
+	angulo = ATan2D(cOp, Ccon) + 90
+	If angulo < 0 Then angulo = 360 + angulo
+	
+	If Action = Activity.ACTION_MOVE And DateTime.Now - 500 > tTouch Then 'transcurre mas de 1/2 sec pulsado
+		Log("angulo: " & angulo)
+		offset_angle = (angulo - startAngle) - offstart_ang + offset_angle
+		offstart_ang = (angulo - startAngle)
+		If Not(moveTouch) Then moveTouch = True
+		
+	Else If Action = Activity.ACTION_UP And moveTouch = False Then
+		If Ccon > 0 Then 'click derecha
+			Log("click drch")
+			offset_angle = offset_angle + 1
+		Else 'click izq
+			Log("click izq")
+			offset_angle = offset_angle - 1
+		End If
+		
+	Else If Action = Activity.ACTION_DOWN Then
+		tTouch = DateTime.Now
+		moveTouch = False
+		startAngle = angulo
+		offstart_ang = 0
+	End If
+	
+	offset_lbl.Text = NumberFormat( offset_angle, 1, 0 ) & "°"
+End Sub
+
+Sub edit_tags (sTag As List, color As Int , cRadius As Int, bWidth As Int, bColor As Int, sVisible As Boolean)
+	Dim cd As ColorDrawable
+	cd.Initialize2(color, cRadius, bWidth, bColor)
+	For Each elem As Tag In sTag
+		elem.GetBase.Background = cd
+		'elem.Visible(sVisible)
+	Next
+End Sub
+
+Sub off_btn_Click
+	NavDrawer.CloseDrawers
+	'offset_angle = Starter.calcs_1.ecompass
+	Dim result As Int
+	result = Msgbox2( "This function changes the offset of the compass. Use it only if you need to modify the bearing. Do you wish to continue?", "Compass offset", "Yes", "", "No", Null )
+	If result = DialogResponse.NEGATIVE Then Return
+	
+	'//////////////////METER IMAGEN EN TEXTO (MSGBOX)/////////////////////////////////
+'	Dim Bmp As Bitmap
+'	Dim Bmpd As BitmapDrawable
+'	Bmp.Initialize(File.DirAssets,"img.png")
+'	Bmpd.Initialize(Bmp)
+'	'Add to edittext1
+'	ST="android.graphics.drawable.Drawable"
+'	Dim R As Reflector
+'	R.Target=EditText1
+'	R.RunMethod4("setCompoundDrawablesWithIntrinsicBounds",Array As Object(Bmpd,Null,Null,Null),Array As String(ST,ST,ST,ST))
+
+	touchpanel.BringToFront
+	btnDis.Visible = True
+	offname_lbl.Visible = True
+	offset_lbl.Visible = True
+	offset_lbl.Text = NumberFormat( offset_angle, 1, 0 ) & "°"
+	sw_realnorth.Visible = True
+	
+	edit_tags(tag_list, 0xFFFFFF, 10dip, 0dip, 0xFF000000, False)
+
+End Sub
+
+Sub btnDis_Click
+	touchpanel.SendToBack
+	btnDis.Visible = False
+	offname_lbl.Visible = False
+	offset_lbl.Visible = False
+	sw_realnorth.Visible = False
+	
+	edit_tags(tag_list, 0xFFFFFF, 10dip, 3dip, 0xFF000000, True)
+	
+	'BETA
+	kvs.PutSimple( "calibration_offset" , offset_angle)
+	Starter.calcs_1.offset = offset_angle
+
+End Sub
+
+Sub sw_realnorth_CheckedChange(Checked As Boolean)
+	If Checked Then
+		dec = verDeclinacion
+		offset_angle = offset_angle + dec
+		ToastMessageShow("Mag declination: " & dec, True)
+	Else
+		offset_angle = offset_angle - dec
+		ToastMessageShow("Set to Magnetic North", True)
+	End If
+End Sub
+
+
+Sub btn_info_Click
+	StartActivity(actDevInfo)
+End Sub

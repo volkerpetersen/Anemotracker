@@ -1,0 +1,207 @@
+﻿Version=7.3
+NumberOfModules=0
+Build1=Default,anywheresoftware.b4a.agraham.svg
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="4" />~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~~\n~SetApplicationAttribute(android:hardwareAccelerated, "true")~\n~~\n~SetApplicationAttribute(android:theme, "@style/MyAppTheme")~\n~~\n~CreateResource(values, theme.xml,~\n~<resources>~\n~    <style name="MyAppTheme" parent="@style/Theme.AppCompat">~\n~        <item name="colorPrimary">#FF9800</item>~\n~        <item name="colorPrimaryDark">#F57C00</item>~\n~        <item name="colorAccent">#FFA726</item>~\n~    </style>~\n~</resources>~\n~)
+IconFile=
+NumberOfFiles=50
+File1=actnavigation.bal
+File2=android.svg
+File3=app-01.svg
+File4=basic icon-01.bmp
+File5=basic icon-01.png
+File6=basic.bal
+File7=beziercubic.svg
+File8=bezierquad.svg
+File9=blue_triangle.svg
+File10=brujula-01.svg
+File11=bt.jpg
+File12=calypso_drawer.jpg
+File13=circle.svg
+File14=circulo2.svg
+File15=compass-01.svg
+File16=cups.jpg
+File17=dlg_tag.bal
+File18=ds-digi.ttf
+File19=fibra.svg
+File20=form.png
+File21=four.bal
+File22=layout1.bal
+File23=lineargradient.svg
+File24=main screen_static-01.svg
+File25=main_screen.svg
+File26=map icon-01.png
+File27=map.bal
+File28=material-wallpaper.jpg
+File29=multi icon-01.png
+File30=multiple.bal
+File31=navheaderlayout.bal
+File32=navheaderlayout2.bal
+File33=nmea.jpg
+File34=pirulen_rg.ttf
+File35=plantilla fija-01.png
+File36=plantilla fija-01.svg
+File37=plantilla fija-02.svg
+File38=radialgradient.svg
+File39=redplaid_shirt.svg
+File40=ruleta-01.svg
+File41=soporte icon-01.png
+File42=test_fondo.svg
+File43=test_menu.bal
+File44=textura fibra carbono.jpg
+File45=track.png
+File46=triangulo2.svg
+File47=tridata icon-01.png
+File48=tridata.bal
+File49=true-01.svg
+File50=ultra.jpg
+NumberOfLibraries=7
+Library1=core
+Library2=svg
+Library3=javaobject
+Library4=gameview
+Library5=appcompat
+Library6=designsupport
+Library7=materialdrawer
+@EndOfDesignText@
+#Region Module Attributes
+	#FullScreen: False
+	#IncludeTitle: True
+	#ApplicationLabel: SVG Demo
+	#VersionCode: 1
+	#VersionName: 
+	#SupportedOrientations: portrait
+	#CanInstallToExternalStorage: False
+#Extends: android.support.v7.app.AppCompatActivity
+	
+#End Region
+
+'Activity module
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+	Dim reloj, saeta1  As BitmapData
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+	Dim gv As GameView
+	
+	Dim img As ImageView
+	Dim bmp1 As Bitmap
+	
+	Dim cnv1 As Canvas
+	Dim canvas1 As Canvas
+	Dim i=0 As Int
+	
+	Dim rect1, rect2 As Rect
+	
+	Private ACActionMenu1 As ACActionMenu
+	Private ACToolBarDark1 As ACToolBarDark
+	Private DSBottomNavigationView1 As DSBottomNavigationView
+	'Dim DSNavigationView1 As DSNavigationView
+	Private ACRadioButton1 As ACRadioButton
+	Private ACFlatButton1 As ACFlatButton
+	Private ImageView1 As ImageView
+	Private Panel1 As Panel
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	img.Initialize("")
+	img.Color = Colors.Transparent
+	
+	'img.Color = Colors.White
+	Activity.LoadLayout("test_menu")
+	'Panel1.SetBackgroundImage( LoadBitmapResize( File.DirAssets, "test_menu.png", 100%x, 100%y, True)).Gravity=Gravity.CENTER
+	Dim bmp1 As Bitmap
+	bmp1 = LoadBitmap( File.DirAssets, "test_menu.png" )
+	'Panel1.Height = bmp1.Height 
+	Panel1.SetBackgroundImage( LoadBitmapResize( File.DirAssets, "test_menu.png", 6.62*Panel1.height, Panel1.height, True)).Gravity=Gravity.CENTER
+	Activity.AddView(img, 5%x, 5%x, 90%x, 90%x)
+	'DSNavigationView1.Initialize("")
+	'Activity.AddView(DSNavigationView1, 0,90%y,100%x, 10%y)
+	ACActionMenu1.Menu.Add( 1,1, "AAA", LoadBitmap( File.Dirassets, "basic icon-01.png") )
+	ACActionMenu1.Menu.Add( 2,2, "BBB", LoadBitmap( File.Dirassets, "basic icon-01.png") )
+	ACToolBarDark1.Menu.Add( 1,1, "AAA", LoadBitmap( File.Dirassets, "basic icon-01.png") )
+	DSBottomNavigationView1.Menu.Add( 1,1, "AAA", LoadBitmap( File.Dirassets, "basic icon-01.png") )
+	'ACRadioButton1.Text = "CCC"
+	'ACRadioButton1.SetBackgroundImage( LoadBitmap( File.Dirassets, "basic icon-01.png") )
+	
+	Return
+	Dim SVG As SVG
+	SVG.Initialize(File.DirAssets, "android.svg")
+	'SVG.Initialize(File.DirAssets, "bezierquad.svg")
+	'SVG.Initialize(File.DirAssets, "beziercubic.svg")
+	'SVG.Initialize(File.DirAssets, "radialgradient.svg")
+	'SVG.Initialize(File.DirAssets, "lineargradient.svg")
+
+	
+	
+	rect1.Initialize(0, 0, img.Width, img.Height)
+	canvas1.Initialize(img)
+	'
+	
+	bmp1.InitializeMutable(img.Width,img.Height)
+	cnv1.Initialize2( bmp1 )
+	
+	
+	rect2.Initialize(0, 0, img.width, img.Height)
+	SVG.DrawPicture(cnv1, rect2)
+	
+	reloj.Bitmap = cnv1.Bitmap
+	reloj.DestRect.Initialize(0dip, 0dip,  200dip, 200dip )'100dip + 200dip, 100dip + 200dip)
+	
+	gv.Initialize("gv")
+	Activity.AddView(gv, 0, 0, 100%x, 100%y)
+	gv.BitmapsData.Add( reloj )
+	If gv.IsHardwareAccelerated = False Then
+		Msgbox("Hardware acceleration is not supported!!!", "")
+	End If
+	'canvas1.DrawBitmapRotated( cnv1.Bitmap, rect2, rect1, 90)
+	
+	Dim t1 As Timer
+	t1.Initialize( "t1", 50)
+	t1.Enabled = True 
+	
+	
+	Log("SVG Width x Height = " & SVG.Width & " x " & SVG.Height)
+	Log("SVG Limits = " & SVG.Limits)
+	Log("SVG Bounds = " & SVG.Bounds)
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+Sub t1_Tick
+	canvas1.DrawColor( Colors.Transparent)
+	canvas1.DrawBitmapRotated( cnv1.Bitmap, rect2, rect1, i*10)
+	img.Invalidate
+	'img.Invalidate
+	reloj.Rotate = i
+	
+	gv.Invalidate
+	i = i + 1
+	Log( i )
+End Sub
+
+
+Sub ImageView1_Click
+	
+End Sub
+
+Sub ACFlatButton1_Click
+	
+End Sub
+
+Sub ACFlatButton1_Down
+	
+End Sub
+
+Sub Panel1_Touch (Action As Int, X As Float, Y As Float)
+	Log( X & " " & y )
+End Sub

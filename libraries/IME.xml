@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.04</doclet-version-NOT-library-version>
+    <class>
+        <name>anywheresoftware.b4a.objects.IME</name>
+        <shortname>IME</shortname>
+        <comment>IME includes several utilities that will you help you manage the soft keyboard.
+A tutorial with a working example is available &lt;link&gt;here|http://www.basic4ppc.com/forum/basic4android-getting-started-tutorials/14832-handle-soft-keyboard-ime-library.html&lt;/link&gt;.</comment>
+        <owner>activity</owner>
+        <event>HeightChanged (NewHeight As Int, OldHeight As Int)</event>
+        <event>HandleAction As Boolean</event>
+        <method>
+            <name>HideKeyboard</name>
+            <comment>Hides the soft keyboard if it is visible.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Initialize</name>
+            <comment>Initializes the object and sets the subs that will handle the events.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SetCustomFilter</name>
+            <comment>Sets a custom filter.
+EditText - The target EditText.
+DefaultInputType - Sets the keyboard mode.
+AcceptedCharacters - The accepted characters.
+Example: Create a filter that will accept IP addresses (numbers with multiple dots)
+&lt;code&gt;
+IME.SetCustomFilter(EditText1, EditText1.INPUT_TYPE_NUMBERS, "0123456789.")&lt;/code&gt;</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>EditText</name>
+                <type>android.widget.EditText</type>
+            </parameter>
+            <parameter>
+                <name>DefaultInputType</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>AcceptedCharacters</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>AddHandleActionEvent</name>
+            <comment>Adds the HandleAction event to the given EditText.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>EditText</name>
+                <type>android.widget.EditText</type>
+            </parameter>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>AddHeightChangedEvent</name>
+            <comment>Enables the HeightChanged event. This event is raised when the soft keyboard state changes.
+You can use this event to resize other views to fit the new screen size.
+Note that this event will not be raised in full screen activities (an Android limitation).</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SetLengthFilter</name>
+            <comment>Sets a filter that limits the maximum length to the specified value.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>EditText</name>
+                <type>android.widget.EditText</type>
+            </parameter>
+            <parameter>
+                <name>MaxLength</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>ShowKeyboard</name>
+            <comment>Sets the focus to the given view and opens the soft keyboard.
+The keyboard will only show if the view has received the focus.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>View</name>
+                <type>android.view.View</type>
+            </parameter>
+        </method>
+    </class>
+    <version>1.1</version>
+</root>

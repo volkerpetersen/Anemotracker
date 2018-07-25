@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.05</doclet-version-NOT-library-version>
+    <class>
+        <name>anywheresoftware.b4a.objects.NFC</name>
+        <shortname>NFC</shortname>
+        <comment>Supports reading and writing NFC tags and supports sending messages between two Android devices.</comment>
+        <owner>activity</owner>
+        <event>CreateMessage As List</event>
+        <permission>android.permission.NFC</permission>
+        <method>
+            <name>DisableForegroundDispatch</name>
+            <comment>See EnableForegroundDispatch.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>EnableForegroundDispatch</name>
+            <comment>Forces all NFC intents to be sent to the current activity. Should be called from Activity_Resume.
+DisableForegroundDispatch should called from Activity_Pause.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>CreateMimeRecord</name>
+            <comment>Creates an NdefMessage with the given mime type and data.
+Note that this method is only supported by Android 4.1+ (API 16).</comment>
+            <returntype>java.lang.Object</returntype>
+            <parameter>
+                <name>Mime</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Data</name>
+                <type>byte[]</type>
+            </parameter>
+        </method>
+        <method>
+            <name>CreateUriRecord</name>
+            <comment>Creates an NdefMessage with a Uri payload.</comment>
+            <returntype>java.lang.Object</returntype>
+            <parameter>
+                <name>Uri</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>PreparePushMessage</name>
+            <comment>Sets the sub that will handle the CreateMessage event.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetNdefRecords</name>
+            <comment>Retrieves the NdefRecords stored in the Intent object.</comment>
+            <returntype>anywheresoftware.b4a.objects.collections.List</returntype>
+            <parameter>
+                <name>Intent</name>
+                <type>android.content.Intent</type>
+            </parameter>
+        </method>
+        <method>
+            <name>IsNdefIntent</name>
+            <comment>Tests whether the Intent contains data read from an NDef tag.</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>Intent</name>
+                <type>android.content.Intent</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetTechList</name>
+            <comment>Returns an array with the technologies supported by the NFC tag.</comment>
+            <returntype>java.lang.String[]</returntype>
+            <parameter>
+                <name>Intent</name>
+                <type>android.content.Intent</type>
+            </parameter>
+        </method>
+        <property>
+            <name>IsSupported</name>
+            <returntype>boolean</returntype>
+            <comment>Returns true if an NFC adapter is available.</comment>
+        </property>
+        <property>
+            <name>IsEnabled</name>
+            <returntype>boolean</returntype>
+            <comment>Returns true if NFC is supported and is enabled.
+If IsSupported returned True and IsEnabled returned False then you can show the NFC settings page:
+&lt;code&gt;
+Dim in As Intent
+in.Initialize("android.settings.NFC_SETTINGS", "")
+StartActivity(in)&lt;/code&gt;</comment>
+        </property>
+    </class>
+    <class>
+        <name>anywheresoftware.b4a.objects.NFC.NdefRecordWrapper</name>
+        <shortname>NdefRecord</shortname>
+        <objectwrapper>android.nfc.NdefRecord</objectwrapper>
+        <owner>process</owner>
+        <method>
+            <name>GetAsTextType</name>
+            <comment>Reads the payload and returns the stored text.</comment>
+            <returntype>java.lang.String</returntype>
+        </method>
+        <method>
+            <name>GetPayload</name>
+            <comment>Returns the whole payload.</comment>
+            <returntype>byte[]</returntype>
+        </method>
+        <method>
+            <name>GetAsUriType</name>
+            <comment>Reads the payload and returns the stored Uri.</comment>
+            <returntype>java.lang.String</returntype>
+        </method>
+        <method>
+            <name>IsInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+    </class>
+    <class>
+        <name>anywheresoftware.b4a.objects.NFC.TagTechnologyWrapper</name>
+        <shortname>TagTechnology</shortname>
+        <comment>Provides access to a scanned tag.</comment>
+        <objectwrapper>android.nfc.tech.TagTechnology</objectwrapper>
+        <owner>process</owner>
+        <event>Connected (Success As Boolean)</event>
+        <event>RunAsync (Flag As Int, Success As Boolean, Result As Object)</event>
+        <method>
+            <name>Connect</name>
+            <comment>Connects to the tag. The Connected event will be raised.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Initialize</name>
+            <comment>Initializes the object.
+EventName - Set the subs that will handle the events.
+Tech - The NFC technology that will be used.
+Intent - The intent received in Activity_Resume.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Tech</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Intent</name>
+                <type>android.content.Intent</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Close</name>
+            <comment>Closes the connection.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>RunAsync</name>
+            <comment>Asynchronously runs the given method. This can be used to access native I/O methods.
+EventName - The sub that will handle the RunAsync event.
+Method - Java method name.
+Params - Array of parameters.
+Flag - Arbitrary number that will be passed to the RunAsync event.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>EventName</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Method</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Params</name>
+                <type>java.lang.Object[]</type>
+            </parameter>
+            <parameter>
+                <name>Flag</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>IsInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <property>
+            <name>Connected</name>
+            <returntype>boolean</returntype>
+            <comment>Returns true if there is an active connection.</comment>
+        </property>
+    </class>
+    <version>2.01</version>
+    <dependsOn>JavaObject</dependsOn>
+</root>

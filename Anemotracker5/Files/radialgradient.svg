@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 13.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 14948)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg  width="500px" height="500px" stroke="#fff" font-size="24">
+	<g>
+    <defs>
+      <radialGradient id="MyGradient"  cx="200" cy="200" r="150" >
+        <stop offset="0" stop-color="yellow" />
+        <stop offset="0.33" stop-color="green" />
+        <stop offset="0.66" stop-color="red" />
+        <stop offset="1" stop-color="blue" />
+      </radialGradient>
+    </defs>
+
+    <!-- Outline the drawing area in blue -->
+    <rect fill="none" stroke="blue" 
+          x="10" y="10" width="480" height="480"/>
+
+    <!-- The rectangle is filled using a radial gradient paint server -->
+    <rect fill="url(#MyGradient)" stroke="black" stroke-width="5"  
+          x="100" y="100" width="300" height="300"/>
+  </g>
+
+</svg>
