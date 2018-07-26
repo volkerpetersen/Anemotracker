@@ -1,2 +1,2 @@
-Anemotracker APP
-Calypso Instruments Anemotracker Wind App
+Anemotracker API
+Calypso Instruments Anemotracker Wind API
